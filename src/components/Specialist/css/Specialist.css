@@ -1,0 +1,23 @@
+.specialist-card {
+  border: 1px solid #eaecf1;
+  border-radius: 8px;
+  padding: 15px 0px;
+}
+.specialist-card :hover {
+  filter: drop-shadow(0px 4px 16px rgba(0, 0, 0, 0.05));
+}
+.docText {
+  color: #1bb4a4;
+  font-weight: 700;
+  font-size: 18px;
+}
+.docSpecialist {
+  color: #979797;
+  font-weight: 700;
+  font-size: 13px;
+}
+.docDegreeText {
+  color: #3e4a59;
+  font-weight: 400;
+  font-size: 13px;
+}

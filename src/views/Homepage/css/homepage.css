@@ -1,0 +1,44 @@
+.userText {
+  color: #ffffff;
+  font-weight: 500;
+  font-size: 34.496px;
+}
+.userText span {
+  color: #36d6c3;
+}
+.displayCard {
+  background: #ffffff;
+  border-radius: 30px;
+}
+.displayCard span {
+  color: #595959;
+  font-weight: 400;
+  font-size: 24px;
+}
+.notWellText {
+  color: #595959;
+  font-weight: 400;
+  font-size: 16.016px;
+}
+.consultText {
+  color: #025f4c;
+  font-weight: 500;
+  font-size: 34.496px;
+}
+.consultText span {
+  color: #a586ef;
+}
+.descText {
+  color: #595959;
+  font-weight: 400;
+  font-size: 16.5088px;
+}
+.videoBtn {
+  color: #025f4c;
+  font-weight: 500;
+  font-size: 15.4px;
+  background: #bcdd33;
+  border-radius: 15.4px;
+  border: none;
+  padding: 12px 10px;
+}
