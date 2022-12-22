@@ -132,7 +132,9 @@ export default function Homepage() {
         <div className={`${classes.trusted} `}>
           <div
             className={`${
-              isMobile ? "flex-wrap justify-content-around" : "justify-content-between"
+              isMobile
+                ? "flex-wrap justify-content-around"
+                : "justify-content-between"
             } align-items-lg-start container d-flex  py-5`}
           >
             <img
@@ -217,35 +219,85 @@ export default function Homepage() {
               User <span>benefits</span>
             </span>
           </div>
-          <div className="col-12 d-flex justify-content-around m-3">
-            <div className="col-4 d-flex displayCard flex-wrap justify-content-around p-3">
-              <img src={img1} alt="img-1" />
-              <span className="col-7">Text your doctor, anytime you need</span>
+          <div
+            className={`${
+              isMobile ? "flex-column" : ""
+            } col-12 d-flex justify-content-around m-3`}
+          >
+            <div
+              className={`${
+                isMobile ? "col-12" : "col-4"
+              } d-flex displayCard flex-wrap justify-content-around p-3`}
+            >
+              <img
+                src={img1}
+                className={`${isMobile ? "col-12" : ""} img-fluid `}
+                alt="img-1"
+              />
+              <span className={`${isMobile ? "col-12" : "col-7"}`}>
+                Text your doctor, anytime you need
+              </span>
             </div>
-            <div className="col-4 d-flex displayCard flex-wrap justify-content-around p-3 ">
-              <img src={img2} alt="img-2" />
-              <span className="col-7">
+            <div
+              className={`${
+                isMobile ? "col-12 my-3" : "col-4"
+              } d-flex displayCard flex-wrap justify-content-around p-3`}
+            >
+              <img
+                src={img2}
+                alt="img-2"
+                className={`${isMobile ? "col-12" : ""} img-fluid `}
+              />
+              <span className={`${isMobile ? "col-12" : "col-7"}`}>
                 24/7 consultations with curated doctors
               </span>
             </div>
           </div>
-          <div className="col-12 d-flex justify-content-around m-3">
-            <div className="col-4 d-flex displayCard flex-wrap justify-content-around p-3 ">
-              <img src={img3} alt="" img-3 />
-              <span className="col-7">
+          <div
+            className={`${
+              isMobile ? "flex-column" : "m-3"
+            } col-12 d-flex justify-content-around `}
+          >
+            <div
+              className={`${
+                isMobile ? "col-12" : "col-4"
+              } d-flex displayCard flex-wrap justify-content-around p-3`}
+            >
+              <img
+                src={img3}
+                alt="img3"
+                className={`${isMobile ? "col-12" : ""} img-fluid `}
+              />
+              <span className={`${isMobile ? "col-12" : "col-7"}`}>
                 Set up a family doctor for your entire family
               </span>
             </div>
-            <div className="col-4 d-flex displayCard flex-wrap justify-content-around p-3">
-              <img src={img4} alt="img4" />
-              <span className="col-7">Insurance with claims support</span>
+            <div
+              className={`${
+                isMobile ? "col-12 my-3" : "col-4"
+              } d-flex displayCard flex-wrap justify-content-around p-3`}
+            >
+              <img
+                src={img4}
+                alt="img4"
+                className={`${isMobile ? "col-12" : ""} img-fluid `}
+              />
+              <span className={`${isMobile ? "col-12" : "col-7"}`}>
+                Insurance with claims support
+              </span>
             </div>
           </div>
         </div>
       </div>
-      <div className="container d-flex justify-content-around my-5">
+      <div
+        className={`${
+          isMobile ? "flex-column" : ""
+        } container d-flex justify-content-around my-5`}
+      >
         <img src={videoCall} alt="videocall" />
-        <div className="d-flex flex-column col-3">
+        <div
+          className={`${isMobile ? "col-12 mt-3" : "col-3"} d-flex flex-column`}
+        >
           <span className="notWellText mb-2">NOT FEELING WELL?</span>
           <span className="consultText">
             Start a consult within <span>30-minutes</span>

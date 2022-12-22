@@ -6,6 +6,7 @@ import mail from "../../../assets/mail.webp.svg";
 import linked from "../../../assets/linkedIn.svg";
 import insta from "../../../assets/insta.svg.svg";
 import youtube from "../../../assets/youtube.svg";
+import { isMobile } from "react-device-detect";
 import { makeStyles } from "@mui/styles";
 const useStyles = makeStyles({
   root: {
@@ -18,8 +19,16 @@ export default function Footer() {
   const classes = useStyles();
   return (
     <div className="parent py-5">
-      <div className={`${classes.root} container d-flex col-12 py-5`}>
-        <div className="col-5 ms-auto d-flex flex-column my-3">
+      <div
+        className={`${classes.root} ${
+          isMobile ? "flex-column" : ""
+        } container d-flex col-12 py-5`}
+      >
+        <div
+          className={`${
+            isMobile ? "col-12" : "col-5"
+          } ms-auto d-flex flex-column my-3`}
+        >
           <img alt="logo" src={logo} className="img-fluid col-4 my-2" />
           <span className="reachableText my-2">We are reachable 24x7</span>
           <span className="reachableText">
@@ -33,12 +42,20 @@ export default function Footer() {
             daacsaabhelp.com
           </span>
           <div className="d-flex justify-content-between col-3 my-2">
-            <img src={linked} alt="linkedIn" className="img-fluid cursor-pointer" />
+            <img
+              src={linked}
+              alt="linkedIn"
+              className="img-fluid cursor-pointer"
+            />
             <img src={insta} alt="insta" className="img-fluid cursor-pointer" />
-            <img src={youtube} alt="youtube" className="img-fluid cursor-pointer" />
+            <img
+              src={youtube}
+              alt="youtube"
+              className="img-fluid cursor-pointer"
+            />
           </div>
         </div>
-        <div className="align-items-center col-2 d-flex my-4 flex-column">
+        <div className={`${isMobile?"col-12":"col-2 align-items-center"} d-flex my-4 flex-column`}>
           <span className="footerHeader">OUR EXPERIENCE</span>
           <ul className="footerContentList">
             <li>One tap Prescription</li>
@@ -48,7 +65,7 @@ export default function Footer() {
             <li>Wellness</li>
           </ul>
         </div>
-        <div className="align-items-center col-2 d-flex my-4 flex-column">
+        <div className={`${isMobile?"col-12":"col-2 align-items-center"} d-flex my-4 flex-column`}>
           <span className="footerHeader">GROW WITH US</span>
           <ul className="footerContentList">
             <li>Careers</li>
@@ -58,7 +75,7 @@ export default function Footer() {
             <li>Partnership</li>
           </ul>
         </div>
-        <div className="align-items-center col-2 d-flex my-4 flex-column">
+        <div className={`${isMobile?"col-12":"col-2 align-items-center"} d-flex my-4 flex-column`}>
           <span className="footerHeader">ABOUT US</span>
           <ul className="footerContentList">
             <li>Our Story</li>
