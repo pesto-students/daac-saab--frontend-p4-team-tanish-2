@@ -3,6 +3,7 @@ import { Route, Routes } from "react-router-dom";
 import Homepage from "../src/views/Homepage/js/Homepage";
 import OneTap from "./views/One-tap/js/OneTap";
 import DoctorPage from "./views/DoctorPage/js/DoctorPage.js";
+import AboutUs from "./views/About-us/js/AboutUs";
 
 export default function DaacSaabRoutes() {
   return (
@@ -11,6 +12,7 @@ export default function DaacSaabRoutes() {
         <Route exact path="/home" element={<Homepage />} />
         <Route exact path="/One-tap" element={<OneTap />} />
         <Route exact path="/Doctor" element={<DoctorPage />} />
+        <Route exact path="/About-us" element={<AboutUs />} />
       </Routes>
     </Suspense>
   );
