@@ -1,0 +1,25 @@
+.parent {
+  background: #025f4c;
+}
+.reachableText {
+  color: #ffffff;
+  font-weight: 400;
+  font-size: 16px;
+}
+.footerHeader {
+  color: #36d6c3 !important;
+  font-weight: 600 !important;
+  font-size: 16.016px !important;
+  all: unset;
+}
+.footerContentList li {
+  color: #ffffff;
+  font-weight: 400;
+  font-size: 16.632px;
+  list-style: none;
+  margin: 10px 0px 10px 0px;
+}
+.root {
+  background: #076b58;
+  border-radius: 32.7712px;
+}
