@@ -7,20 +7,12 @@ import linked from "../../../assets/linkedIn.svg";
 import insta from "../../../assets/insta.svg.svg";
 import youtube from "../../../assets/youtube.svg";
 import { isMobile } from "react-device-detect";
-import { makeStyles } from "@mui/styles";
-const useStyles = makeStyles({
-  root: {
-    background: "#076B58",
-    borderRadius: "32.7712px",
-  },
-});
 
 export default function Footer() {
-  const classes = useStyles();
   return (
     <div className="parent py-5">
       <div
-        className={`${classes.root} ${
+        className={`root ${
           isMobile ? "flex-column" : ""
         } container d-flex col-12 py-5`}
       >
@@ -55,7 +47,11 @@ export default function Footer() {
             />
           </div>
         </div>
-        <div className={`${isMobile?"col-12":"col-2 align-items-center"} d-flex my-4 flex-column`}>
+        <div
+          className={`${
+            isMobile ? "col-12" : "col-2 align-items-center"
+          } d-flex my-4 flex-column`}
+        >
           <span className="footerHeader">OUR EXPERIENCE</span>
           <ul className="footerContentList">
             <li>One tap Prescription</li>
@@ -65,7 +61,11 @@ export default function Footer() {
             <li>Wellness</li>
           </ul>
         </div>
-        <div className={`${isMobile?"col-12":"col-2 align-items-center"} d-flex my-4 flex-column`}>
+        <div
+          className={`${
+            isMobile ? "col-12" : "col-2 align-items-center"
+          } d-flex my-4 flex-column`}
+        >
           <span className="footerHeader">GROW WITH US</span>
           <ul className="footerContentList">
             <li>Careers</li>
@@ -75,7 +75,11 @@ export default function Footer() {
             <li>Partnership</li>
           </ul>
         </div>
-        <div className={`${isMobile?"col-12":"col-2 align-items-center"} d-flex my-4 flex-column`}>
+        <div
+          className={`${
+            isMobile ? "col-12" : "col-2 align-items-center"
+          } d-flex my-4 flex-column`}
+        >
           <span className="footerHeader">ABOUT US</span>
           <ul className="footerContentList">
             <li>Our Story</li>
