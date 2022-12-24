@@ -43,10 +43,9 @@
   padding: 12px 10px;
 }
 .root {
-  background: #025F4C;
-  padding-top: 80px
+  background: #025f4c;
+  padding-top: 80px;
 }
-
 .firstContent {
   display: flex;
   justify-content: space-evenly;
@@ -54,16 +53,16 @@
 }
 .firstContentTestemonial {
   display: flex;
-  justify-content: space-evenly
+  justify-content: space-evenly;
 }
-.grid{
+.grid {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   max-width: 216px;
 }
-.textColor{
-  color: #36D6C3;
+.textColor {
+  color: #36d6c3;
   font-size: 21px;
 }
 .textColorInner {
@@ -71,16 +70,16 @@
   font-size: 21px;
 }
 .textColorDesc {
-  color: #FFFFFF;
+  color: #ffffff;
   font-weight: 400;
   font-size: 12px;
   max-width: 150px;
   margin: 15px 0px 15px 0px;
 }
 .talkToUs {
-  background: #BCDD33;
+  background: #bcdd33;
   border-radius: 8px;
-  color:  #025F4C;
+  color: #025f4c;
   font-weight: 500;
   font-size: 15.4px;
   border: none;
@@ -88,20 +87,20 @@
   margin: 15px 0px 15px 0px;
 }
 .testomonial {
-  color: #36D6C3;
+  color: #36d6c3;
   font-weight: 400;
   font-size: 14px;
 }
 
 .trusted {
-  background: #FFFFFF;
+  background: #ffffff;
 }
 .testomonialText {
-  color: #025F4C;
+  color: #025f4c;
   font-weight: 500;
   font-size: 23.408px;
 }
 .featureDiv {
-  border: 1px solid #36D6C3;
+  border: 1px solid #36d6c3;
   border-radius: 48.1712px;
 }

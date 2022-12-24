@@ -1,6 +1,5 @@
 import React from "react";
 import logo from "../../../assets/DaacSaabLogo.svg";
-
 import "../css/header.css";
 import { useParams, useNavigate } from "react-router-dom";
 
@@ -19,7 +18,7 @@ export default function Header() {
         </span>
         <span className="nav">Resoures</span>
       </div>
-      <div className={`navbarBtn col-2`}>
+      <div className="navbarBtn col-2">
         <button className="logInBtn">Login</button>
         <button className="signUpBtn">SignUp</button>
       </div>
