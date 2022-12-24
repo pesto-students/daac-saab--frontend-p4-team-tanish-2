@@ -7,15 +7,22 @@ import linked from "../../../assets/linkedIn.svg";
 import insta from "../../../assets/insta.svg.svg";
 import youtube from "../../../assets/youtube.svg";
 import { isMobile } from "react-device-detect";
-
+import { makeStyles } from "@mui/styles";
+const useStyles = makeStyles({
+  root: {
+    background: "#076B58",
+    borderRadius: "32.7712px",
+  },
+});
 
 export default function Footer() {
+  const classes = useStyles();
   return (
     <div className="parent py-5">
       <div
-        className={` ${
+        className={`${classes.root} ${
           isMobile ? "flex-column" : ""
-        } container d-flex col-12 py-5 root`}
+        } container d-flex col-12 py-5`}
       >
         <div
           className={`${

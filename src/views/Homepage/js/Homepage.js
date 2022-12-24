@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useState } from "react";
+import { makeStyles } from "@mui/styles";
 import home from "../../../assets/home1.svg";
 import "../css/homepage.css";
 import testomonial from "../../../assets/openlightbox.svg";
@@ -12,39 +13,111 @@ import img2 from "../../../assets/img2.svg";
 import img3 from "../../../assets/img3.svg";
 import img4 from "../../../assets/img4.svg";
 import videoCall from "../../../assets/videoCall.svg";
-// import LoginPage from "../../../components/Login/js/LoginPage";
+import LoginPage from "../../../components/Login/js/LoginPage";
 import { isMobile } from "react-device-detect";
 
+const useStyles = makeStyles({
+  root: {
+    background: "#025F4C",
+    paddingTop: "80px",
+  },
+  main: {},
+  firstContent: {
+    display: "flex",
+    justifyContent: "space-evenly",
+    alignItems: "center",
+  },
+  firstContentTestemonial: {
+    display: "flex",
+    justifyContent: "space-evenly",
+  },
+  grid: {
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "flex-start",
+    maxWidth: "216px",
+  },
+  textColor: {
+    color: "#36D6C3",
+    fontSize: "21px",
+  },
+  textColorInner: {
+    color: "#ffffff",
+    fontSize: "21px",
+  },
+  textColorDesc: {
+    color: "#FFFFFF",
+    fontWeight: 400,
+    fontSize: "12px",
+    maxWidth: "150px",
+    margin: "15px 0px 15px 0px",
+  },
+  talkToUs: {
+    background: "#BCDD33",
+    borderRadius: "8px",
+    color: " #025F4C",
+    fontWeight: 500,
+    fontSize: "15.4px",
+    border: "none",
+    padding: "7px 17px",
+    margin: "15px 0px 15px 0px",
+  },
+  testomonial: {
+    color: "#36D6C3",
+    fontWeight: 400,
+    fontSize: "14px",
+  },
+
+  trusted: {
+    background: " #FFFFFF",
+  },
+  testomonialText: {
+    color: "#025F4C",
+    fontWeight: 500,
+    fontSize: "23.408px",
+  },
+  featureDiv: {
+    border: " 1px solid #36D6C3",
+    borderRadius: "48.1712px",
+  },
+});
+
 export default function Homepage() {
-  // const [showLogin, setShowLogin] = useState(false);
+  const [showLogin, setShowLogin] = useState(false);
+  const classes = useStyles();
   return (
     <>
-      <div className="root">
-        <div className="">
-          <div className={`${isMobile ? "flex-wrap" : ""} py-5 firstContent container`}>
-            <div className="grid">
+      <div className={classes.root}>
+        <div className={classes.main}>
+          <div
+            className={`${classes.firstContent} ${
+              isMobile ? "flex-wrap" : ""
+            } my-5`}
+          >
+            <div className={classes.grid}>
               {" "}
-              <span className="textColor">
+              <span className={classes.textColor}>
                 With great Technology{" "}
-                <span className="textColorInner">comes great</span> Healthcare
+                <span className={classes.textColorInner}>comes great</span>{" "}
+                Healthcare
               </span>
-              <span className="textColorDesc">
+              <span className={classes.textColorDesc}>
                 Consultations with curated doctors starting as low as{" "}
                 <span>₹ 249</span>
               </span>
-              <button className="talkToUs">Talk to us</button>
-              <div className="firstContentTestemonial">
+              <button className={classes.talkToUs}>Talk to us</button>
+              <div className={classes.firstContentTestemonial}>
                 <div>
-                  <span className="testomonial">13k+</span>
-                  <p className="testomonial">Happy Patients</p>
+                  <span className={classes.testomonial}>13k+</span>
+                  <p className={classes.testomonial}>Happy Patients</p>
                 </div>
                 <div>
-                  <span className="testomonial">4.8/5</span>
-                  <p className="testomonial">App Rating</p>
+                  <span className={classes.testomonial}>4.8/5</span>
+                  <p className={classes.testomonial}>App Rating</p>
                 </div>
                 <div>
-                  <span className="testomonial">300+</span>
-                  <p className="testomonial">Doctors</p>
+                  <span className={classes.testomonial}>300+</span>
+                  <p className={classes.testomonial}>Doctors</p>
                 </div>
               </div>
             </div>
@@ -56,7 +129,7 @@ export default function Homepage() {
           </div>
         </div>
 
-        <div className={`trusted `}>
+        <div className={`${classes.trusted} `}>
           <div
             className={`${
               isMobile
@@ -70,7 +143,9 @@ export default function Homepage() {
               className={`${isMobile ? "col-10" : ""} img-fluid mx-5`}
             />
             <span
-              className={`testomonialText ${isMobile ? "col-10" : "col-3"}`}
+              className={`${classes.testomonialText} ${
+                isMobile ? "col-10" : "col-3"
+              }`}
             >
               Trusted by 13K+ happy patients and their families
             </span>
@@ -83,7 +158,7 @@ export default function Homepage() {
             />
           </div>
         </div>
-        <div className={`container featureDiv py-5`}>
+        <div className={`container ${classes.featureDiv} py-5`}>
           <div
             className={`${
               isMobile ? "flex-wrap" : ""
@@ -234,7 +309,7 @@ export default function Homepage() {
           <button className="videoBtn col-4">Learn more</button>
         </div>
       </div>
-      {/* <LoginPage showLogin={showLogin} setShowLogin={setShowLogin} /> */}
+      <LoginPage showLogin={showLogin} setShowLogin={setShowLogin} />
     </>
   );
 }

@@ -9,10 +9,10 @@ export default function DaacSaabRoutes() {
   return (
     <Suspense fallback={<div></div>}>
       <Routes>
-        <Route exact path="/Home" element={<Homepage />} />
-        <Route exact path="/One-tap" element={<OneTap />} />
-        <Route exact path="/Doctor" element={<DoctorPage />} />
-        <Route exact path="/About-us" element={<AboutUs />} />
+        <Route exact path="/home" element={<Homepage />} />
+        <Route path="/One-tap" element={<OneTap />} />
+        <Route path="/Doctor" element={<DoctorPage />} />
+        <Route path="/About-us" element={<AboutUs />} />
       </Routes>
     </Suspense>
   );
