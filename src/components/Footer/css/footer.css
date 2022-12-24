@@ -20,6 +20,6 @@
   margin: 10px 0px 10px 0px;
 }
 .root{
-  background: #076B58;
-  /* border-radius: 32.7712px; */
+  background: #076B58 !important;
+  border-radius: 32.7712px !important;
 }

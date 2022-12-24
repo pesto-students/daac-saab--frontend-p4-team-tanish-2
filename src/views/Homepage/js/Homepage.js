@@ -21,7 +21,7 @@ export default function Homepage() {
   const navigate = useNavigate();
   return (
     <>
-      <div className="root">
+      <div className="rootHome">
         <div className="">
           <div className={`firstContent ${isMobile ? "flex-wrap" : ""} my-5`}>
             <div className="grid">
