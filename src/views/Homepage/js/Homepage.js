@@ -133,7 +133,7 @@ export default function Homepage() {
 
               <button
                 className="learnMoreBtn col-5"
-                onClick={() => navigate("One-tap")}
+                onClick={() => navigate("/One-tap")}
               >
                 Learn more
               </button>
@@ -238,7 +238,7 @@ export default function Homepage() {
             Our in-house team of doctors is here to help the patients night and
             day
           </span>
-          <button className="videoBtn col-4" onClick={()=>navigate("Doctor")}>Learn more</button>
+          <button className="videoBtn col-4" onClick={()=>navigate("/Doctor")}>Learn more</button>
         </div>
       </div>
       {/* <LoginPage showLogin={showLogin} setShowLogin={setShowLogin} /> */}
