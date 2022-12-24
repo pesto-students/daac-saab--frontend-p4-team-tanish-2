@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import home from "../../../assets/home1.svg";
 import "../css/homepage.css";
 import testomonial from "../../../assets/openlightbox.svg";
@@ -12,45 +12,39 @@ import img2 from "../../../assets/img2.svg";
 import img3 from "../../../assets/img3.svg";
 import img4 from "../../../assets/img4.svg";
 import videoCall from "../../../assets/videoCall.svg";
-import LoginPage from "../../../components/Login/js/LoginPage";
+// import LoginPage from "../../../components/Login/js/LoginPage";
 import { isMobile } from "react-device-detect";
 
-
 export default function Homepage() {
-  const [showLogin, setShowLogin] = useState(false);
+  // const [showLogin, setShowLogin] = useState(false);
   return (
     <>
-      <div className='root'>
-        <div className='main'>
-          <div
-            className={` ${
-              isMobile ? "flex-wrap" : ""
-            } my-5 firstContent`}
-          >
+      <div className="root">
+        <div className="">
+          <div className={` ${isMobile ? "flex-wrap" : ""} my-5 firstContent container`}>
             <div className="grid">
               {" "}
               <span className="textColor">
                 With great Technology{" "}
-                <span className='textColorInner'>comes great</span>{" "}
-                Healthcare
+                <span className="textColorInner">comes great</span> Healthcare
               </span>
-              <span className='textColorDesc'>
+              <span className="textColorDesc">
                 Consultations with curated doctors starting as low as{" "}
                 <span>₹ 249</span>
               </span>
-              <button className='talkToUs'>Talk to us</button>
-              <div className='firstContentTestemonial'>
+              <button className="talkToUs">Talk to us</button>
+              <div className="firstContentTestemonial">
                 <div>
-                  <span className='testomonial'>13k+</span>
-                  <p className='testomonial'>Happy Patients</p>
+                  <span className="testomonial">13k+</span>
+                  <p className="testomonial">Happy Patients</p>
                 </div>
                 <div>
-                  <span className='testomonial'>4.8/5</span>
-                  <p className='testomonial'>App Rating</p>
+                  <span className="testomonial">4.8/5</span>
+                  <p className="testomonial">App Rating</p>
                 </div>
                 <div>
-                  <span className='testomonial'>300+</span>
-                  <p className='testomonial'>Doctors</p>
+                  <span className="testomonial">300+</span>
+                  <p className="testomonial">Doctors</p>
                 </div>
               </div>
             </div>
@@ -76,9 +70,7 @@ export default function Homepage() {
               className={`${isMobile ? "col-10" : ""} img-fluid mx-5`}
             />
             <span
-              className={`testomonialText ${
-                isMobile ? "col-10" : "col-3"
-              }`}
+              className={`testomonialText ${isMobile ? "col-10" : "col-3"}`}
             >
               Trusted by 13K+ happy patients and their families
             </span>
@@ -242,7 +234,7 @@ export default function Homepage() {
           <button className="videoBtn col-4">Learn more</button>
         </div>
       </div>
-      <LoginPage showLogin={showLogin} setShowLogin={setShowLogin} />
+      {/* <LoginPage showLogin={showLogin} setShowLogin={setShowLogin} /> */}
     </>
   );
 }
