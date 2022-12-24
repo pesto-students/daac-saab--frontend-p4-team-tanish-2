@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import home from "../../../assets/home1.svg";
 import "../css/homepage.css";
 import testomonial from "../../../assets/openlightbox.svg";
@@ -12,11 +12,11 @@ import img2 from "../../../assets/img2.svg";
 import img3 from "../../../assets/img3.svg";
 import img4 from "../../../assets/img4.svg";
 import videoCall from "../../../assets/videoCall.svg";
-import LoginPage from "../../../components/Login/js/LoginPage";
+// import LoginPage from "../../../components/Login/js/LoginPage";
 import { isMobile } from "react-device-detect";
 
 export default function Homepage() {
-  const [showLogin, setShowLogin] = useState(false);
+  // const [showLogin, setShowLogin] = useState(false);
   return (
     <>
       <div className="root">
