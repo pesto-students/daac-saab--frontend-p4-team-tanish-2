@@ -14,9 +14,11 @@ import img4 from "../../../assets/img4.svg";
 import videoCall from "../../../assets/videoCall.svg";
 // import LoginPage from "../../../components/Login/js/LoginPage";
 import { isMobile } from "react-device-detect";
+import { useNavigate } from "react-router-dom";
 
 export default function Homepage() {
   // const [showLogin, setShowLogin] = useState(false);
+  const navigate = useNavigate();
   return (
     <>
       <div className="root">
@@ -129,7 +131,12 @@ export default function Homepage() {
                 Completely free for users
               </span>
 
-              <button className="learnMoreBtn col-5">Learn more</button>
+              <button
+                className="learnMoreBtn col-5"
+                onClick={() => navigate("One-tap")}
+              >
+                Learn more
+              </button>
             </div>
             <img
               src={feature2}
@@ -231,7 +238,7 @@ export default function Homepage() {
             Our in-house team of doctors is here to help the patients night and
             day
           </span>
-          <button className="videoBtn col-4">Learn more</button>
+          <button className="videoBtn col-4" onClick={()=>navigate("Doctor")}>Learn more</button>
         </div>
       </div>
       {/* <LoginPage showLogin={showLogin} setShowLogin={setShowLogin} /> */}

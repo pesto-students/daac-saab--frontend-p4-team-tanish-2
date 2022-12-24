@@ -7,8 +7,8 @@ export default function Header() {
   const params = useParams();
   const navigate = useNavigate();
   return (
-    <div className="main" spacing={12}>
-      <div onClick={() => navigate("home")}>
+    <div className="main">
+      <div onClick={() => navigate("Home")}>
         <img src={logo} alt="logo" />
       </div>
       <div className="navbar">
