@@ -1,0 +1,54 @@
+.header{
+    font-size: 40px;
+    font-weight:500;
+
+}
+.subtext{
+    font-size:16px;
+    font-weight:400;
+    line-height: 19.2px;
+    color:#3e4a59
+}
+.vector{
+    position:absolute;
+    left:5%;
+    z-index: -10;;
+}
+.header-1{
+        font-size: 30px;
+        font-weight:500;
+}
+.header-2{
+    font-weight:500;
+    font-size:19px;
+}
+.subtext-1{
+    
+font-weight: 400;
+font-size: 15px;
+line-height: 21px;
+color: rgba(62, 74, 89, 0.5);
+}
+.testimonial-box{
+    font-family: 'Inter';
+font-style: normal;
+    background-color:#E6EFF0;
+    height:250px;
+    width:100%;
+    margin-top:4em;
+    font-weight: 600;
+font-size: 24px;
+line-height: 36px;
+color: #212529
+}
+.credits{
+font-family: 'Inter';
+font-style: normal;
+font-weight: 400;
+font-size: 20px;
+line-height: 24px;
+color: #212529
+}
+.question-test{
+    
+}
