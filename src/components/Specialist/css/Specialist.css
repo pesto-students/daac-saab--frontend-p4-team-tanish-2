@@ -4,8 +4,9 @@
   padding: 15px 0px;
 }
 .specialist-card :hover {
-  filter: drop-shadow(0px 4px 16px rgba(0, 0, 0, 0.05));
+  box-shadow: drop-shadow(0px 4px 16px rgba(0, 0, 0, 0.05));
 }
+
 .docText {
   color: #1bb4a4;
   font-weight: 700;

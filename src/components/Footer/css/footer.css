@@ -1,5 +1,12 @@
 .parent {
   background: #025f4c;
+  padding-top: 100px;
+  padding-bottom: 100px;
+}
+.parent1 {
+  background: #025f4c;
+  padding-top: 250px;
+  padding-bottom: 100px;
 }
 .reachableText {
   color: #ffffff;
@@ -19,7 +26,7 @@
   list-style: none;
   margin: 10px 0px 10px 0px;
 }
-.root{
-  background: #076B58 !important;
+.root {
+  background: #076b58 !important;
   border-radius: 32.7712px !important;
 }
