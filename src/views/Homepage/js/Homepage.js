@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import home from "../../../assets/home1.svg";
 import "../css/homepage.css";
 import testomonial from "../../../assets/openlightbox.svg";
@@ -15,10 +15,13 @@ import videoCall from "../../../assets/videoCall.svg";
 import { isMobile } from "react-device-detect";
 import { useNavigate } from "react-router-dom";
 import LoginPage from "../../../components/Login/js/LoginPage";
+import { useSelector, useDispatch } from "react-redux";
+import { showModal, closeModal } from "../../../Store/Slice/LoginSlice";
 
 export default function Homepage() {
-  const [showModal, setShowModal] = useState(false);
+  //const [showModal, setShowModal] = useState(false);
   const navigate = useNavigate();
+
   return (
     <>
       <div className="rootHome">
@@ -246,7 +249,7 @@ export default function Homepage() {
           </button>
         </div>
       </div>
-      <LoginPage setShowModal={setShowModal} showModal={showModal} />
+      <LoginPage />
     </>
   );
 }
