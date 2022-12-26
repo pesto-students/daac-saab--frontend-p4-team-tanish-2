@@ -4,6 +4,10 @@
   font-size: 34.496px;
   line-height: 40px;
 }
+.cursor-pointer {
+  cursor: pointer;
+}
+
 .featureText span {
   color: #ff8080;
   font-weight: 500;

@@ -4,8 +4,7 @@ import Footer from "./components/Footer/js/Footer";
 import Header from "./components/header/js/Header";
 import LoginPage from "./components/Login/js/LoginPage";
 import DaacSaabRoutes from "./Routes";
-// import "./App.css";
-
+import "./App.css";
 function App() {
   // const [showModal, setShowModal] = useState(false);
   return (
