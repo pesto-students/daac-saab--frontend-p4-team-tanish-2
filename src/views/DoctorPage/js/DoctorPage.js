@@ -114,7 +114,7 @@ const doctor = [
 ];
 export default function DoctorPage() {
   return (
-    <div className="mt-5 pt-5 container">
+    <div className="container mt-5 pt-5">
       <div className="d-flex flex-column">
         <span className="specialistText"> General Physician</span>
         <img src={seperator} alt="separator" className="img-fluid col-1" />

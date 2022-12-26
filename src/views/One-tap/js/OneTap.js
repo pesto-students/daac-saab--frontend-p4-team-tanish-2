@@ -1,6 +1,7 @@
 import React from "react";
 import { useState } from "react";
 import "../css/oneTap.css";
+import { useNavigate } from "react-router-dom";
 
 const data = [
   "Headache",
@@ -45,6 +46,7 @@ export default function OneTap() {
   const [showOneTap, setShowOneTap] = useState(false);
   const [show, setShow] = useState(true);
   const [selectedSymptom, setSelectedSymptom] = useState([]);
+  const navigate = useNavigate();
   const handleSymptomColor = (symptom) => {
     if (!selectedSymptom.includes(symptom)) {
       const prevValue = [...selectedSymptom, symptom];
@@ -66,13 +68,17 @@ export default function OneTap() {
         <button
           className="btn btn-primary"
           onClick={() => {
-            setShowOneTap(true);
-            console.log("Clicked on Yes Button");
+            setShowOneTap(!showOneTap);
           }}
         >
           Yes
         </button>
-        <button className="btn btn-secondary">
+        <button
+          className="btn btn-secondary"
+          onClick={() => {
+            navigate("/Specialist");
+          }}
+        >
           No, I want to see a specialist
         </button>
       </div>
@@ -82,7 +88,7 @@ export default function OneTap() {
           <div className="d-flex justify-content-between">
             <p className="text-1">
               Please select 0-3 Symptoms and Let Us Generate a Prescription for
-              you
+              you.
             </p>
             <button
               onClick={() => {
