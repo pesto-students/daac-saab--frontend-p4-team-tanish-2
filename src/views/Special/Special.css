@@ -10,9 +10,9 @@
     color:#3e4a59
 }
 .vector{
-    position:absolute;
-    left:5%;
-    z-index: -10;;
+    position:relative;
+    left:-180px;
+    z-index: -10;
 }
 .header-1{
         font-size: 30px;
@@ -49,6 +49,9 @@ font-size: 20px;
 line-height: 24px;
 color: #212529
 }
-.question-test{
-    
+.question-text{
+font-weight: 400;
+font-size: 14px;
+line-height: 18px;
+color: #311d1d;
 }

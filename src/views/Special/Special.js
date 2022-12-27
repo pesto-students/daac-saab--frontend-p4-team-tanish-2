@@ -6,6 +6,7 @@ import Category from '../../components/Category/js/Category';
 import specialIcon from "./../../assets/specialIcon.svg";
 import online_consult from "./../../assets/online_consult.svg";
 import digital_prescription from "./../../assets/digital_prescription.svg";
+
 const Special = () => {
     const data=[
         {
@@ -119,7 +120,7 @@ const Special = () => {
                 </span>
                 <span className="me-5">
                 <span>
-                <img src={specialIcon} alt="Speciality Icon" />
+                <img src={online_consult} alt="Speciality Icon" />
                 </span>
                 <span className="ms-2 header-2">
                 Online Consult
@@ -131,7 +132,7 @@ const Special = () => {
                 </span>
                 <span>
                 <span>
-                <img src={specialIcon} alt="Speciality Icon" />
+                <img src={digital_prescription} alt="Speciality Icon" />
                 </span>
                 <span className="ms-2 header-2">
                 Digital Prescription
@@ -156,8 +157,8 @@ const Special = () => {
             <div className="question-text mt-5">
                 Got questions?
             </div>
-            </div>
             
+    </div>
     </div>
   )
 }
