@@ -235,3 +235,4 @@ const Special = () => {
         </div>
     )
 }
+export default Special
