@@ -28,8 +28,8 @@ function App() {
       <div className="App">
         <button onClick={handleMinimize}> Minimize the Chat </button>
         <TawkMessengerReact
-          propertyId="63ab1be047425128790a514e"
-          widgetId="1gla69qce"
+          propertyId="63ab238047425128790a52c4"
+          widgetId="1gla85bm5"
           ref={tawkMessengerRef}
         />
       </div>
