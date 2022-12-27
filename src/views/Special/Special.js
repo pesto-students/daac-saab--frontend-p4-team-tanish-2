@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 import "./Special.css";
 import General_Physian_Logo from "./../../assets/General_Physian_Logo.svg"
 import Vector from "./../../assets/Vector.svg";
@@ -235,5 +235,3 @@ const Special = () => {
         </div>
     )
 }
-
-export default Special

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import home from "../../../assets/home1.svg";
 import "../css/homepage.css";
 import testomonial from "../../../assets/openlightbox.svg";
@@ -12,13 +12,16 @@ import img2 from "../../../assets/img2.svg";
 import img3 from "../../../assets/img3.svg";
 import img4 from "../../../assets/img4.svg";
 import videoCall from "../../../assets/videoCall.svg";
-// import LoginPage from "../../../components/Login/js/LoginPage";
 import { isMobile } from "react-device-detect";
 import { useNavigate } from "react-router-dom";
+import LoginPage from "../../../components/Login/js/LoginPage";
+import { useSelector, useDispatch } from "react-redux";
+import { showModal, closeModal } from "../../../Store/Slice/LoginSlice";
 
 export default function Homepage() {
-  // const [showLogin, setShowLogin] = useState(false);
+  //const [showModal, setShowModal] = useState(false);
   const navigate = useNavigate();
+
   return (
     <>
       <div className="rootHome">
@@ -238,10 +241,15 @@ export default function Homepage() {
             Our in-house team of doctors is here to help the patients night and
             day
           </span>
-          <button className="videoBtn col-4" onClick={()=>navigate("/Doctor")}>Learn more</button>
+          <button
+            className="videoBtn col-4"
+            onClick={() => navigate("/Doctor")}
+          >
+            Learn more
+          </button>
         </div>
       </div>
-      {/* <LoginPage showLogin={showLogin} setShowLogin={setShowLogin} /> */}
+      <LoginPage />
     </>
   );
 }

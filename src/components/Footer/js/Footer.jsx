@@ -7,10 +7,18 @@ import linked from "../../../assets/linkedIn.svg";
 import insta from "../../../assets/insta.svg.svg";
 import youtube from "../../../assets/youtube.svg";
 import { isMobile } from "react-device-detect";
+import { useNavigate, useParams } from "react-router-dom";
 
 export default function Footer() {
+  const params = useParams();
+  const navigate = useNavigate();
+  console.log(window.location.href.split("/")[3], "svsd");
   return (
-    <div className="parent py-5">
+    <div
+      className={`${
+        window.location.href.split("/")[3] === "About-us" ? "parent1" : "parent"
+      }`}
+    >
       <div
         className={`root ${
           isMobile ? "flex-column" : ""
@@ -54,10 +62,10 @@ export default function Footer() {
         >
           <span className="footerHeader">OUR EXPERIENCE</span>
           <ul className="footerContentList">
-            <li>One tap Prescription</li>
-            <li>Health Blogs</li>
+            <li onClick={() => navigate("/One-tap")}>One tap Prescription</li>
+            <li onClick={() => navigate("/Specialist")}>Symptoms</li>
             <li>Daac Saab app</li>
-            <li>Our Doctors</li>
+            <li onClick={() => navigate("/Doctor")}>Our Doctors</li>
             <li>Wellness</li>
           </ul>
         </div>
@@ -83,7 +91,7 @@ export default function Footer() {
           <span className="footerHeader">ABOUT US</span>
           <ul className="footerContentList">
             <li>Our Story</li>
-            <li>Blogs</li>
+            <li onClick={() => navigate("/About-us")}>About-us</li>
             <li>Testimonials</li>
             <li>FAQs</li>
             <li>Terms of Service</li>

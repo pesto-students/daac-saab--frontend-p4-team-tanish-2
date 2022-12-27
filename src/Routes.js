@@ -13,7 +13,7 @@ export default function DaacSaabRoutes() {
         <Route path="/One-tap" element={<OneTap />} />
         <Route path="/Doctor" element={<DoctorPage />} />
         <Route path="/About-us" element={<AboutUs />} />
-        <Route path="/Specialist-Page" element={<Special />} />
+        <Route path="/Specialist" element={<Special />} />
       </Routes>
     </Suspense>
   );
