@@ -5,6 +5,8 @@ import OneTap from "./views/One-tap/js/OneTap";
 import DoctorPage from "./views/DoctorPage/js/DoctorPage.js";
 import AboutUs from "./views/About-us/js/AboutUs";
 import Special from "./views/Special/Special";
+import Error from "./views/404/js/Error.js";
+import Coming from "./views/Coming soon/js/Coming.js";
 export default function DaacSaabRoutes() {
   return (
     <Suspense fallback={<div></div>}>
@@ -14,6 +16,8 @@ export default function DaacSaabRoutes() {
         <Route path="/Doctor" element={<DoctorPage />} />
         <Route path="/About-us" element={<AboutUs />} />
         <Route path="/Specialist" element={<Special />} />
+        <Route path="*" element={<Error />} />
+        <Route path="Coming-soon" element={<Coming />} />
       </Routes>
     </Suspense>
   );
