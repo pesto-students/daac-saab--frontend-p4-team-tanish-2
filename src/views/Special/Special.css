@@ -53,5 +53,19 @@ color: #212529
 font-weight: 400;
 font-size: 14px;
 line-height: 18px;
-color: #311d1d;
+color: #c93030;
+}
+.Accordion{
+    border:none;
+    border-bottom: 1px rgb(211, 204, 204) solid;
+  
+}
+.Accordion-last{
+border:none;
+
+}
+.Acc-header{
+font-weight: 700;
+font-size: 14px;
+color: #3E4A59;
 }
