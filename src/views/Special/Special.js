@@ -1,7 +1,7 @@
 import React from "react";
 import "./Special.css";
 import General_Physian_Logo from "./../../assets/General_Physian_Logo.svg"
-import Vector from "./../../assets/Vector.svg";
+import GreyBG from "./../../assets/GreyBG.svg";
 import Category from '../../components/Category/js/Category';
 import specialIcon from "./../../assets/specialIcon.svg";
 import online_consult from "./../../assets/online_consult.svg";
@@ -82,7 +82,7 @@ const Special = () => {
             <div className="container mt-5 pt-5">
                 <div className="header">
                     Specialists
-                    <img src={Vector} className="img-fluid vector" />
+                    <img src={GreyBG} className="img-fluid vector" />
                 </div>
                 <div className="subtext mt-2 mb-4">
                     See real time availability of doctors and book virtual consultations at your convenience
@@ -103,7 +103,7 @@ const Special = () => {
                 </div>
                 <div className="header-1 mt-5">
                     How it works?
-                    <img src={Vector} className="img-fluid vector" />
+                    <img src={GreyBG} className="img-fluid vector" />
                 </div>
                 <div className="mt-5 mb-5 d-flex flex-wrap">
                     <span className="me-5">
@@ -157,7 +157,7 @@ const Special = () => {
                 <div className="question-text mt-5">
                     Got questions? We have got answers
                 </div>
-                <Accordion className="mt-4 mb-4">
+                <Accordion className="mt-4 mb-5">
                     <Accordion.Item eventKey="0" className="Accordion">
                         <Accordion.Header><div className="Acc-header">Is this consultation free?</div></Accordion.Header>
                         <Accordion.Body>

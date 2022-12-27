@@ -2,7 +2,8 @@ import React from "react";
 import { useState } from "react";
 import "../css/oneTap.css";
 import { useNavigate } from "react-router-dom";
-
+import Button from 'react-bootstrap/Button';
+import Modal from 'react-bootstrap/Modal';
 const data = [
   "Headache",
   "Fever",
@@ -46,7 +47,42 @@ export default function OneTap() {
   const [showOneTap, setShowOneTap] = useState(false);
   const [show, setShow] = useState(true);
   const [selectedSymptom, setSelectedSymptom] = useState([]);
+  const [modalShow, setModalShow] = React.useState(false);
   const navigate = useNavigate();
+  function MyVerticallyCenteredModal(props) {
+    return (
+      <Modal
+        {...props}
+        size="lg"
+        aria-labelledby="contained-modal-title-vcenter"
+        centered
+      >
+        <Modal.Header closeButton>
+          <Modal.Title id="contained-modal-title-vcenter">
+            Highly Recommended!
+          </Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+          <h4>Please consult a Specialist Doctor if you have more than 3 Symptoms</h4>
+         <div className="btn-modal">
+         <button
+          className="btn btn-secondary"
+          onClick={() => {
+            navigate("/Specialist");
+          }}
+        >
+          Take me to the Specialist Page
+        </button>
+         </div>
+         
+        </Modal.Body>
+        <Modal.Footer>
+          <Button onClick={props.onHide}>Close</Button>
+        </Modal.Footer>
+      </Modal>
+    );
+  }
+  
   const handleSymptomColor = (symptom) => {
     if (!selectedSymptom.includes(symptom)) {
       const prevValue = [...selectedSymptom, symptom];
@@ -56,6 +92,11 @@ export default function OneTap() {
       setSelectedSymptom(prevValue);
     }
   };
+  const showModal=()=>{
+    if(selectedSymptom.length>=3)
+    setModalShow(true);
+  }
+  console.log(selectedSymptom.length);
 
   return (
     <div className="">
@@ -105,8 +146,9 @@ export default function OneTap() {
               return (
                 <div
                   key={i}
-                  onClick={() => {
+                  onClick={() =>{
                     handleSymptomColor(i);
+                    showModal();
                   }}
                   className={`m-2 ${
                     selectedSymptom.includes(i)
@@ -119,12 +161,18 @@ export default function OneTap() {
               );
             })}
           </div>
+          
           {/* symptom component ends */}
           <div className="d-flex justify-content-center mt-4 mb-5">
             <button className="btn btn-submit">Generate Prescription</button>
           </div>
         </div>
       ) : null}
+      <MyVerticallyCenteredModal
+        show={modalShow}
+        onHide={() => setModalShow(false)}
+      />
+    
     </div>
   );
 }
