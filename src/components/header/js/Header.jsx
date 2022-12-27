@@ -14,7 +14,7 @@ export default function Header() {
   const navigate = useNavigate();
   return (
     <div className="main">
-      <div onClick={() => navigate("")}>
+      <div onClick={() => navigate("")} className="cursor-pointer">
         <img src={logo} alt="logo" />
       </div>
       <div className="navbar">
