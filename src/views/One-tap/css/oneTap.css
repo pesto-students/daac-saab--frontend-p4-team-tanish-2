@@ -83,3 +83,11 @@ hr {
   color: #248774;
   background-color: #b8e507;
 }
+#contained-modal-title-vcenter{
+  color:#025f4c;
+}
+.btn-modal{
+  display:flex;
+  align-items: center;
+  justify-content: center;
+}

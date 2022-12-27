@@ -59,16 +59,22 @@ export default function OneTap() {
       >
         <Modal.Header closeButton>
           <Modal.Title id="contained-modal-title-vcenter">
-            Modal heading
+            Highly Recommended!
           </Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          <h4>Centered Modal</h4>
-          <p>
-            Cras mattis consectetur purus sit amet fermentum. Cras justo odio,
-            dapibus ac facilisis in, egestas eget quam. Morbi leo risus, porta ac
-            consectetur ac, vestibulum at eros.
-          </p>
+          <h4>Please consult a Specialist Doctor if you have more than 3 Symptoms</h4>
+         <div className="btn-modal">
+         <button
+          className="btn btn-secondary"
+          onClick={() => {
+            navigate("/Specialist");
+          }}
+        >
+          Take me to the Specialist Page
+        </button>
+         </div>
+         
         </Modal.Body>
         <Modal.Footer>
           <Button onClick={props.onHide}>Close</Button>
@@ -76,6 +82,7 @@ export default function OneTap() {
       </Modal>
     );
   }
+  
   const handleSymptomColor = (symptom) => {
     if (!selectedSymptom.includes(symptom)) {
       const prevValue = [...selectedSymptom, symptom];
@@ -85,6 +92,10 @@ export default function OneTap() {
       setSelectedSymptom(prevValue);
     }
   };
+  const showModal=()=>{
+    if(selectedSymptom.length>=3)
+    setModalShow(true);
+  }
   console.log(selectedSymptom.length);
 
   return (
@@ -135,8 +146,9 @@ export default function OneTap() {
               return (
                 <div
                   key={i}
-                  onClick={() => {
+                  onClick={() =>{
                     handleSymptomColor(i);
+                    showModal();
                   }}
                   className={`m-2 ${
                     selectedSymptom.includes(i)
@@ -149,24 +161,18 @@ export default function OneTap() {
               );
             })}
           </div>
+          
           {/* symptom component ends */}
           <div className="d-flex justify-content-center mt-4 mb-5">
             <button className="btn btn-submit">Generate Prescription</button>
           </div>
         </div>
       ) : null}
-      <Button variant="primary" onClick={() => setModalShow(true)}>
-        Launch vertically centered modal
-      </Button>
-
       <MyVerticallyCenteredModal
         show={modalShow}
         onHide={() => setModalShow(false)}
       />
     
- 
-
-
     </div>
   );
 }
