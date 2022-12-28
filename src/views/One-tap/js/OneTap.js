@@ -289,16 +289,34 @@ export default function OneTap() {
               );
             })}
           </div>
-          <div className="Prescription-box">
-            {console.log(prescription)}
+          <div className="d-flex align-items-center justify-content-center">
+          <div className="Prescription-box mt-3 ">
+            <div className="d-flex align-items-center justify-content-center mt-1 pres-header">
+              PRESCRIPTION
+            </div>
+            <hr className="m-3"></hr>
+            <div className="ms-3 info">
+             <div>Name : Gantavya</div>
+             <div>Age : 23</div>
+             <div>Date : 29/12/2022</div>
+             <div className="mt-3 advice">
+              Advice :
+             </div>
+            </div>
             {prescription.map((elem,i) => {
               return (
-                <div key={i}>
+                <div key={i}className="ms-3 mt-2">
+                    
                   {elem.Prescription}
                 </div>
               );
             })}
-
+             <div className="ms-3 mt-3 suggest">
+              General health suggestions :
+             </div>
+             <div className="ms-2">1. Regular exercise</div>
+             <div className="ms-2">2. Avoid Oily foods</div>
+          </div>
           </div>
           {/* symptom component ends */}
           <div className="d-flex justify-content-center mt-4 mb-5">
