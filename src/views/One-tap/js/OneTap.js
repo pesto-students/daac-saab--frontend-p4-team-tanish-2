@@ -12,15 +12,15 @@ const data = [
   },
   {
     Symptom: "Dry Cough",
-    Prescription: "Dolo 650mg for 3 Days after lunch"
+    Prescription: "Benadryl Dry two times a day"
   },
   {
     Symptom: "Wet Cough",
-    Prescription: "Dolo 650mg for 3 Days after lunch"
+    Prescription: "Dabur Honitus two times a day"
   },
   {
     Symptom: "Loose Motion",
-    Prescription: "Dolo 650mg for 3 Days after lunch"
+    Prescription: "Loperamide 2 times a day after food"
   },
   {
     Symptom: "Constipation",
@@ -189,30 +189,36 @@ export default function OneTap() {
     );
   }
 
-  const handleSymptomColor = (index, elem) => {
-    // console.log(index);
-    // console.log(elem);
+  const handleSymptomColor = (elem,index) => {
+    
     if (!selectedSymptom.includes(index)) {
       const prevValue = [...selectedSymptom, index];
-
       setSelectedSymptom(prevValue);
-
-      if (selectedSymptom.length < 3) {
-        setPrescription(prev => [...prev, { id: uuid(), pres: elem.Prescription }])
-      }
-
+      // if (selectedSymptom.length < 3) {
+      //   setPrescription(prev => [...prev, { id: uuid(), pres: elem.Prescription }])
+      // }
     }
-
     else {
       const prevValue = selectedSymptom.filter((sym) => sym !== index);
       setSelectedSymptom(prevValue);
     }
-
   };
-  console.log(prescription);
+  console.log(selectedSymptom);
+  console.log(selectedSymptom.length);
 
+  const handlePrescription=(sym,pres)=>{
+      if(!prescription.includes(sym)){
+        setPrescription([...prescription,sym])
+      }
+      else{
+        const value=prescription.filter((x)=>x !== sym);
+        setPrescription(value);
+      }
+  };
+
+  
   const showModal = () => {
-    if (selectedSymptom.length >= 3)
+    if (selectedSymptom.length > 2)
       setModalShow(true);
   }
 
@@ -268,7 +274,8 @@ export default function OneTap() {
                 <div
                   key={i}
                   onClick={() => {
-                    handleSymptomColor(i, x);
+                    handleSymptomColor(x, i);
+                    handlePrescription(x,i);
                     showModal();
                   }}
                   className={`m-2 ${selectedSymptom.includes(i)
@@ -277,17 +284,17 @@ export default function OneTap() {
                     }`}
                 >
                   {x.Symptom}
+                  
                 </div>
               );
             })}
           </div>
           <div className="Prescription-box">
-
-            {prescription.map((elem) => {
-              const { id, pres } = elem;
+            {console.log(prescription)}
+            {prescription.map((elem,i) => {
               return (
-                <div key={id}>
-                  {pres}
+                <div key={i}>
+                  {elem.Prescription}
                 </div>
               );
             })}
