@@ -4,43 +4,148 @@ import "../css/oneTap.css";
 import { useNavigate } from "react-router-dom";
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
+import { v4 as uuid } from 'uuid';
 const data = [
-  "Headache",
-  "Fever",
-  "Dry Cough",
-  "Wet Cough",
-  "Loose Motion",
-  "Constipation",
-  "Runny Nose",
-  "Red Eye",
-  "Feeling cold",
-  "Rashes",
-  "Itching",
-  "Breathlessness",
-  "Bone Pain",
-  "Dizziness",
-  "Oral Ulcer",
-  "Stomach Ulcer",
-  "Nausea",
-  "Weakness",
-  "Pain in Knee",
-  "Leg Sprain",
-  "Cut on Skin",
-  "Vomitting",
-  "Swollen Eye",
-  "Migraine",
-  "Unable to Sleep",
-  "Loss of appetite",
-  "Pain in Kness",
-  "Burning while Urinating",
-  "Itchiness in Genitals",
-  "Dandruff",
-  "Abdominal (Pain)",
-  "Abdominal (Burning)",
-  "Chest Pain",
-  "Chest Burning",
-  "Neck Pain",
-  "Nose Bleeding",
+  {
+    Symptom: "Headache",
+    Prescription: "Dolo 650mg for 3 Days after lunch"
+  },
+  {
+    Symptom: "Dry Cough",
+    Prescription: "Benadryl Dry two times a day"
+  },
+  {
+    Symptom: "Wet Cough",
+    Prescription: "Dabur Honitus two times a day"
+  },
+  {
+    Symptom: "Loose Motion",
+    Prescription: "Loperamide 2 times a day after food"
+  },
+  {
+    Symptom: "Constipation",
+    Prescription: "Dolo 650mg for 3 Days after lunch"
+  },
+  {
+    Symptom: "Runny Nose",
+    Prescription: "Dolo 650mg for 3 Days after lunch"
+  },
+  {
+    Symptom: "Red Eye",
+    Prescription: "Dolo 650mg for 3 Days after lunch"
+  },
+  {
+    Symptom: "Feeling cold",
+    Prescription: "Dolo 650mg for 3 Days after lunch"
+  },
+  {
+    Symptom: "Rashes",
+    Prescription: "Dolo 650mg for 3 Days after lunch"
+  },
+  {
+    Symptom: "Itching",
+    Prescription: "Dolo 650mg for 3 Days after lunch"
+  },
+  {
+    Symptom: "Breathlessness",
+    Prescription: "Dolo 650mg for 3 Days after lunch"
+  },
+  {
+    Symptom: "Bone Pain",
+    Prescription: "Dolo 650mg for 3 Days after lunch"
+  },
+  {
+    Symptom: "Dizziness",
+    Prescription: "Dolo 650mg for 3 Days after lunch"
+  },
+  {
+    Symptom: "Oral Ulcer",
+    Prescription: "Dolo 650mg for 3 Days after lunch"
+  },
+  {
+    Symptom: "Stomach Ulcer",
+    Prescription: "Dolo 650mg for 3 Days after lunch"
+  },
+  {
+    Symptom: "Nausea",
+    Prescription: "Dolo 650mg for 3 Days after lunch"
+  },
+  {
+    Symptom: "Weakness",
+    Prescription: "Dolo 650mg for 3 Days after lunch"
+  },
+  {
+    Symptom: "Pain in Knee",
+    Prescription: "Dolo 650mg for 3 Days after lunch"
+  },
+  {
+    Symptom: "Leg Sprain",
+    Prescription: "Dolo 650mg for 3 Days after lunch"
+  },
+  {
+    Symptom: "Cut on Skin",
+    Prescription: "Dolo 650mg for 3 Days after lunch"
+  },
+  {
+    Symptom: "Vomitting",
+    Prescription: "Dolo 650mg for 3 Days after lunch"
+  },
+  {
+    Symptom: "Swollen Eye",
+    Prescription: "Dolo 650mg for 3 Days after lunch"
+  },
+  {
+    Symptom: "Migraine",
+    Prescription: "Dolo 650mg for 3 Days after lunch"
+  },
+  {
+    Symptom: "Unable to Sleep",
+    Prescription: "Dolo 650mg for 3 Days after lunch"
+  },
+  {
+    Symptom: "Loss of appetite",
+    Prescription: "Dolo 650mg for 3 Days after lunch"
+  },
+  {
+    Symptom: "Pain in Kness",
+    Prescription: "Dolo 650mg for 3 Days after lunch"
+  },
+  {
+    Symptom: "Burning while Urinating",
+    Prescription: "Dolo 650mg for 3 Days after lunch"
+  },
+  {
+    Symptom: "Itchiness in Genitals",
+    Prescription: "Dolo 650mg for 3 Days after lunch"
+  },
+  {
+    Symptom: "Dandruff",
+    Prescription: "Dolo 650mg for 3 Days after lunch"
+  },
+  {
+    Symptom: "Abdominal (Pain)",
+    Prescription: "Dolo 650mg for 3 Days after lunch"
+  },
+  {
+    Symptom: "Abdominal (Burning)",
+    Prescription: "Dolo 650mg for 3 Days after lunch"
+  },
+  {
+    Symptom: "Chest Pain",
+    Prescription: "Dolo 650mg for 3 Days after lunch"
+  },
+  {
+    Symptom: "Chest Burning",
+    Prescription: "Dolo 650mg for 3 Days after lunch"
+  },
+  {
+    Symptom: "Neck Pain",
+    Prescription: "Dolo 650mg for 3 Days after lunch"
+  },
+  {
+    Symptom: "Nose Bleeding",
+    Prescription: "Dolo 650mg for 3 Days after lunch"
+  },
 ];
 
 export default function OneTap() {
@@ -48,6 +153,7 @@ export default function OneTap() {
   const [show, setShow] = useState(true);
   const [selectedSymptom, setSelectedSymptom] = useState([]);
   const [modalShow, setModalShow] = React.useState(false);
+  const [prescription, setPrescription] = useState([]);
   const navigate = useNavigate();
   function MyVerticallyCenteredModal(props) {
     return (
@@ -64,17 +170,17 @@ export default function OneTap() {
         </Modal.Header>
         <Modal.Body>
           <h4>Please consult a Specialist Doctor if you have more than 3 Symptoms</h4>
-         <div className="btn-modal">
-         <button
-          className="btn btn-secondary"
-          onClick={() => {
-            navigate("/Specialist");
-          }}
-        >
-          Take me to the Specialist Page
-        </button>
-         </div>
-         
+          <div className="btn-modal">
+            <button
+              className="btn btn-secondary"
+              onClick={() => {
+                navigate("/Specialist");
+              }}
+            >
+              Take me to the Specialist Page
+            </button>
+          </div>
+
         </Modal.Body>
         <Modal.Footer>
           <Button onClick={props.onHide}>Close</Button>
@@ -82,21 +188,42 @@ export default function OneTap() {
       </Modal>
     );
   }
-  
-  const handleSymptomColor = (symptom) => {
-    if (!selectedSymptom.includes(symptom)) {
-      const prevValue = [...selectedSymptom, symptom];
+
+  const handleSymptomColor = (elem,index) => {
+    
+    if (!selectedSymptom.includes(index)) {
+      const prevValue = [...selectedSymptom, index];
       setSelectedSymptom(prevValue);
-    } else {
-      const prevValue = selectedSymptom.filter((sym) => sym !== symptom);
+      // if (selectedSymptom.length < 3) {
+      //   setPrescription(prev => [...prev, { id: uuid(), pres: elem.Prescription }])
+      // }
+    }
+    else {
+      const prevValue = selectedSymptom.filter((sym) => sym !== index);
       setSelectedSymptom(prevValue);
     }
   };
-  const showModal=()=>{
-    if(selectedSymptom.length>=3)
-    setModalShow(true);
-  }
+  console.log(selectedSymptom);
   console.log(selectedSymptom.length);
+
+  const handlePrescription=(sym,pres)=>{
+      if(!prescription.includes(sym)){
+        setPrescription([...prescription,sym])
+      }
+      else{
+        const value=prescription.filter((x)=>x !== sym);
+        setPrescription(value);
+      }
+  };
+
+  
+  const showModal = () => {
+    if (selectedSymptom.length > 2)
+      setModalShow(true);
+  }
+
+
+
 
   return (
     <div className="">
@@ -146,22 +273,33 @@ export default function OneTap() {
               return (
                 <div
                   key={i}
-                  onClick={() =>{
-                    handleSymptomColor(i);
+                  onClick={() => {
+                    handleSymptomColor(x, i);
+                    handlePrescription(x,i);
                     showModal();
                   }}
-                  className={`m-2 ${
-                    selectedSymptom.includes(i)
+                  className={`m-2 ${selectedSymptom.includes(i)
                       ? "selectedSymptomColor"
                       : "sym-card"
-                  }`}
+                    }`}
                 >
-                  {x}
+                  {x.Symptom}
+                  
                 </div>
               );
             })}
           </div>
-          
+          <div className="Prescription-box">
+            {console.log(prescription)}
+            {prescription.map((elem,i) => {
+              return (
+                <div key={i}>
+                  {elem.Prescription}
+                </div>
+              );
+            })}
+
+          </div>
           {/* symptom component ends */}
           <div className="d-flex justify-content-center mt-4 mb-5">
             <button className="btn btn-submit">Generate Prescription</button>
@@ -172,7 +310,7 @@ export default function OneTap() {
         show={modalShow}
         onHide={() => setModalShow(false)}
       />
-    
+
     </div>
   );
 }
