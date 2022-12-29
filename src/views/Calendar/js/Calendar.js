@@ -4,7 +4,7 @@ const Calendar = () => {
   return (
     <div>
         
-            <InlineWidget url="https://calendly.com/your_scheduling_page/embed/" />
+            <InlineWidget url="https://calendly.com/gantavya99/30min" />
         
 
     </div>
