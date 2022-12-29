@@ -6,6 +6,7 @@ import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 import { v4 as uuid } from 'uuid';
 import jsPDF from "jspdf";
+import FileDownloadIcon from '@mui/icons-material/FileDownload';
 const data = [
   {
     Symptom: "Headache",
@@ -155,6 +156,7 @@ export default function OneTap() {
   const [selectedSymptom, setSelectedSymptom] = useState([]);
   const [modalShow, setModalShow] = React.useState(false);
   const [prescription, setPrescription] = useState([]);
+  const[showPrescription,setShowPrescription]=useState(false);
   const navigate = useNavigate();
   function MyVerticallyCenteredModal(props) {
     return (
@@ -292,6 +294,7 @@ export default function OneTap() {
               );
             })}
           </div>
+          {showPrescription?<div>
           <div className="d-flex align-items-center justify-content-center" >
           <div className="Prescription-box mt-3 " >
             <div id="prescription-pdf">
@@ -323,12 +326,21 @@ export default function OneTap() {
              </div>
           </div>
           </div>
-          <button className="btn btn-info" onClick={() => {
+          <div>
+          <button className="btn btn-info " onClick={() => {
                     generatePDF();
+                    }}>
+                      
+                     Download Prescription   
+                     <FileDownloadIcon />
                     
-                  }}> Generate PDF </button>
-          <div className="d-flex justify-content-center mt-4 mb-5">
-            <button className="btn btn-submit">Generate Prescription</button>
+                     </button>
+          </div>
+          </div>:null}
+          <div className="d-flex justify-content-center align-items-center mt-5 mb-5">
+            <button className="btn btn-submit" onClick={() => {
+            setShowPrescription(true);
+          }}>Generate Prescription</button>
           </div>
         </div>
       ) : null}
