@@ -115,3 +115,18 @@ hr {
   font-weight: 500;
   color:#248774
 }
+.btn-info{
+  float:right;
+  background-color: white;
+  border:0.5px #ad0b00 solid;
+  color:black;
+}
+.btn-info:hover{
+  background-color: #ad0b00;
+  color:white;
+  border:none;
+}
+.btn-info::active{
+    background-color: #ad0b00 !important;
+    border:none;
+}
