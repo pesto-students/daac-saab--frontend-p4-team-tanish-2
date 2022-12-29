@@ -5,6 +5,7 @@ import { useNavigate } from "react-router-dom";
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 import { v4 as uuid } from 'uuid';
+import jsPDF from "jspdf";
 const data = [
   {
     Symptom: "Headache",
@@ -190,21 +191,16 @@ export default function OneTap() {
   }
 
   const handleSymptomColor = (elem,index) => {
-    
     if (!selectedSymptom.includes(index)) {
       const prevValue = [...selectedSymptom, index];
       setSelectedSymptom(prevValue);
-      // if (selectedSymptom.length < 3) {
-      //   setPrescription(prev => [...prev, { id: uuid(), pres: elem.Prescription }])
-      // }
     }
     else {
       const prevValue = selectedSymptom.filter((sym) => sym !== index);
       setSelectedSymptom(prevValue);
     }
   };
-  console.log(selectedSymptom);
-  console.log(selectedSymptom.length);
+
 
   const handlePrescription=(sym,pres)=>{
       if(!prescription.includes(sym)){
@@ -222,7 +218,14 @@ export default function OneTap() {
       setModalShow(true);
   }
 
-
+  const generatePDF=()=>{
+      var doc = new jsPDF("p","pt","a4");
+      doc.html(document.querySelector("#prescription-pdf"),{
+        callback:function(pdf){
+          pdf.save("Prescription.pdf");
+        }
+      })
+  }
 
 
   return (
@@ -289,8 +292,9 @@ export default function OneTap() {
               );
             })}
           </div>
-          <div className="d-flex align-items-center justify-content-center">
-          <div className="Prescription-box mt-3 ">
+          <div className="d-flex align-items-center justify-content-center" >
+          <div className="Prescription-box mt-3 " >
+            <div id="prescription-pdf">
             <div className="d-flex align-items-center justify-content-center mt-1 pres-header">
               PRESCRIPTION
             </div>
@@ -314,11 +318,15 @@ export default function OneTap() {
              <div className="ms-3 mt-3 suggest">
               General health suggestions :
              </div>
-             <div className="ms-2">1. Regular exercise</div>
-             <div className="ms-2">2. Avoid Oily foods</div>
+             <div className="ms-3">1. Regular exercise</div>
+             <div className="ms-3">2. Avoid Oily foods</div>
+             </div>
           </div>
           </div>
-          {/* symptom component ends */}
+          <button className="btn btn-info" onClick={() => {
+                    generatePDF();
+                    
+                  }}> Generate PDF </button>
           <div className="d-flex justify-content-center mt-4 mb-5">
             <button className="btn btn-submit">Generate Prescription</button>
           </div>
