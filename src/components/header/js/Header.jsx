@@ -76,7 +76,9 @@ export default function Header() {
             >
               Login
             </button>
-            <button className="signUpBtn">SignUp</button>
+            <button className="signUpBtn" onClick={() => loginWithRedirect()}>
+              SignUp
+            </button>
           </div>
         )}
       </div>
