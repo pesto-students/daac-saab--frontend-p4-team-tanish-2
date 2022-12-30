@@ -94,3 +94,14 @@
   font-size: 15.4px;
   padding: 7px 22px;
 }
+.product-section > span {
+  color: rgb(239, 201, 201);
+  list-style: none;
+}
+.product-section {
+  top: 27px;
+  left: 15px;
+}
+.product-section > span:hover {
+  transform: scale(1.1);
+}

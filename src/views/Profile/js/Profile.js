@@ -9,7 +9,17 @@ const Profile = () => {
   //   if (isLoading) {
   //     return <div>Loading ...</div>;
   //   }
-  console.log(userMetadata, "datatatata");
+  //   const getUserData = async () => {
+  //     await axios
+  //       .get(`https://${"dev-pusoarj7qy7ljns4.us.auth0.com"}/api/v2/`)
+  //       .then((res) => {
+  //         setUserMetadata(res);
+  //       });
+  //   };
+  //   useEffect(() => {
+  //     getUserData();
+  //   }, []);
+
   useEffect(() => {
     const getUserMetadata = async () => {
       const domain = "dev-pusoarj7qy7ljns4.us.auth0.com";
@@ -38,19 +48,19 @@ const Profile = () => {
 
     getUserMetadata();
   }, [getAccessTokenSilently, user?.sub]);
-
+  console.log(userMetadata, "datatatata");
   return (
     isAuthenticated && (
       <div>
         <img src={user.picture} alt={user.name} />
         <h2>{user.name}</h2>
         <p>{user.email}</p>
-        <h3>User Metadata</h3>
-        {userMetadata ? (
+        {/* <h3>User Metadata</h3> */}
+        {/* {userMetadata ? (
           <pre>{JSON.stringify(userMetadata, null, 2)}</pre>
         ) : (
           "No user metadata defined"
-        )}
+        )} */}
       </div>
     )
   );
