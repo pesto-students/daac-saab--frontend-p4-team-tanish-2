@@ -57,7 +57,7 @@ export default function AboutUs() {
             care makes this possible.
           </span>
           <span className="section3Desc my-3">
-            Loop is India’s first integrated care provider. We help companies
+            Daac Saab is India’s first integrated care provider. We help companies
             get amazing health benefits for their teams and deliver the care
             with our own in-house team of 30 experienced doctors.
           </span>

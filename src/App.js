@@ -26,7 +26,6 @@ function App() {
       </div>
       <LoginPage />
       <div className="App">
-        <button onClick={handleMinimize}> Minimize the Chat </button>
         <TawkMessengerReact
           propertyId="63ab238047425128790a52c4"
           widgetId="1gla85bm5"

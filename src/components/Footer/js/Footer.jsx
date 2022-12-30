@@ -74,8 +74,8 @@ export default function Footer() {
             isMobile ? "col-12" : "col-2 align-items-center"
           } d-flex my-4 flex-column`}
         >
-          <span className="footerHeader">GROW WITH US</span>
-          <ul className="footerContentList">
+          <span className="footerHeader me-3">GROW WITH US</span>
+          <ul className="footerContentList ms-2">
             <li>Careers</li>
             <li>Guides and Playbooks </li>
             <li>Checklists</li>
@@ -88,8 +88,8 @@ export default function Footer() {
             isMobile ? "col-12" : "col-2 align-items-center"
           } d-flex my-4 flex-column`}
         >
-          <span className="footerHeader">ABOUT US</span>
-          <ul className="footerContentList">
+          <span className="footerHeader me-3">ABOUT US</span>
+          <ul className="footerContentList ms-2">
             <li>Our Story</li>
             <li onClick={() => navigate("/About-us")}>About-us</li>
             <li>Testimonials</li>
