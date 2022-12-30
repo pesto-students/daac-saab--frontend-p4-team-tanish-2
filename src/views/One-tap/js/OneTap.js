@@ -202,7 +202,8 @@ export default function OneTap() {
       setSelectedSymptom(prevValue);
     }
   };
-
+  console.log(selectedSymptom);
+  console.log(selectedSymptom.length);
 
   const handlePrescription=(sym,pres)=>{
       if(!prescription.includes(sym)){
@@ -216,7 +217,7 @@ export default function OneTap() {
 
   
   const showModal = () => {
-    if (selectedSymptom.length > 2)
+    if (selectedSymptom.length >=3)
       setModalShow(true);
   }
 
@@ -340,7 +341,10 @@ export default function OneTap() {
           <div className="d-flex justify-content-center align-items-center mt-5 mb-5">
             <button className="btn btn-submit" onClick={() => {
             setShowPrescription(true);
-          }}>Generate Prescription</button>
+            
+          }}>
+            
+            Generate Prescription</button>
           </div>
         </div>
       ) : null}
