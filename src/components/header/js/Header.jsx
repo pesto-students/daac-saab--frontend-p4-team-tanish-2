@@ -35,7 +35,7 @@ export default function Header() {
               className="my-2 cursor-pointer"
               onClick={() => navigate("/One-tap")}
             >
-              One-tap
+              One-tap Prescription
             </span>
             <span
               className="my-2 cursor-pointer"
@@ -70,7 +70,10 @@ export default function Header() {
           </div>
         ) : (
           <div>
-            <button className="logInBtn mx-4" onClick={() => loginWithRedirect()}>
+            <button
+              className="logInBtn mx-4"
+              onClick={() => loginWithRedirect()}
+            >
               Login
             </button>
             <button className="signUpBtn">SignUp</button>
