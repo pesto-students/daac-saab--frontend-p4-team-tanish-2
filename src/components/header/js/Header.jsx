@@ -70,7 +70,7 @@ export default function Header() {
           </div>
         ) : (
           <div>
-            <button className="logInBtn" onClick={() => loginWithRedirect()}>
+            <button className="logInBtn mx-4" onClick={() => loginWithRedirect()}>
               Login
             </button>
             <button className="signUpBtn">SignUp</button>

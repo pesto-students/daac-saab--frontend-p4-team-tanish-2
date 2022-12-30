@@ -48,6 +48,7 @@ const Profile = () => {
 
     getUserMetadata();
   }, [getAccessTokenSilently, user?.sub]);
+  const { logout } = useAuth0();
   console.log(userMetadata, "datatatata");
   return (
     isAuthenticated && (
@@ -55,6 +56,10 @@ const Profile = () => {
         <img src={user.picture} alt={user.name} />
         <h2>{user.name}</h2>
         <p>{user.email}</p>
+        <button
+          className="btn btn-primary"
+          onClick={() => logout({ returnTo: window.location.origin })}
+        >Logout</button>
         {/* <h3>User Metadata</h3> */}
         {/* {userMetadata ? (
           <pre>{JSON.stringify(userMetadata, null, 2)}</pre>
