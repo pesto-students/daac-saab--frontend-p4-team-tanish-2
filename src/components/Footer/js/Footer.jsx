@@ -62,11 +62,30 @@ export default function Footer() {
         >
           <span className="footerHeader">OUR EXPERIENCE</span>
           <ul className="footerContentList">
-            <li onClick={() => navigate("/One-tap")}>One tap Prescription</li>
-            <li onClick={() => navigate("/Specialist")}>Symptoms</li>
-            <li>Daac Saab app</li>
-            <li onClick={() => navigate("/Doctor")}>Our Doctors</li>
-            <li>Wellness</li>
+            <li onClick={() => navigate("/One-tap")} className="cursor-pointer">
+              One tap Prescription
+            </li>
+            <li
+              onClick={() => navigate("/Specialist")}
+              className="cursor-pointer"
+            >
+              Symptoms
+            </li>
+            <li
+              onClick={() => navigate("/Coming-soon")}
+              className="cursor-pointer"
+            >
+              Daac Saab app
+            </li>
+            <li onClick={() => navigate("/Doctor")} className="cursor-pointer">
+              Our Doctors
+            </li>
+            <li
+              onClick={() => navigate("/Coming-soon")}
+              className="cursor-pointer"
+            >
+              Wellness
+            </li>
           </ul>
         </div>
         <div
@@ -74,13 +93,38 @@ export default function Footer() {
             isMobile ? "col-12" : "col-2 align-items-center"
           } d-flex my-4 flex-column`}
         >
-          <span className="footerHeader">GROW WITH US</span>
-          <ul className="footerContentList">
-            <li>Careers</li>
-            <li>Guides and Playbooks </li>
-            <li>Checklists</li>
-            <li>HR Community</li>
-            <li>Partnership</li>
+          <span className="footerHeader me-3">GROW WITH US</span>
+          <ul className="footerContentList ms-2">
+            <li
+              onClick={() => navigate("/Coming-soon")}
+              className="cursor-pointer"
+            >
+              Careers
+            </li>
+            <li
+              onClick={() => navigate("/Coming-soon")}
+              className="cursor-pointer"
+            >
+              Guides and Playbooks{" "}
+            </li>
+            <li
+              onClick={() => navigate("/Coming-soon")}
+              className="cursor-pointer"
+            >
+              Checklists
+            </li>
+            <li
+              onClick={() => navigate("/Coming-soon")}
+              className="cursor-pointer"
+            >
+              HR Community
+            </li>
+            <li
+              onClick={() => navigate("/Coming-soon")}
+              className="cursor-pointer"
+            >
+              Partnership
+            </li>
           </ul>
         </div>
         <div
@@ -88,13 +132,38 @@ export default function Footer() {
             isMobile ? "col-12" : "col-2 align-items-center"
           } d-flex my-4 flex-column`}
         >
-          <span className="footerHeader">ABOUT US</span>
-          <ul className="footerContentList">
-            <li>Our Story</li>
-            <li onClick={() => navigate("/About-us")}>About-us</li>
-            <li>Testimonials</li>
-            <li>FAQs</li>
-            <li>Terms of Service</li>
+          <span className="footerHeader me-3">ABOUT US</span>
+          <ul className="footerContentList ms-2">
+            <li
+              onClick={() => navigate("/Coming-soon")}
+              className="cursor-pointer"
+            >
+              Our Story
+            </li>
+            <li
+              onClick={() => navigate("/About-us")}
+              className="cursor-pointer"
+            >
+              About-us
+            </li>
+            <li
+              onClick={() => navigate("/Coming-soon")}
+              className="cursor-pointer"
+            >
+              Testimonials
+            </li>
+            <li
+              onClick={() => navigate("/Coming-soon")}
+              className="cursor-pointer"
+            >
+              FAQs
+            </li>
+            <li
+              onClick={() => navigate("/Coming-soon")}
+              className="cursor-pointer"
+            >
+              Terms of Service
+            </li>
           </ul>
         </div>
       </div>

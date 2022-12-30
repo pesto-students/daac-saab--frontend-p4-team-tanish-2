@@ -8,6 +8,7 @@ import Special from "./views/Special/Special";
 import Error from "./views/404/js/Error.js";
 import Coming from "./views/Coming soon/js/Coming.js";
 import Calendar from "./views/Calendar/js/Calendar.js";
+import Profile from "./views/Profile/js/Profile.js";
 export default function DaacSaabRoutes() {
   return (
     <Suspense fallback={<div></div>}>
@@ -20,6 +21,7 @@ export default function DaacSaabRoutes() {
         <Route path="*" element={<Error />} />
         <Route path="Coming-soon" element={<Coming />} />
         <Route path="Schedule-Appointment" element={<Calendar />}/>
+        <Route path="User-profile" element={<Profile />} />
       </Routes>
     </Suspense>
   );
