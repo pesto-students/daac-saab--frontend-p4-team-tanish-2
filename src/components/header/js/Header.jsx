@@ -33,7 +33,7 @@ export default function Header() {
           <div className="product-section d-flex flex-column text-start position-absolute">
             <span
               className="my-2 cursor-pointer"
-              onClick={() => navigate("/One-top")}
+              onClick={() => navigate("/One-tap")}
             >
               One-tap
             </span>
