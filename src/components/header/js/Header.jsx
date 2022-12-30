@@ -6,9 +6,11 @@ import { isMobile } from "react-device-detect";
 import mobile from "../../../assets/Vector.svg";
 import { useSelector, useDispatch } from "react-redux";
 import { showModal } from "../../../Store/Slice/LoginSlice";
+import { useAuth0 } from "@auth0/auth0-react";
 
 export default function Header() {
   const [showMobileNav, setShowMobileNav] = useState(false);
+  const { loginWithRedirect } = useAuth0();
   const dispatch = useDispatch();
   const params = useParams();
   const navigate = useNavigate();
@@ -28,7 +30,7 @@ export default function Header() {
         <span className="nav">Resoures</span>
       </div>
       <div className="navbarBtn col-2">
-        <button className="logInBtn" onClick={() => dispatch(showModal())}>
+        <button className="logInBtn" onClick={() => loginWithRedirect()}>
           Login
         </button>
         <button className="signUpBtn">SignUp</button>
