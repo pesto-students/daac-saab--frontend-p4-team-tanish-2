@@ -1,11 +1,17 @@
 import React, { useEffect, useState } from "react";
 import { useAuth0 } from "@auth0/auth0-react";
 import axios from "axios";
+import { useDispatch, useSelector } from "react-redux";
+import { getUser } from "../../../Store/Slice/UserSlice";
 
 const Profile = () => {
   const { user, isAuthenticated, getAccessTokenSilently } = useAuth0();
   const [userMetadata, setUserMetadata] = useState(null);
-
+  const dispatch = useDispatch();
+  console.log(user, "user");
+  dispatch(getUser(user));
+  const abc = useSelector((state) => state);
+  console.log(abc, "akjsbc");
   //   if (isLoading) {
   //     return <div>Loading ...</div>;
   //   }
@@ -39,7 +45,6 @@ const Profile = () => {
         });
 
         const { user_metadata } = await metadataResponse.json();
-
         setUserMetadata(user_metadata);
       } catch (e) {
         console.log(e.message);
@@ -49,7 +54,8 @@ const Profile = () => {
     getUserMetadata();
   }, [getAccessTokenSilently, user?.sub]);
   const { logout } = useAuth0();
-  console.log(userMetadata, "datatatata");
+  console.log(user, "current User");
+
   return (
     isAuthenticated && (
       <div>
@@ -59,7 +65,9 @@ const Profile = () => {
         <button
           className="btn btn-primary"
           onClick={() => logout({ returnTo: window.location.origin })}
-        >Logout</button>
+        >
+          Logout
+        </button>
         {/* <h3>User Metadata</h3> */}
         {/* {userMetadata ? (
           <pre>{JSON.stringify(userMetadata, null, 2)}</pre>

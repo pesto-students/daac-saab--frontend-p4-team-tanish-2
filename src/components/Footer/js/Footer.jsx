@@ -12,7 +12,7 @@ import { useNavigate, useParams } from "react-router-dom";
 export default function Footer() {
   const params = useParams();
   const navigate = useNavigate();
-  
+
   return (
     <div
       className={`${
