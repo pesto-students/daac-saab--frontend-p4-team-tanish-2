@@ -1,0 +1,26 @@
+.booking {
+  font-weight: 800;
+  font-size: 24px;
+  font-family: "EB Garamond";
+  font-style: normal;
+}
+.docName {
+  color: #1bb4a4;
+  font-weight: 700;
+  font-size: 24px;
+}
+.specialistMainText {
+  color: #979797;
+  font-weight: 700;
+  font-size: 13px;
+}
+.experienceText {
+  color: #3e4a59;
+  font-weight: 400;
+  font-size: 14px;
+}
+.supervisorText {
+  color: #3e4a59;
+  font-weight: 700;
+  font-size: 14px;
+}
