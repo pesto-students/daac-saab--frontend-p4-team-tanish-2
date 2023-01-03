@@ -248,7 +248,11 @@ export default function OneTap() {
         <button
           className="btn btn-secondary"
           onClick={() => {
-            navigate("/Specialist");
+            if (isAuthenticated) {
+              navigate("/Specialist");
+            } else {
+              loginWithRedirect();
+            }
           }}
         >
           No, I want to see a specialist

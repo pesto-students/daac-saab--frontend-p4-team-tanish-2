@@ -4,6 +4,7 @@ import seperator from "../../../assets/seperator.svg";
 import Specialist from "../../../components/Specialist/js/Specialist";
 import docImg from "../../../assets/docImg.svg";
 import docImgFemale from "../../../assets/docFemale.svg";
+import { useNavigate, useParams } from "react-router-dom";
 
 const doctor = [
   {
@@ -113,6 +114,8 @@ const doctor = [
   },
 ];
 export default function DoctorPage() {
+  const navigate = useNavigate();
+  const params = useParams();
   return (
     <div className="container mt-5 pt-5">
       <div className="d-flex flex-column">
@@ -121,7 +124,10 @@ export default function DoctorPage() {
         <div className="d-flex flex-wrap justify-content-between mb-5">
           {doctor.map((x, i) => {
             return (
-              <div className="mx-2">
+              <div
+                className="mx-2"
+                onClick={() => navigate(`/Specialist/${params?.id}/${x.name}`)}
+              >
                 <Specialist
                   name={x.name}
                   imglogo={x.Image}

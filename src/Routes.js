@@ -15,12 +15,12 @@ export default function DaacSaabRoutes() {
       <Routes>
         <Route exact path="/" element={<Homepage />} />
         <Route path="/One-tap" element={<OneTap />} />
-        <Route path="/Doctor" element={<DoctorPage />} />
+        <Route path="/Specialist/:id" element={<DoctorPage />} />
         <Route path="/About-us" element={<AboutUs />} />
         <Route path="/Specialist" element={<Special />} />
         <Route path="*" element={<Error />} />
         <Route path="Coming-soon" element={<Coming />} />
-        <Route path="Schedule-Appointment" element={<Calendar />}/>
+        <Route path="/Specialist/:id/:id" element={<Calendar />} />
         <Route path="User-profile" element={<Profile />} />
       </Routes>
     </Suspense>

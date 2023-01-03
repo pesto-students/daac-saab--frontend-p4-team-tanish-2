@@ -13,7 +13,10 @@ const Category = (props) => {
         <div className="mb-2 header-text">{Specialty}</div>
         <div className="mb-4 description">{description}</div>
         <div className="doctor-page-link">
-          <span className="mb-2 " onClick={() => navigate("/Doctor")}>
+          <span
+            className="mb-2 "
+            onClick={() => navigate(`/Specialist/${Specialty}`)}
+          >
             See Doctors &gt;
           </span>
         </div>

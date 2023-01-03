@@ -1,18 +1,39 @@
-import React from 'react'
+import React from "react";
 import { InlineWidget } from "react-calendly";
+import "../css/Calendar.css";
+import doctor from "../../../assets/docFemale.svg";
 const Calendar = () => {
   return (
-    <div className="container">
-       
-        <InlineWidget url="https://calendly.com/gantavya99/30min" />
-        <a href="https://www.picktime.com/2589fe2f-b893-43d5-85de-e19631262090" 
-        className="ptbkbtn" target="_blank"><img border="none" 
-        src="https://www.picktime.com/img/widgetButtons/BookingPage/picktime-book-online-gray.png"
-         alt="Book an appointment with Daac Saab"/></a>
-        
-    </div>
-    
-  )
-}
+    <div className="container col-12">
+      <span className="booking">Book a consultation</span>
+      <div className="d-flex">
+        <div className="col-4 mt-5">
+          <div className="d-flex mb-4">
+            <div className="d-flex ">
+              <img alt="doc-img" src={doctor} />
+              <div className="d-flex flex-column ms-3">
+                <span className="docName">Dr.Pooja Kadar</span>
+                <span className="specialistMainText">Dermatologist</span>
+                <span className="experienceText">
+                  10 years of experience MBBS, Diploma in Dermatology Diploma in
+                  Cosmetology (UK) Speaks English, Hindi, Marathi
+                </span>
+              </div>
+            </div>
+          </div>
+          <span className="supervisorText">
+            Our dedicated medical advisors Dr. Supriya and Dr. Priyadarshani
+            will be in touch with you post scheduling to guide you through the
+            consultation.
+          </span>
+        </div>
 
-export default Calendar
+        <div className="col-12">
+          <InlineWidget url="https://calendly.com/gantavya99/30min" />
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default Calendar;
