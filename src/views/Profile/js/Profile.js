@@ -3,6 +3,7 @@ import { useAuth0 } from "@auth0/auth0-react";
 import axios from "axios";
 import { useDispatch, useSelector } from "react-redux";
 import { getUser } from "../../../Store/Slice/UserSlice";
+import "../css/profile.css";
 
 const Profile = () => {
   const { user, isAuthenticated, getAccessTokenSilently } = useAuth0();
@@ -58,23 +59,30 @@ const Profile = () => {
 
   return (
     isAuthenticated && (
-      <div>
-        <img src={user.picture} alt={user.name} />
-        <h2>{user.name}</h2>
-        <p>{user.email}</p>
-        <button
-          className="btn btn-primary"
-          onClick={() => logout({ returnTo: window.location.origin })}
-        >
-          Logout
-        </button>
-        {/* <h3>User Metadata</h3> */}
-        {/* {userMetadata ? (
-          <pre>{JSON.stringify(userMetadata, null, 2)}</pre>
-        ) : (
-          "No user metadata defined"
-        )} */}
-      </div>
+      <>
+        <div className="d-flex justify-content-center align-items-center">
+          <img src={user.picture} alt={"user-pic"} className="userImg" />
+          <div className="d-flex flex-column ms-3">
+            <h2>{user.name}</h2>
+            <p>{user.email}</p>
+          </div>
+
+          {/* <h3>User Metadata</h3> */}
+          {/* {userMetadata ? (
+      <pre>{JSON.stringify(userMetadata, null, 2)}</pre>
+    ) : (
+      "No user metadata defined"
+    )} */}
+        </div>
+        <div className="text-center">
+          <button
+            className="btn btn-primary "
+            onClick={() => logout({ returnTo: window.location.origin })}
+          >
+            Logout
+          </button>
+        </div>
+      </>
     )
   );
 };
