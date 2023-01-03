@@ -1,5 +1,5 @@
 import React from "react";
-import { InlineWidget } from "react-calendly";
+import { useCalendlyEventListener, InlineWidget } from "react-calendly";
 import "../css/Calendar.css";
 import doctor from "../../../assets/docFemale.svg";
 const Calendar = () => {
@@ -29,7 +29,9 @@ const Calendar = () => {
         </div>
 
         <div className="col-12">
-          <InlineWidget url="https://calendly.com/gantavya99/30min" />
+          <InlineWidget url="https://calendly.com/gantavya99/appointment-with-daac-saab" 
+          
+          />
         </div>
       </div>
     </div>
