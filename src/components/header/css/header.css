@@ -7,7 +7,6 @@
 .cursor-pointer {
   cursor: pointer;
 }
-
 .featureText span {
   color: #ff8080;
   font-weight: 500;
@@ -53,20 +52,21 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin: 10px;
+  padding: 10px;
   position: fixed;
   top: 0;
   right: 0;
   left: 0;
   z-index: 9999;
+  background-color: #fdf9f9;
 }
 .nav {
-  color: #ffffff;
+  color: #343030;
 }
 .logInBtn {
-  border: 1px solid #ffffff;
+  border: 1px solid #343030;
   border-radius: 5px;
-  color: #ffffff;
+  color: #343030;
   background: none;
   padding: 7px 22px;
   font-weight: 500;
@@ -94,14 +94,27 @@
   font-size: 15.4px;
   padding: 7px 22px;
 }
+.product-section {
+  background-color: #ffffff;
+  border-radius: 5px;
+}
 .product-section > span {
-  color: rgb(239, 201, 201);
+  color: #2c2626;
   list-style: none;
+  font-size: 16px;
+  font-weight: 500;
+}
+.product-section :hover {
+  color: #161010;
+  list-style: none;
+  background-color: #d9d9d9;
+  padding: 5px 5px;
+  border-radius: 5px;
 }
 .product-section {
   top: 27px;
   left: 35px;
 }
 .product-section > span:hover {
-  transform: scale(1.1);
+  /* transform: scale(1.1); */
 }

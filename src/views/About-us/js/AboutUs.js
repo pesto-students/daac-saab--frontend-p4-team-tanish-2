@@ -96,7 +96,7 @@ export default function AboutUs() {
           </div>
         </div>
       </div>
-      <div className="position-relative ">
+      <div className="position-relative container">
         <div className="container footerBottom d-flex position-absolute footerBottomPosition">
           <img src={bottom} alt="bottom" className="img-fluid" />
           <div className="d-flex flex-column col-6">

@@ -12,7 +12,7 @@ import { useNavigate, useParams } from "react-router-dom";
 export default function Footer() {
   const params = useParams();
   const navigate = useNavigate();
-  console.log(window.location.href.split("/")[3], "svsd");
+
   return (
     <div
       className={`${

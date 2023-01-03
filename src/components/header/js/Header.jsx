@@ -17,34 +17,38 @@ export default function Header() {
   const dispatch = useDispatch();
   const params = useParams();
   const navigate = useNavigate();
+
   return (
     <div className="main">
-      <div onClick={() => navigate("")}>
+      <div onClick={() => navigate("")} className="cursor-pointer">
         <img src={logo} alt="logo" />
       </div>
       <div
         className="navbar position-relative"
         onMouseLeave={() => setIsProductHovering(false)}
       >
-        <span className="nav" onMouseEnter={() => setIsProductHovering(true)}>
+        <span
+          className="nav cursor-pointer"
+          onMouseEnter={() => setIsProductHovering(true)}
+        >
           Product Features
         </span>
         {isProductHovering && (
           <div className="product-section d-flex flex-column text-start position-absolute">
             <span
-              className="my-2 cursor-pointer"
+              className="py-2 px-2 cursor-pointer"
               onClick={() => navigate("/One-tap")}
             >
               One-tap Prescription
             </span>
             <span
-              className="my-2 cursor-pointer"
+              className="py-2 px-2 cursor-pointer"
               onClick={() => navigate("/Coming-soon")}
             >
               Blogs
             </span>
             <span
-              className="my-2 cursor-pointer"
+              className="py-2 px-2 cursor-pointer"
               onClick={() => navigate("/Coming-soon")}
             >
               Wellness
@@ -57,7 +61,9 @@ export default function Header() {
         >
           {params === "doctor" ? "Healthcare" : "About us"}
         </span>
-        <span className="nav">Resoures</span>
+        <span className="nav cursor-pointer" onClick={() => navigate("/Coming-soon")}>
+          Resources
+        </span>
       </div>
 
       <div className="navbarBtn col-2">

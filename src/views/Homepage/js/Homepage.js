@@ -21,7 +21,8 @@ import { showModal, closeModal } from "../../../Store/Slice/LoginSlice";
 export default function Homepage() {
   //const [showModal, setShowModal] = useState(false);
   const navigate = useNavigate();
-
+  const user = useSelector((state) => state.User);
+  console.log(user, "usuer");
   return (
     <>
       <div className="rootHome">
@@ -39,15 +40,15 @@ export default function Homepage() {
               </span>
               <button className="talkToUs">Talk to us</button>
               <div className="firstContentTestemonial">
-                <div>
+                <div className="col-6 mx-1">
                   <span className="testomonial">13k+</span>
                   <p className="testomonial">Happy Patients</p>
                 </div>
-                <div>
+                <div className="col-6 mx-1">
                   <span className="testomonial">4.8/5</span>
                   <p className="testomonial">App Rating</p>
                 </div>
-                <div>
+                <div className="col-6 mx-1">
                   <span className="testomonial">300+</span>
                   <p className="testomonial">Doctors</p>
                 </div>
