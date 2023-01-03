@@ -1,6 +1,6 @@
 import React from "react";
 import "../css/aboutUs.css";
-import groupPic from "../../../assets/group.svg";
+import groupPic from "../../../assets/group.jpg";
 import doc from "../../../assets/about_doc.svg";
 import i1 from "../../../assets/i1.svg.svg";
 import i2 from "../../../assets/i2.svg.svg";
@@ -57,9 +57,9 @@ export default function AboutUs() {
             care makes this possible.
           </span>
           <span className="section3Desc my-3">
-            Daac Saab is India’s first integrated care provider. We help companies
-            get amazing health benefits for their teams and deliver the care
-            with our own in-house team of 30 experienced doctors.
+            Daac Saab is India’s first integrated care provider. We help
+            companies get amazing health benefits for their teams and deliver
+            the care with our own in-house team of 30 experienced doctors.
           </span>
         </div>
         <div className="col-6 ms-5 mb-5 pb-5">
