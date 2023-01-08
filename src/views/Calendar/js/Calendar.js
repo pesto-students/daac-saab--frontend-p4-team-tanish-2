@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { InlineWidget } from "react-calendly";
 import "../css/Calendar.css";
 import doctor from "../../../assets/docFemale.svg";
-import { backendUrl } from "../../../../Backend";
+import { backendUrl } from "../../Backend";
 import { useParams } from "react-router-dom";
 import axios from "axios";
 const Calendar = () => {

@@ -7,7 +7,7 @@ import specialIcon from "./../../assets/specialIcon.svg";
 import online_consult from "./../../assets/online_consult.svg";
 import digital_prescription from "./../../assets/digital_prescription.svg";
 import Accordion from "react-bootstrap/Accordion";
-import { backendUrl } from "../../../Backend";
+import { backendUrl } from "../../Backend";
 import axios from "axios";
 
 const Special = () => {
