@@ -6,6 +6,7 @@ import docImg from "../../../assets/docImg.svg";
 import docImgFemale from "../../../assets/docFemale.svg";
 import { useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
+import { backendUrl } from "../../../Backend";
 
 export default function DoctorPage() {
   const navigate = useNavigate();
@@ -14,7 +15,7 @@ export default function DoctorPage() {
 
   const getDoctor = async () => {
     await axios
-      .get("http://localhost:5001/getDoctor")
+      .get(`${backendUrl}/getDoctor`)
       .then((response) => {
         setDocotors(response.data);
       })
