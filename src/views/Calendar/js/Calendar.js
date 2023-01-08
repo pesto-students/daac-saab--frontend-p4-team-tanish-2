@@ -46,7 +46,9 @@ const Calendar = () => {
         </div>
 
         <div className="col-12">
-          <InlineWidget url="https://calendly.com/gantavya99/30min" />
+          <InlineWidget url="https://calendly.com/gantavya99/appointment-with-daac-saab" 
+          
+          />
         </div>
       </div>
     </div>
