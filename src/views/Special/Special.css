@@ -66,3 +66,9 @@
   font-size: 14px;
   color: #3e4a59;
 }
+.text-line-truncate {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}

@@ -112,8 +112,7 @@
   border-radius: 5px;
 }
 .product-section {
-  top: 27px;
-  left: 35px;
+  top: 40px;
 }
 .product-section > span:hover {
   /* transform: scale(1.1); */
