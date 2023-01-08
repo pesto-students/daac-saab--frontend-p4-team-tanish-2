@@ -8,7 +8,6 @@ import { v4 as uuid } from "uuid";
 import jsPDF from "jspdf";
 import FileDownloadIcon from "@mui/icons-material/FileDownload";
 import { useAuth0 } from "@auth0/auth0-react";
-
 const data = [
   {
     Symptom: "Headache",
@@ -160,7 +159,7 @@ export default function OneTap() {
   const [prescription, setPrescription] = useState([]);
   const [showPrescription, setShowPrescription] = useState(false);
   const navigate = useNavigate();
-  const { isAuthenticated, loginWithRedirect } = useAuth0();
+  const { isAuthenticated, loginWithRedirect, user } = useAuth0();
   function MyVerticallyCenteredModal(props) {
     return (
       <Modal
@@ -205,7 +204,6 @@ export default function OneTap() {
       setSelectedSymptom(prevValue);
     }
   };
-  console.log(selectedSymptom.length);
 
   const handlePrescription = (sym, pres) => {
     if (!prescription.includes(sym)) {
@@ -228,7 +226,18 @@ export default function OneTap() {
       },
     });
   };
-
+  // const getDate = () => {
+  //   const newDate = new Date();
+  //   const m = "";
+  //   const date = newDate.getDate();
+  //   const month = newDate.getMonth();
+  //   const year = newDate.getFullYear();
+  //   if (month === 0) {
+  //     m = "January";
+  //   }
+  //   return { date: date, year: year, month: m };
+  // };
+  // console.log(getDate(), "date");
   return (
     <div className="">
       <div className="enquiry-div container">
@@ -307,9 +316,10 @@ export default function OneTap() {
                     </div>
                     <hr className="m-3"></hr>
                     <div className="ms-3 info">
-                      <div>Name : Gantavya</div>
-                      {/* <div>Age : 23</div> */}
-                      <div>Date : 29/12/2022</div>
+                      <div>Name : {user?.name}</div>
+                      <div>Gender : {user?.gender}</div>
+                      <div>Age : {user?.birthdate}</div>
+                      <div>Date : {"date"}</div>
                       <div className="mt-3 advice">Advice :</div>
                     </div>
                     {prescription.map((elem, i) => {
@@ -343,7 +353,7 @@ export default function OneTap() {
           <div className="d-flex justify-content-center align-items-center mt-5 mb-5">
             <button
               className="btn btn-submit"
-              disabled={selectedSymptom.length === 0}
+              disabled={selectedSymptom.length === 0 ? true : false}
               onClick={() => {
                 if (isAuthenticated) {
                   setShowPrescription(true);

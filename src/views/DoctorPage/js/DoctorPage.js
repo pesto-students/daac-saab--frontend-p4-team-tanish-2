@@ -1,144 +1,56 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "../css/DoctorPage.css";
 import seperator from "../../../assets/seperator.svg";
 import Specialist from "../../../components/Specialist/js/Specialist";
 import docImg from "../../../assets/docImg.svg";
 import docImgFemale from "../../../assets/docFemale.svg";
 import { useNavigate, useParams } from "react-router-dom";
+import axios from "axios";
 
-const doctor = [
-  {
-    name: "Dr. Gourish Karande",
-    specialist: "Family Physician & Diabetologist",
-    degree: "MBBS, DNB (Family Medicine), PGDGM",
-    experience: "15",
-    Image: docImg,
-  },
-  {
-    name: "Dr. Amruta Bakshi",
-    specialist: "Family Physician & Diabetologist",
-    degree: "MBBS, MD (Biochemistry)",
-    experience: "13",
-    Image: docImgFemale,
-  },
-  {
-    name: "Dr. Waseem Ahmed",
-    specialist: "Family Physician & Diabetologist",
-    degree: "MBBS, DNB (Family Medicine), PGDGM",
-    experience: "8",
-    Image: docImg,
-  },
-  {
-    name: "Dr. Gourish Karande",
-    specialist: "Family Physician & Diabetologist",
-    degree: "MBBS, DNB (Family Medicine), PGDGM",
-    experience: "15",
-    Image: docImg,
-  },
-  {
-    name: "Dr. Gourish Karande",
-    specialist: "Family Physician & Diabetologist",
-    degree: "MBBS, DNB (Family Medicine), PGDGM",
-    experience: "15",
-    Image: docImg,
-  },
-  {
-    name: "Dr. Gourish Karande",
-    specialist: "Family Physician & Diabetologist",
-    degree: "MBBS, DNB (Family Medicine), PGDGM",
-    experience: "15",
-    Image: docImg,
-  },
-  {
-    name: "Dr. Gourish Karande",
-    specialist: "Family Physician & Diabetologist",
-    degree: "MBBS, DNB (Family Medicine), PGDGM",
-    experience: "15",
-    Image: docImg,
-  },
-  {
-    name: "Dr. Gourish Karande",
-    specialist: "Family Physician & Diabetologist",
-    degree: "MBBS, DNB (Family Medicine), PGDGM",
-    experience: "15",
-    Image: docImg,
-  },
-  {
-    name: "Dr. Gourish Karande",
-    specialist: "Family Physician & Diabetologist",
-    degree: "MBBS, DNB (Family Medicine), PGDGM",
-    experience: "15",
-    Image: docImg,
-  },
-  {
-    name: "Dr. Gourish Karande",
-    specialist: "Family Physician & Diabetologist",
-    degree: "MBBS, DNB (Family Medicine), PGDGM",
-    experience: "15",
-    Image: docImg,
-  },
-  {
-    name: "Dr. Gourish Karande",
-    specialist: "Family Physician & Diabetologist",
-    degree: "MBBS, DNB (Family Medicine), PGDGM",
-    experience: "15",
-    Image: docImg,
-  },
-  {
-    name: "Dr. Gourish Karande",
-    specialist: "Family Physician & Diabetologist",
-    degree: "MBBS, DNB (Family Medicine), PGDGM",
-    experience: "15",
-    Image: docImg,
-  },
-  {
-    name: "Dr. Gourish Karande",
-    specialist: "Family Physician & Diabetologist",
-    degree: "MBBS, DNB (Family Medicine), PGDGM",
-    experience: "15",
-    Image: docImg,
-  },
-  {
-    name: "Dr. Gourish Karande",
-    specialist: "Family Physician & Diabetologist",
-    degree: "MBBS, DNB (Family Medicine), PGDGM",
-    experience: "15",
-    Image: docImg,
-  },
-  {
-    name: "Dr. Gourish Karande",
-    specialist: "Family Physician & Diabetologist",
-    degree: "MBBS, DNB (Family Medicine), PGDGM",
-    experience: "15",
-    Image: docImg,
-  },
-];
 export default function DoctorPage() {
   const navigate = useNavigate();
   const params = useParams();
+  const [doctors, setDocotors] = useState([]);
+
+  const getDoctor = async () => {
+    await axios
+      .get("http://localhost:5001/getDoctor")
+      .then((response) => {
+        setDocotors(response.data);
+      })
+      .catch((err) => {
+        throw new Error(err);
+      });
+  };
+  console.log(params, "params");
+  useEffect(() => {
+    getDoctor();
+  }, []);
   return (
     <div className="container mt-5 pt-5">
       <div className="d-flex flex-column">
-        <span className="specialistText"> General Physician</span>
+        <span className="specialistText"> {params?.id}</span>
         <img src={seperator} alt="separator" className="img-fluid col-1" />
-        <div className="d-flex flex-wrap justify-content-between mb-5">
-          {doctor.map((x, i) => {
-            return (
-              <div
-                className="mx-2"
-                onClick={() => navigate(`/Specialist/${params?.id}/${x.name}`)}
-              >
-                <Specialist
-                  name={x.name}
-                  imglogo={x.Image}
-                  degree={x.degree}
-                  specialist={x.specialist}
-                  experience={x.experience}
-                />
-              </div>
-            );
-          })}
-        </div>
+      </div>
+
+      <div className="d-flex justify-content-between flex-wrap mb-5">
+        {doctors.slice(0, 25)?.map((x, i) => {
+          return (
+            <div
+              className="col-4"
+              onClick={() => navigate(`/Specialist/${params?.id}/${x._id}`)}
+            >
+              <Specialist
+                id={x?._id}
+                name={x?.name}
+                imglogo={x?.image}
+                degree={x?.degree}
+                specialist={x?.specialist}
+                experience={x?.exprience}
+              />
+            </div>
+          );
+        })}
       </div>
     </div>
   );
