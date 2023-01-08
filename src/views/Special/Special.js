@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "./Special.css";
 import General_Physian_Logo from "./../../assets/General_Physian_Logo.svg";
 import GreyBG from "./../../assets/GreyBG.svg";
@@ -7,87 +7,24 @@ import specialIcon from "./../../assets/specialIcon.svg";
 import online_consult from "./../../assets/online_consult.svg";
 import digital_prescription from "./../../assets/digital_prescription.svg";
 import Accordion from "react-bootstrap/Accordion";
+import { backendUrl } from "../../../Backend";
+import axios from "axios";
+
 const Special = () => {
-  const data = [
-    {
-      Image: General_Physian_Logo,
-      title: "General Physician",
-      Description:
-        "For common medical conditions like headache, cough and more",
-    },
-    {
-      Image: General_Physian_Logo,
-      title: "Dietician",
-      Description:
-        "For common medical conditions like headache, cough and more",
-    },
-    {
-      Image: General_Physian_Logo,
-      title: "Gyno",
-      Description:
-        "For common medical conditions like headache, cough and more",
-    },
-    {
-      Image: General_Physian_Logo,
-      title: "Bone Specialist",
-      Description:
-        "For common medical conditions like headache, cough and more",
-    },
-    {
-      Image: General_Physian_Logo,
-      title: "Neurologist",
-      Description:
-        "For common medical conditions like headache, cough and more",
-    },
-    {
-      Image: General_Physian_Logo,
-      title: "Surgeon",
-      Description:
-        "For common medical conditions like headache, cough and more",
-    },
-    {
-      Image: General_Physian_Logo,
-      title: "Dermatologist",
-      Description:
-        "For common medical conditions like headache, cough and more",
-    },
-    {
-      Image: General_Physian_Logo,
-      title: "Hair Specialist",
-      Description:
-        "For common medical conditions like headache, cough and more",
-    },
-    {
-      Image: General_Physian_Logo,
-      title: "General Physician",
-      Description:
-        "For common medical conditions like headache, cough and more",
-    },
-    {
-      Image: General_Physian_Logo,
-      title: "General Physician",
-      Description:
-        "For common medical conditions like headache, cough and more",
-    },
-    {
-      Image: General_Physian_Logo,
-      title: "Dentist",
-      Description:
-        "For common medical conditions like headache, cough and more",
-    },
-    {
-      Image: General_Physian_Logo,
-      title: "Eye Specialist",
-      Description:
-        "For common medical conditions like headache, cough and more",
-    },
-    {
-      Image: General_Physian_Logo,
-      title: "Chiropractor",
-      Description:
-        "For common medical conditions like headache, cough and more",
-    },
-  ];
+  const [docData, setDocData] = useState([]);
+  const getDocDetail = async () => {
+    await axios
+      .get(`${backendUrl}/getDoctorDetail`)
+      .then((response) => {
+        setDocData(response.data);
+      })
+      .catch((err) => {
+        throw new Error(err);
+      });
+  };
+  useEffect(() => {
+    getDocDetail();
+  }, []);
   return (
     <div>
       <div className="container mt-5 pt-5">
@@ -100,13 +37,13 @@ const Special = () => {
           at your convenience
         </div>
         <div className="d-flex flex-wrap">
-          {data.map((x, i) => {
+          {docData.slice(0, 35).map((x, i) => {
             return (
-              <div className="me-3">
+              <div className="me-3" key={i}>
                 <Category
-                  logo={x.Image}
-                  Specialty={x.title}
-                  description={x.Description}
+                  logo={General_Physian_Logo}
+                  Specialty={x?.degree}
+                  description={x?.specialist}
                 />
               </div>
             );

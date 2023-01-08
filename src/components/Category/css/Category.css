@@ -31,3 +31,9 @@
 .doctor-page-link :hover {
   color: rgb(62, 62, 241) !important;
 }
+.text-line-truncate {
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}

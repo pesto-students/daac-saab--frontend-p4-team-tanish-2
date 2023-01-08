@@ -13,19 +13,19 @@ const Profile = () => {
   dispatch(getUser(user));
   const abc = useSelector((state) => state);
   console.log(abc, "akjsbc");
-  //   if (isLoading) {
-  //     return <div>Loading ...</div>;
-  //   }
-  //   const getUserData = async () => {
-  //     await axios
-  //       .get(`https://${"dev-pusoarj7qy7ljns4.us.auth0.com"}/api/v2/`)
-  //       .then((res) => {
-  //         setUserMetadata(res);
-  //       });
-  //   };
-  //   useEffect(() => {
-  //     getUserData();
-  //   }, []);
+    // if (isLoading) {
+    //   return <div>Loading ...</div>;
+    // }
+    // const getUserData = async () => {
+    //   await axios
+    //     .get(`https://${"dev-pusoarj7qy7ljns4.us.auth0.com"}/api/v2/`)
+    //     .then((res) => {
+    //       setUserMetadata(res);
+    //     });
+    // };
+    // useEffect(() => {
+    //   getUserData();
+    // }, []);
 
   useEffect(() => {
     const getUserMetadata = async () => {
@@ -56,6 +56,7 @@ const Profile = () => {
   }, [getAccessTokenSilently, user?.sub]);
   const { logout } = useAuth0();
   console.log(user, "current User");
+  console.log(userMetadata, "userMetadata");
 
   return (
     isAuthenticated && (

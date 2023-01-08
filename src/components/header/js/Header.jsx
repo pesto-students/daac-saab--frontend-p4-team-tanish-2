@@ -24,23 +24,24 @@ export default function Header() {
         <img src={logo} alt="logo" />
       </div>
       <div
-        className="navbar position-relative"
+        className="navbar "
         onMouseLeave={() => setIsProductHovering(false)}
       >
         <span
-          className="nav cursor-pointer"
+              className="py-2 px-2 cursor-pointer"
+              onClick={() => navigate("/One-tap")}
+            >
+              One-tap Prescription
+            </span>
+        <span
+          className="nav cursor-pointer position-relative"
           onMouseEnter={() => setIsProductHovering(true)}
         >
           Product Features
         </span>
         {isProductHovering && (
           <div className="product-section d-flex flex-column text-start position-absolute">
-            <span
-              className="py-2 px-2 cursor-pointer"
-              onClick={() => navigate("/One-tap")}
-            >
-              One-tap Prescription
-            </span>
+            
             <span
               className="py-2 px-2 cursor-pointer"
               onClick={() => navigate("/Coming-soon")}
