@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { InlineWidget } from "react-calendly";
 import "../css/Calendar.css";
 import doctor from "../../../assets/docFemale.svg";
+import { backendUrl } from "../../../../Backend";
 import { useParams } from "react-router-dom";
 import axios from "axios";
 const Calendar = () => {
@@ -9,7 +10,7 @@ const Calendar = () => {
   const params = useParams();
   const getDocById = async (id) => {
     await axios
-      .get(`http://localhost:5001/doctor/${id}`)
+      .get(`${backendUrl}/doctor/${id}`)
       .then((res) => {
         setDoctorById(res.data);
       })
