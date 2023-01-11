@@ -69,7 +69,7 @@ export default function Header() {
 
       <div className="navbarBtn col-2">
         {isAuthenticated ? (
-          <div className="ms-auto pe-3">
+          <div className="ms-auto pe-3 cursor-pointer">
             <AccountCircleIcon
               color="secondary"
               onClick={() => navigate("/User-profile")}

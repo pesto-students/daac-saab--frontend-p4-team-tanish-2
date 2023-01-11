@@ -23,7 +23,6 @@ export default function DoctorPage() {
         throw new Error(err);
       });
   };
-  console.log(params, "params");
   useEffect(() => {
     getDoctor();
   }, []);
