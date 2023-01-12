@@ -9,7 +9,8 @@ import Error from "./views/404/js/Error.js";
 import Coming from "./views/Coming soon/js/Coming.js";
 import Calendar from "./views/Calendar/js/Calendar.js";
 import Profile from "./views/Profile/js/Profile.js";
-import Payment from "./views/Payment.js/Payment.js";
+import Checkout from "./components/Stripe/checkout.js";
+
 export default function DaacSaabRoutes() {
   return (
     <Suspense fallback={<div></div>}>
@@ -23,7 +24,7 @@ export default function DaacSaabRoutes() {
         <Route path="Coming-soon" element={<Coming />} />
         <Route path="/Specialist/:id/:id" element={<Calendar />} />
         <Route path="User-profile" element={<Profile />} />
-        <Route path="/Payments" element={<Payment />} />
+        <Route path="/Checkout" element={<Checkout />} />
       </Routes>
     </Suspense>
   );
