@@ -8,20 +8,21 @@ import axios from "axios";
 const Calendar = () => {
   const [doctorById, setDoctorById] = useState([]);
   const params = useParams();
+  let doctorId = params.id.split(":");
   const getDocById = async (id) => {
     await axios
-      .get(`${backendUrl}/doctor/${id}`)
+      .get(`${backendUrl}/doctorByDetail/${id}`)
       .then((res) => {
         setDoctorById(res.data);
+        console.log(res.data, "data data");
       })
       .catch((err) => {
         throw new Error(err);
       });
   };
   useEffect(() => {
-    getDocById(params?.id);
+    getDocById(doctorId[1]);
   }, []);
-  console.log(doctorById, "doctor");
   return (
     <div className="container col-12">
       <span className="booking">Book a consultation</span>
@@ -29,9 +30,9 @@ const Calendar = () => {
         <div className="col-4 mt-5">
           <div className="d-flex mb-4">
             <div className="d-flex ">
-              <img alt="doc-img" src={doctorById?.image} />
+              <img alt="doc-img" src={doctorById?.Image} />
               <div className="d-flex flex-column ms-3">
-                <span className="docName">Dr.{doctorById?.name}</span>
+                <span className="docName">{doctorById?.name}</span>
                 <span className="specialistMainText">
                   {doctorById?.specialist}
                 </span>
@@ -46,9 +47,7 @@ const Calendar = () => {
         </div>
 
         <div className="col-12">
-          <InlineWidget url="https://calendly.com/gantavya99/appointment-with-daac-saab" 
-          
-          />
+          <InlineWidget url="https://calendly.com/gantavya99/appointment-with-daac-saab" />
         </div>
       </div>
     </div>

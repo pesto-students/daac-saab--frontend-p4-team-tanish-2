@@ -20,7 +20,7 @@ export default function DaacSaabRoutes() {
         <Route path="/Specialist" element={<Special />} />
         <Route path="*" element={<Error />} />
         <Route path="Coming-soon" element={<Coming />} />
-        <Route path="/Specialist/:id/:id" element={<Calendar />} />
+        <Route path="/Schedule-Appointment/:id" element={<Calendar />} />
         <Route path="User-profile" element={<Profile />} />
       </Routes>
     </Suspense>

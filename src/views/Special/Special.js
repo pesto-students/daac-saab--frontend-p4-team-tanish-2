@@ -37,13 +37,13 @@ const Special = () => {
           at your convenience
         </div>
         <div className="d-flex flex-wrap">
-          {docData.slice(0, 35).map((x, i) => {
+          {docData.map((x, i) => {
             return (
               <div className="me-3" key={i}>
                 <Category
                   logo={General_Physian_Logo}
-                  Specialty={x?.degree}
-                  description={x?.specialist}
+                  degree={x?.degree}
+                  specialist={x?.specialist}
                 />
               </div>
             );
