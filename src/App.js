@@ -8,7 +8,7 @@ import TawkMessengerReact from "@tawk.to/tawk-messenger-react";
 import { useAuth0 } from "@auth0/auth0-react";
 import { useDyteClient, DyteProvider } from "@dytesdk/react-web-core";
 import { DyteMeeting } from "@dytesdk/react-ui-kit";
-
+import Skeleton, { SkeletonTheme } from "react-loading-skeleton";
 
 import "./App.css";
 function App() {
@@ -33,9 +33,12 @@ function App() {
       <div style={{ position: "relative" }}>
         <Header />
       </div>
-      <div style={{marginTop:"80px"}}>
-        <DaacSaabRoutes />
-      </div>
+      <SkeletonTheme baseColor="#202020" highlightColor="#444">
+        <div style={{ marginTop: "80px" }}>
+          <DaacSaabRoutes />
+        </div>
+      </SkeletonTheme>
+
       <div>
         <DyteProvider value={dyteMeeting}>
           <div style={{ width: "100vw", height: "100vh" }}>
