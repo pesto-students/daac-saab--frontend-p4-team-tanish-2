@@ -12,7 +12,7 @@ const myMeeting = async(element)=>{
     zc.joinRoom({
         container: element,
         sharedLinks: [{
-            name:'Copy Link',
+            name:'Copy Link !',
             url:`hhtps://localhost:3000/room/${roomId}` 
         }
             
