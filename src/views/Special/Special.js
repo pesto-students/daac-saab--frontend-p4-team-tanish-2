@@ -12,11 +12,14 @@ import axios from "axios";
 
 const Special = () => {
   const [docData, setDocData] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
   const getDocDetail = async () => {
+    setIsLoading(true);
     await axios
       .get(`${backendUrl}/getDoctorDetail`)
       .then((response) => {
         setDocData(response.data);
+        setIsLoading(false);
       })
       .catch((err) => {
         throw new Error(err);
@@ -41,6 +44,7 @@ const Special = () => {
             return (
               <div className="me-3" key={i}>
                 <Category
+                  isLoading={isLoading}
                   logo={General_Physian_Logo}
                   degree={x?.degree}
                   specialist={x?.specialist}
