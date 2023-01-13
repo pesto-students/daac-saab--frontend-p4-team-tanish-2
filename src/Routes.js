@@ -11,6 +11,7 @@ import Calendar from "./views/Calendar/js/Calendar.js";
 import Profile from "./views/Profile/js/Profile.js";
 import Checkout from "./components/Stripe/checkout.js";
 import JoinRoom from "./views/Video/js/JoinRoom.js";
+import Room from "./views/Room/Room.js";
 
 export default function DaacSaabRoutes() {
   return (
@@ -27,6 +28,7 @@ export default function DaacSaabRoutes() {
         <Route path="User-profile" element={<Profile />} />
         <Route path="/Checkout" element={<Checkout />} />
         <Route path="/Video" element={<JoinRoom />} />
+        <Route path="/room/:roomId" element={<Room />} />
       </Routes>
     </Suspense>
   );
