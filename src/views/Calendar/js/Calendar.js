@@ -5,6 +5,8 @@ import doctor from "../../../assets/docFemale.svg";
 import { backendUrl } from "../../../Backend";
 import { useParams } from "react-router-dom";
 import axios from "axios";
+import Avatar from "react-avatar";
+
 const Calendar = () => {
   const [doctorById, setDoctorById] = useState([]);
   const params = useParams();
@@ -30,7 +32,11 @@ const Calendar = () => {
         <div className="col-4 mt-5">
           <div className="d-flex mb-4">
             <div className="d-flex ">
-              <img alt="doc-img" src={doctorById?.Image} />
+              <Avatar
+                name={doctorById?.name}
+                round={true}
+                textSizeRatio={1.75}
+              />
               <div className="d-flex flex-column ms-3">
                 <span className="docName">{doctorById?.name}</span>
                 <span className="specialistMainText">

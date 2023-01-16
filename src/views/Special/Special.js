@@ -42,10 +42,12 @@ const Special = () => {
         <div className="d-flex flex-wrap">
           {docData.map((x, i) => {
             return (
-              <div className="me-3" key={i}>
+              <div className="me-3" key={x?._id}>
                 <Category
                   isLoading={isLoading}
                   logo={General_Physian_Logo}
+                  exprience={x.exprience}
+                  name={x.name}
                   degree={x?.degree}
                   specialist={x?.specialist}
                 />
