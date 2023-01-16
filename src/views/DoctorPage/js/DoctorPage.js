@@ -22,12 +22,7 @@ export default function DoctorPage() {
       </div>
 
       <div className="d-flex justify-content-between flex-wrap mb-5">
-        <div
-          className="col-4"
-          // onClick={() => navigate(`/Specialist/${params?.id}/${x._id}`)}
-        >
-          <Specialist />
-        </div>
+        <Specialist />
       </div>
     </div>
   );
