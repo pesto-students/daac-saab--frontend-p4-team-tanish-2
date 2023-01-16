@@ -1,6 +1,6 @@
 import React from "react";
 import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
-import { app } from "../../context/Firebase";
+import { app,useFirebase } from "../../context/Firebase";
 import { useState } from "react";
 
 const auth = getAuth(app);
@@ -9,6 +9,15 @@ const SignIn = () => {
   const [email, setEmail] = useState("");
 
   const [password, setPassword] = useState("");
+
+  const firebase = useFirebase();
+  console.log(firebase)
+  const handleLogin=async (e)=>{
+    e.preventDefault();
+    console.log("Loggin in a User");
+    await firebase.signInUserWithEmailAndPassword(email,password);
+    console.log("Login In Sucess !!")
+  }
 
   const signInUser = () => {
     signInWithEmailAndPassword(auth, email, password)

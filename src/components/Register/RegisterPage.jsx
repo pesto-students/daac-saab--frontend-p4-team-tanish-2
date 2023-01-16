@@ -1,6 +1,6 @@
 import React from "react";
 import { createUserWithEmailAndPassword, getAuth } from "firebase/auth";
-import { app } from "../../context/Firebase";
+import { app, useFirebase } from "../../context/Firebase";
 import { useState } from "react";
 import { GoogleAuthProvider,signInWithPopup } from "firebase/auth";
 
@@ -9,9 +9,19 @@ const auth = getAuth(app);
 const googleProvider=new GoogleAuthProvider();
 
 const RegisterPage = () => {
+
   const [email, setEmail] = useState("");
 
   const [password, setPassword] = useState("");
+
+  const firebase = useFirebase();
+  console.log(firebase)
+  const handleSubmit= async (e)=>{
+    e.preventDefault();
+    console.log("Signing up a User");
+    await firebase.signUpUserWithEmailAndPassword(email,password);
+    console.log("Sign In Sucess !!")
+  }
 
   const signUpUser = () => {
     createUserWithEmailAndPassword(auth, email, password).then((value) =>
@@ -45,7 +55,7 @@ const RegisterPage = () => {
         <button onClick={signUpWithGoogle}>
          Sign in with google
         </button>
-        <button className="btn-primary" onClick={signUpUser}>
+        <button className="btn-primary" onClick={handleSubmit}>
           Sign Up
         </button>
       </div>
