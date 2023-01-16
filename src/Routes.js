@@ -12,9 +12,12 @@ import Profile from "./views/Profile/js/Profile.js";
 import Checkout from "./components/Stripe/checkout.js";
 import JoinRoom from "./views/Video/js/JoinRoom.js";
 import Room from "./views/Room/Room.js";
+
 import Modal from "./views/Modal/Modal.js";
 import RegisterPage from "./components/Register/RegisterPage.jsx";
 import SignIn from "./components/Register/SignIn.jsx";
+
+
 
 export default function DaacSaabRoutes() {
   return (
@@ -32,8 +35,10 @@ export default function DaacSaabRoutes() {
         <Route path="User-profile" element={<Profile />} />
         <Route path="/Checkout" element={<Checkout />} />
         <Route path="/Video" element={<JoinRoom />} />
+
         <Route path="/Sign-Up" element={<RegisterPage />} />
         <Route path="/Sign-In" element={<SignIn />} />
+
         <Route path="/room/:roomId" element={<Room />} />
       </Routes>
     </Suspense>
