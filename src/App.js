@@ -43,9 +43,9 @@ function App() {
           </div>
         </DyteProvider>
       </div>
-      <div>
+      {/* <div>
         <Footer />
-      </div>
+      </div> */}
       <LoginPage />
       {isAuthenticated && (
         <div className="App">
