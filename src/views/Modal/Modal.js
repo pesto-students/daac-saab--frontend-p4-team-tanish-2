@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import "./Modal.css";
+import SignIn from "../../components/Register/SignIn";
 
 export default function Modal() {
   const [modal, setModal] = useState(false);
@@ -24,26 +25,17 @@ export default function Modal() {
 
       {modal && (
         <div className="modal1">
-          <div onClick={toggleModal} className="overlay1"></div>
+          <div onClick={toggleModal} className="overlay1">
+
+          </div>
           <div className="modal-content1 ">
-            <div className="d-flex flex-row align-items-center justify-content-center">
-                <div>
-                <input type="email" placeholder="Enter your email  ! "/>
-                </div>
-                <div>
-                <input type ="password" placeholder="Enter your password "/>
-                </div>
-            <div>
-            <button className="close-modal1" onClick={toggleModal}>
-            Sign Up
-            </button>
+            <SignIn />
+            
             </div>
             
               
             </div>
           
-          </div>
-        </div>
       )}
       
     </>

@@ -1,11 +1,8 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
 import { getAnalytics } from "firebase/analytics";
-// TODO: Add SDKs for Firebase products that you want to use
-// https://firebase.google.com/docs/web/setup#available-libraries
-
-// Your web app's Firebase configuration
-// For Firebase JS SDK v7.20.0 and later, measurementId is optional
+import {React, createContext} from 'react';
+import {getAuth} from 
 const firebaseConfig = {
   apiKey: "AIzaSyBDKdjd4kLRIM56eZEe-kHj_lv66hP7jbM",
   authDomain: "daac-saab.firebaseapp.com",
@@ -16,6 +13,25 @@ const firebaseConfig = {
   measurementId: "G-NRXZ37NN50",
   databaseURL:'https://console.firebase.google.com/u/2/project/daac-saab/database/daac-saab-default-rtdb/data/~2F'
 };
+
+const firebaseApp = initializeApp(firebaseConfig);
+const FirebaseContext=createContext(null);
+
+export const FirebaseProvider = (props) => {
+  return (
+    <FirebaseProvider>
+      {props.children}
+    </FirebaseProvider>
+  )
+}
+
+
+
+
+
+
+
+
 
 // Initialize Firebase
 export const app = initializeApp(firebaseConfig);
