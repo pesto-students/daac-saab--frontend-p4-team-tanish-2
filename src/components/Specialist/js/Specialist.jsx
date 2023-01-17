@@ -32,7 +32,7 @@ const Specialist = (props) => {
           <div
             key={i}
             className="specialist-card d-flex align-items-center mt-5 me-2 col-3"
-            onClick={() => navigate(`/Schedule-Appointment/:${x?._id}`)}
+            onClick={() => navigate(`${x?._id}`)}
           >
             <Avatar name={x?.name} round={true} textSizeRatio={1.75}/>
             <div className="d-flex flex-column mx-2">

@@ -10,7 +10,6 @@ import Avatar from "react-avatar";
 const Calendar = () => {
   const [doctorById, setDoctorById] = useState([]);
   const params = useParams();
-  let doctorId = params.id.split(":");
   const getDocById = async (id) => {
     await axios
       .get(`${backendUrl}/doctorByDetail/${id}`)
@@ -23,7 +22,7 @@ const Calendar = () => {
       });
   };
   useEffect(() => {
-    getDocById(doctorId[1]);
+    getDocById(params?.id);
   }, []);
   return (
     <div className="container col-12">
