@@ -309,3 +309,21 @@ a:hover {
 .MuiInputBase-root .no-hover:hover {
   background-color: transparent;
 }
+.requestInput input {
+  border: 1px solid #000000;
+  border-radius: 10px;
+  height: 50px;
+  padding-left: 20px;
+}
+.requestInput input::placeholder {
+  color: #28b446;
+  font-size: 14px;
+  padding-left: 20px;
+}
+.requestInput .btn {
+  background-color: #bcdd33;
+}
+.cancelIcon{
+  font-weight: 900;
+  font-size: 20px;
+}

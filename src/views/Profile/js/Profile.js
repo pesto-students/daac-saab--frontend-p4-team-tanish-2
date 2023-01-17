@@ -12,7 +12,6 @@ const Profile = () => {
   console.log(user, "user");
   dispatch(getUser(user));
   const abc = useSelector((state) => state);
-  console.log(abc, "akjsbc");
     // if (isLoading) {
     //   return <div>Loading ...</div>;
     // }
@@ -75,7 +74,7 @@ const Profile = () => {
       "No user metadata defined"
     )} */}
         </div>
-        <div className="text-center">
+        <div className="text-center pb-5 mb-3">
           <button
             className="btn btn-primary "
             onClick={() => logout({ returnTo: window.location.origin })}

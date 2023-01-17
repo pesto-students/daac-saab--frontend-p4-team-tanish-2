@@ -6,25 +6,10 @@ import LoginPage from "./components/Login/js/LoginPage";
 import DaacSaabRoutes from "./Routes";
 import TawkMessengerReact from "@tawk.to/tawk-messenger-react";
 import { useAuth0 } from "@auth0/auth0-react";
-import { useDyteClient, DyteProvider } from "@dytesdk/react-web-core";
-import { DyteMeeting } from "@dytesdk/react-ui-kit";
-
+import Skeleton, { SkeletonTheme } from "react-loading-skeleton";
 
 import "./App.css";
 function App() {
-  const [dyteMeeting, dyteInitMeeting] = useDyteClient();
-
-  useEffect(() => {
-    dyteInitMeeting({
-      roomName: "bnesln-ntjjcj",
-      authToken: "200a2410631a887d3365",
-      defaults: {
-        audio: false,
-        video: false,
-      },
-    });
-  }, []);
-
   const tawkMessengerRef = useRef();
   const { isAuthenticated } = useAuth0();
   // const [showModal, setShowModal] = useState(false);
@@ -33,19 +18,14 @@ function App() {
       <div style={{ position: "relative" }}>
         <Header />
       </div>
-      <div style={{marginTop:"80px"}}>
-        <DaacSaabRoutes />
-      </div>
+      <SkeletonTheme baseColor="#202020" highlightColor="#444">
+        <div style={{ marginTop: "80px" }}>
+          <DaacSaabRoutes />
+        </div>
+      </SkeletonTheme>
       <div>
-        <DyteProvider value={dyteMeeting}>
-          <div style={{ width: "100vw", height: "100vh" }}>
-            <DyteMeeting meeting={dyteMeeting} mode="fill" />
-          </div>
-        </DyteProvider>
-      </div>
-      {/* <div>
         <Footer />
-      </div> */}
+      </div>
       <LoginPage />
       {isAuthenticated && (
         <div className="App">

@@ -9,7 +9,7 @@ export const loginSlice = createSlice({
   initialState,
   reducers: {
     showModal: (state) => {
-      state.value = !state.value;
+      state.value = true;
     },
     closeModal: (state) => {
       state.value = false;

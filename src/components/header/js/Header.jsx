@@ -23,16 +23,13 @@ export default function Header() {
       <div onClick={() => navigate("")} className="cursor-pointer">
         <img src={logo} alt="logo" />
       </div>
-      <div
-        className="navbar "
-        onMouseLeave={() => setIsProductHovering(false)}
-      >
+      <div className="navbar " onMouseLeave={() => setIsProductHovering(false)}>
         <span
-              className="py-2 px-2 cursor-pointer"
-              onClick={() => navigate("/One-tap")}
-            >
-              One-tap Prescription
-            </span>
+          className="py-2 px-2 cursor-pointer"
+          onClick={() => navigate("/One-tap")}
+        >
+          One-tap Prescription
+        </span>
         <span
           className="nav cursor-pointer position-relative"
           onMouseEnter={() => setIsProductHovering(true)}
@@ -41,7 +38,6 @@ export default function Header() {
         </span>
         {isProductHovering && (
           <div className="product-section d-flex flex-column text-start position-absolute">
-            
             <span
               className="py-2 px-2 cursor-pointer"
               onClick={() => navigate("/Coming-soon")}
@@ -62,14 +58,25 @@ export default function Header() {
         >
           {params === "doctor" ? "Healthcare" : "About us"}
         </span>
-        <span className="nav cursor-pointer" onClick={() => navigate("/Coming-soon")}>
+        <span
+          className="nav cursor-pointer"
+          onClick={() => navigate("/Coming-soon")}
+        >
           Resources
         </span>
       </div>
 
       <div className="navbarBtn col-2">
+        <div
+          className="doctor-request col-2 no-wrap"
+          onClick={() => {
+            dispatch(showModal());
+          }}
+        >
+          Are you a doctor ?
+        </div>
         {isAuthenticated ? (
-          <div className="ms-auto pe-3">
+          <div className="ms-auto pe-3 cursor-pointer">
             <AccountCircleIcon
               color="secondary"
               onClick={() => navigate("/User-profile")}

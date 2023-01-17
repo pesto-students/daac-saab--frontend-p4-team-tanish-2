@@ -51,9 +51,8 @@ hr {
   background-color: #eaecf1;
   border-radius: 5px;
 }
-.sym-card:hover{
+.sym-card:hover {
   transform: scale(1.06);
-  
 }
 
 .btn-light {
@@ -83,50 +82,69 @@ hr {
   color: #248774;
   background-color: #b8e507;
 }
-#contained-modal-title-vcenter{
-  color:#025f4c;
+#contained-modal-title-vcenter {
+  color: #025f4c;
 }
-.btn-modal{
-  display:flex;
+.btn-modal {
+  display: flex;
   align-items: center;
   justify-content: center;
 }
-.Prescription-box{
-  width:600px;
-  height:400px;
-  border:0.5px rgb(231, 222, 222) solid;
+.Prescription-box {
+  width: 600px;
+  height: 400px;
+  border: 0.5px rgb(231, 222, 222) solid;
   border-radius: 8px;
   box-shadow: 0px 4px 16px rgba(0, 0, 0, 0.05);
 }
-.pres-header{
-  font-weight:600;
+.pres-header {
+  font-weight: 600;
   font-size: 20px;
   text-decoration: underline;
+  font-family: cursive;
 }
-.advice{
+.advice {
   font-weight: 600 !important;
   font-size: large;
-  color:#025f4c
+  color: #025f4c;
 }
-.info{
+.info {
   font-size: small;
 }
-.suggest{
+.suggest {
   font-weight: 500;
-  color:#248774
+  color: #248774;
 }
-.btn-info{
-  float:right;
+.btn-info {
+  float: right;
   background-color: white;
-  border:0.5px #ad0b00 solid;
-  color:black;
+  border: 0.5px #ad0b00 solid;
+  color: black;
 }
-.btn-info:hover{
+.btn-info:hover {
   background-color: #ad0b00;
-  color:white;
-  border:none;
+  color: white;
+  border: none;
 }
-.btn-info::active{
-    background-color: #ad0b00 !important;
-    border:none;
+.btn-info:active {
+  background-color: #ad0b00 !important;
+  border: none;
+}
+.presData {
+  top: 35px;
+}
+.patientName {
+  font-size: 16px;
+  font-weight: 600;
+  font-family: cursive;
+}
+.patientDetails {
+  font-size: 17px;
+  font-weight: 500;
+  font-family: cursive;
+}
+.prescriptionPencil {
+  position: absolute;
+  top: 342px;
+  right: 0px;
 }
