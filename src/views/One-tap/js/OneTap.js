@@ -6,7 +6,6 @@ import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
 import jsPDF from "jspdf";
 import FileDownloadIcon from "@mui/icons-material/FileDownload";
-import { useAuth0 } from "@auth0/auth0-react";
 import axios from "axios";
 import { backendUrl } from "../../../Backend";
 import pencil from "../../../assets/pencil.svg";
@@ -15,7 +14,7 @@ const data = [
   "Headache",
 
   "Dry Cough",
-  ,
+  
   "Wet Cough",
 
   "Loose Motion",
@@ -73,7 +72,6 @@ export default function OneTap() {
   const [showPrescription, setShowPrescription] = useState(false);
   const [presData, setPresData] = useState([]);
   const navigate = useNavigate();
-  const { isAuthenticated, loginWithRedirect, user } = useAuth0();
   function MyVerticallyCenteredModal(props) {
     return (
       <Modal
@@ -140,12 +138,11 @@ export default function OneTap() {
       },
     });
   };
-  console.log(selectedSymptom[0], "selectedSymptom[0]");
+  
   const getPrescription = async () => {
     await axios
       .get(`${backendUrl}/getPrescription/${selectedSymptom[0]}`)
       .then((res) => {
-        console.log(res.data);
         setPresData(res.data);
       })
       .catch((err) => {
@@ -184,11 +181,7 @@ export default function OneTap() {
         <button
           className="btn btn-secondary"
           onClick={() => {
-            if (isAuthenticated) {
-              navigate("/Specialist");
-            } else {
-              loginWithRedirect();
-            }
+            navigate("/Specialist");
           }}
         >
           No, I want to see a specialist
@@ -263,7 +256,7 @@ export default function OneTap() {
                         <div className="position-absolute presData">
                           <div className="ms-3 info ">
                             <div className="patientName">
-                              Name : {user?.name}
+                              Name : {"user?.name"}
                             </div>
                             {/* <div>Gender : {user?.gender}</div>
                           <div>Age : {user?.birthdate}</div> */}
@@ -324,13 +317,8 @@ export default function OneTap() {
                 className="btn btn-submit"
                 disabled={selectedSymptom.length === 0 ? true : false}
                 onClick={() => {
-                  if (isAuthenticated) {
-                    getPrescription();
-                    setShowPrescription(true);
-                  } else {
-                    // loginWithRedirect();
-                    getPrescription();
-                  }
+                  getPrescription();
+                  setShowPrescription(true);
                 }}
               >
                 Generate Prescription

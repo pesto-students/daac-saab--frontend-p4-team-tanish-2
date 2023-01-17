@@ -6,14 +6,11 @@ import { isMobile } from "react-device-detect";
 import mobile from "../../../assets/Vector.svg";
 import { useSelector, useDispatch } from "react-redux";
 import { showModal } from "../../../Store/Slice/LoginSlice";
-import { useAuth0 } from "@auth0/auth0-react";
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 
 export default function Header() {
   const [showMobileNav, setShowMobileNav] = useState(false);
   const [isProductHovering, setIsProductHovering] = useState(false);
-  const { isAuthenticated } = useAuth0();
-  const { loginWithRedirect } = useAuth0();
   const dispatch = useDispatch();
   const params = useParams();
   const navigate = useNavigate();
@@ -67,34 +64,25 @@ export default function Header() {
       </div>
 
       <div className="navbarBtn col-2">
-        <div
-          className="doctor-request col-2 no-wrap"
-          onClick={() => {
-            dispatch(showModal());
-          }}
-        >
-          Are you a doctor ?
-        </div>
-        {isAuthenticated ? (
-          <div className="ms-auto pe-3 cursor-pointer">
+       
+          {/* <div className="ms-auto pe-3">
             <AccountCircleIcon
               color="secondary"
               onClick={() => navigate("/User-profile")}
             />
-          </div>
-        ) : (
+          </div> */}
+         
           <div>
             <button
               className="logInBtn mx-4"
-              onClick={() => loginWithRedirect()}
             >
               Login
             </button>
-            <button className="signUpBtn" onClick={() => loginWithRedirect()}>
+            <button className="signUpBtn">
               SignUp
             </button>
           </div>
-        )}
+        
       </div>
 
       {isMobile ? (
