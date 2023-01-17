@@ -49,7 +49,7 @@ const Category = (props) => {
               className="mb-2 "
               onClick={() => navigate(`/Specialist/${specialist}`)}
             >
-              {props.isLoading ? <Skeleton height="30px" /> : "See Doctors &gt"}
+              {props.isLoading ? <Skeleton height="30px" /> : "See Doctors ->"}
             </span>
           </div>
         </div>

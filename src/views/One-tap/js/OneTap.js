@@ -4,151 +4,64 @@ import "../css/oneTap.css";
 import { useNavigate } from "react-router-dom";
 import Button from "react-bootstrap/Button";
 import Modal from "react-bootstrap/Modal";
-import { v4 as uuid } from "uuid";
 import jsPDF from "jspdf";
 import FileDownloadIcon from "@mui/icons-material/FileDownload";
 import { useAuth0 } from "@auth0/auth0-react";
+import axios from "axios";
+import { backendUrl } from "../../../Backend";
+import pencil from "../../../assets/pencil.svg";
+
 const data = [
-  {
-    Symptom: "Headache",
-    Prescription: "Dolo 650mg for 3 Days after lunch",
-  },
-  {
-    Symptom: "Dry Cough",
-    Prescription: "Benadryl Dry two times a day",
-  },
-  {
-    Symptom: "Wet Cough",
-    Prescription: "Dabur Honitus two times a day",
-  },
-  {
-    Symptom: "Loose Motion",
-    Prescription: "Loperamide 2 times a day after food",
-  },
-  {
-    Symptom: "Constipation",
-    Prescription: "Dolo 650mg for 3 Days after lunch",
-  },
-  {
-    Symptom: "Runny Nose",
-    Prescription: "Dolo 650mg for 3 Days after lunch",
-  },
-  {
-    Symptom: "Red Eye",
-    Prescription: "Dolo 650mg for 3 Days after lunch",
-  },
-  {
-    Symptom: "Feeling cold",
-    Prescription: "Dolo 650mg for 3 Days after lunch",
-  },
-  {
-    Symptom: "Rashes",
-    Prescription: "Dolo 650mg for 3 Days after lunch",
-  },
-  {
-    Symptom: "Itching",
-    Prescription: "Dolo 650mg for 3 Days after lunch",
-  },
-  {
-    Symptom: "Breathlessness",
-    Prescription: "Dolo 650mg for 3 Days after lunch",
-  },
-  {
-    Symptom: "Bone Pain",
-    Prescription: "Dolo 650mg for 3 Days after lunch",
-  },
-  {
-    Symptom: "Dizziness",
-    Prescription: "Dolo 650mg for 3 Days after lunch",
-  },
-  {
-    Symptom: "Oral Ulcer",
-    Prescription: "Dolo 650mg for 3 Days after lunch",
-  },
-  {
-    Symptom: "Stomach Ulcer",
-    Prescription: "Dolo 650mg for 3 Days after lunch",
-  },
-  {
-    Symptom: "Nausea",
-    Prescription: "Dolo 650mg for 3 Days after lunch",
-  },
-  {
-    Symptom: "Weakness",
-    Prescription: "Dolo 650mg for 3 Days after lunch",
-  },
-  {
-    Symptom: "Pain in Knee",
-    Prescription: "Dolo 650mg for 3 Days after lunch",
-  },
-  {
-    Symptom: "Leg Sprain",
-    Prescription: "Dolo 650mg for 3 Days after lunch",
-  },
-  {
-    Symptom: "Cut on Skin",
-    Prescription: "Dolo 650mg for 3 Days after lunch",
-  },
-  {
-    Symptom: "Vomitting",
-    Prescription: "Dolo 650mg for 3 Days after lunch",
-  },
-  {
-    Symptom: "Swollen Eye",
-    Prescription: "Dolo 650mg for 3 Days after lunch",
-  },
-  {
-    Symptom: "Migraine",
-    Prescription: "Dolo 650mg for 3 Days after lunch",
-  },
-  {
-    Symptom: "Unable to Sleep",
-    Prescription: "Dolo 650mg for 3 Days after lunch",
-  },
-  {
-    Symptom: "Loss of appetite",
-    Prescription: "Dolo 650mg for 3 Days after lunch",
-  },
-  {
-    Symptom: "Pain in Kness",
-    Prescription: "Dolo 650mg for 3 Days after lunch",
-  },
-  {
-    Symptom: "Burning while Urinating",
-    Prescription: "Dolo 650mg for 3 Days after lunch",
-  },
-  {
-    Symptom: "Itchiness in Genitals",
-    Prescription: "Dolo 650mg for 3 Days after lunch",
-  },
-  {
-    Symptom: "Dandruff",
-    Prescription: "Dolo 650mg for 3 Days after lunch",
-  },
-  {
-    Symptom: "Abdominal (Pain)",
-    Prescription: "Dolo 650mg for 3 Days after lunch",
-  },
-  {
-    Symptom: "Abdominal (Burning)",
-    Prescription: "Dolo 650mg for 3 Days after lunch",
-  },
-  {
-    Symptom: "Chest Pain",
-    Prescription: "Dolo 650mg for 3 Days after lunch",
-  },
-  {
-    Symptom: "Chest Burning",
-    Prescription: "Dolo 650mg for 3 Days after lunch",
-  },
-  {
-    Symptom: "Neck Pain",
-    Prescription: "Dolo 650mg for 3 Days after lunch",
-  },
-  {
-    Symptom: "Nose Bleeding",
-    Prescription: "Dolo 650mg for 3 Days after lunch",
-  },
+  "Headache",
+
+  "Dry Cough",
+  ,
+  "Wet Cough",
+
+  "Loose Motion",
+
+  "Constipation",
+
+  "Runny Nose",
+
+  "Red Eye",
+
+  "Feeling cold",
+
+  "Rashes",
+
+  "Itching",
+
+  "Breathlessness",
+
+  "Bone Pain",
+
+  "Dizziness",
+
+  "Oral Ulcer",
+
+  "Stomach Ulcer",
+
+  "Nausea",
+  "Weakness",
+  "Pain in Knee",
+  "Leg Sprain",
+  "Cut on Skin",
+  "Vomitting",
+  "Swollen Eye",
+  "Migraine",
+  "Unable to Sleep",
+  "Loss of appetite",
+  "Pain in Kness",
+  "Burning while Urinating",
+  "Itchiness in Genitals",
+  "Dandruff",
+  "Abdominal (Pain)",
+  "Abdominal (Burning)",
+  "Chest Pain",
+  "Chest Burning",
+  "Neck Pain",
+  "Nose Bleeding",
 ];
 
 export default function OneTap() {
@@ -158,6 +71,7 @@ export default function OneTap() {
   const [modalShow, setModalShow] = React.useState(false);
   const [prescription, setPrescription] = useState([]);
   const [showPrescription, setShowPrescription] = useState(false);
+  const [presData, setPresData] = useState([]);
   const navigate = useNavigate();
   const { isAuthenticated, loginWithRedirect, user } = useAuth0();
   function MyVerticallyCenteredModal(props) {
@@ -196,11 +110,11 @@ export default function OneTap() {
   }
 
   const handleSymptomColor = (elem, index) => {
-    if (!selectedSymptom.includes(index)) {
-      const prevValue = [...selectedSymptom, index];
+    if (!selectedSymptom.includes(elem)) {
+      const prevValue = [...selectedSymptom, elem];
       setSelectedSymptom(prevValue);
     } else {
-      const prevValue = selectedSymptom.filter((sym) => sym !== index);
+      const prevValue = selectedSymptom.filter((sym) => sym !== elem);
       setSelectedSymptom(prevValue);
     }
   };
@@ -226,6 +140,18 @@ export default function OneTap() {
       },
     });
   };
+  console.log(selectedSymptom[0], "selectedSymptom[0]");
+  const getPrescription = async () => {
+    await axios
+      .get(`${backendUrl}/getPrescription/${selectedSymptom[0]}`)
+      .then((res) => {
+        console.log(res.data);
+        setPresData(res.data);
+      })
+      .catch((err) => {
+        throw new Error(err);
+      });
+  };
   // const getDate = () => {
   //   const newDate = new Date();
   //   const m = "";
@@ -238,6 +164,7 @@ export default function OneTap() {
   //   return { date: date, year: year, month: m };
   // };
   // console.log(getDate(), "date");
+
   return (
     <div className="">
       <div className="enquiry-div container">
@@ -296,12 +223,12 @@ export default function OneTap() {
                     showModal();
                   }}
                   className={`m-2 ${
-                    selectedSymptom.includes(i)
+                    selectedSymptom.includes(x)
                       ? "selectedSymptomColor"
                       : "sym-card"
                   }`}
                 >
-                  {x.Symptom}
+                  {x}
                 </div>
               );
             })}
@@ -310,31 +237,72 @@ export default function OneTap() {
             <div>
               <div className="d-flex align-items-center justify-content-center">
                 <div className="Prescription-box mt-3 ">
-                  <div id="prescription-pdf">
-                    <div className="d-flex align-items-center justify-content-center mt-1 pres-header">
-                      PRESCRIPTION
-                    </div>
-                    <hr className="m-3"></hr>
-                    <div className="ms-3 info">
-                      <div>Name : {user?.name}</div>
-                      <div>Gender : {user?.gender}</div>
-                      <div>Age : {user?.birthdate}</div>
-                      <div>Date : {"date"}</div>
-                      <div className="mt-3 advice">Advice :</div>
-                    </div>
-                    {prescription.map((elem, i) => {
-                      return (
-                        <div key={i} className="ms-3 mt-2">
-                          {elem.Prescription}
+                  {presData.map((x, i) => {
+                    return (
+                      <div id="prescription-pdf" className="position-relative">
+                        <div className="d-flex align-items-center justify-content-center mt-1 pres-header">
+                          PRESCRIPTION
                         </div>
-                      );
-                    })}
-                    <div className="ms-3 mt-3 suggest">
-                      General health suggestions :
-                    </div>
-                    <div className="ms-3">1. Regular exercise</div>
-                    <div className="ms-3">2. Avoid Oily foods</div>
-                  </div>
+                        <hr className="my-4"></hr>
+                        <hr className="my-4"></hr>
+                        <hr className="my-4"></hr>
+                        <hr className="my-4"></hr>
+                        <hr className="my-4"></hr>
+
+                        <hr className="my-4"></hr>
+                        <hr className="my-4"></hr>
+                        <hr className="my-4"></hr>
+
+                        <hr className="my-4"></hr>
+                        <hr className="my-4"></hr>
+                        <hr className="my-4"></hr>
+                        <hr className="my-4"></hr>
+                        <hr className="my-4"></hr>
+                        <hr className="my-4"></hr>
+
+                        <div className="position-absolute presData">
+                          <div className="ms-3 info ">
+                            <div className="patientName">
+                              Name : {user?.name}
+                            </div>
+                            {/* <div>Gender : {user?.gender}</div>
+                          <div>Age : {user?.birthdate}</div> */}
+                            <div className="patientName">
+                              Date : {x?.createAt}
+                            </div>
+                            <div className=" advice">Advice :</div>
+                          </div>
+
+                          <div className="ms-3 patientDetails">
+                            {x?.advice.map((y, j) => {
+                              return (
+                                <div className="">
+                                  {j + 1}.{y}
+                                </div>
+                              );
+                            })}
+                          </div>
+
+                          <div className="ms-3 suggest">
+                            General health suggestions :
+                          </div>
+                          {x?.health.map((z, k) => {
+                            return (
+                              <div className="ms-3 patientDetails">
+                                {k + 1}. {z}
+                              </div>
+                            );
+                          })}
+                        </div>
+                        <img
+                          className="img-fluid prescriptionPencil"
+                          loading="lazy"
+                          alt="pencil"
+                          src={pencil}
+                        />
+                      </div>
+                    );
+                  })}
                 </div>
               </div>
               <div>
@@ -351,19 +319,23 @@ export default function OneTap() {
             </div>
           ) : null}
           <div className="d-flex justify-content-center align-items-center mt-5 mb-5">
-            <button
-              className="btn btn-submit"
-              disabled={selectedSymptom.length === 0 ? true : false}
-              onClick={() => {
-                if (isAuthenticated) {
-                  setShowPrescription(true);
-                } else {
-                  loginWithRedirect();
-                }
-              }}
-            >
-              Generate Prescription
-            </button>
+            {!showPrescription && (
+              <button
+                className="btn btn-submit"
+                disabled={selectedSymptom.length === 0 ? true : false}
+                onClick={() => {
+                  if (isAuthenticated) {
+                    getPrescription();
+                    setShowPrescription(true);
+                  } else {
+                    // loginWithRedirect();
+                    getPrescription();
+                  }
+                }}
+              >
+                Generate Prescription
+              </button>
+            )}
           </div>
         </div>
       ) : null}
