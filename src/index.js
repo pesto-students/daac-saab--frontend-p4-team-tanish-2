@@ -3,6 +3,7 @@ import ReactDOM from "react-dom/client";
 import "./index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
+import { FirebaseProvider } from "../src/context/Firebase";
 import { store } from "../src/Store/store.js";
 import { Provider } from "react-redux";
 import { Auth0Provider } from "@auth0/auth0-react";
@@ -17,7 +18,10 @@ root.render(
     scope="read:current_user update:current_user_metadata"
   >
     <Provider store={store}>
+      <FirebaseProvider>
       <App />
+      </FirebaseProvider>
+      
     </Provider>
   </Auth0Provider>
 );
