@@ -5,12 +5,16 @@ import Header from "./components/header/js/Header";
 import LoginPage from "./components/Login/js/LoginPage";
 import DaacSaabRoutes from "./Routes";
 import TawkMessengerReact from "@tawk.to/tawk-messenger-react";
-
+import RegisterPage from "./components/Register/RegisterPage";
+import SignIn from "./components/Register/SignIn";
+import { app } from "./context/Firebase";
 
 import "./App.css";
 function App() {
   
   const tawkMessengerRef = useRef();
+  const auth = getAuth(app);
+
   
   return (
     <Router>
