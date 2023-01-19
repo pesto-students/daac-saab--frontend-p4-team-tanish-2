@@ -56,7 +56,7 @@ const RegisterPage = () => {
 
   return (
     <>
-      <MDBContainer fluid className="p-4">
+      <MDBContainer fluid className="p-4" style={{backgroundColor:"hsl(0, 0%, 96%)"}}>
         <MDBRow>
           <MDBCol
             md="6"

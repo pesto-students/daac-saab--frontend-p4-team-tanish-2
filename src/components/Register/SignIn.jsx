@@ -49,8 +49,8 @@ const SignIn = () => {
   };
 
   return (
-    <MDBContainer fluid className="p-4">
-      <MDBRow>
+    <MDBContainer fluid className="p-4" style={{backgroundColor:"hsl(0, 0%, 96%)"}}>
+      <MDBRow >
         <MDBCol
           md="6"
           className="text-center text-md-start d-flex flex-column justify-content-center"
