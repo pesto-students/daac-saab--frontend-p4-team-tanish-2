@@ -13,7 +13,7 @@ const myMeeting = async(element)=>{
         container: element,
         sharedLinks: [{
             name:'Copy Link !',
-            url:`hhtps://localhost:3000/room/${roomId}` 
+            url:`https://daac-saab.vercel.app/room/${roomId}` 
         }
             
         ],

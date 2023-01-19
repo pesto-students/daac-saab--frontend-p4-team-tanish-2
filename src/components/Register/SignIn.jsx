@@ -107,16 +107,26 @@ const SignIn = () => {
                 />
               </div>
 
-              <MDBBtn onClick={signInUser} className="w-100 mb-4" size="md">
+              <MDBBtn onClick={signInUser} className="w-100 mb-3" size="md">
                 Login
               </MDBBtn>
 
               <div className="text-center">
-                <p>or sign up with:</p>
+                <p>or sign in with:</p>
 
                 <button className="Google-btn-login p-2" onClick={signInWithGoogle}>
                   <GoogleIcon /> Login with Google
                 </button>
+                <div className="mt-3">
+                <span>
+                 New user? &nbsp;  
+                  </span> 
+                  <span className="register-here" onClick={()=>navigate("/Sign-Up")}>
+                    Register here 
+                  </span>
+                </div>
+                
+                  
               </div>
             </MDBCardBody>
           </MDBCard>

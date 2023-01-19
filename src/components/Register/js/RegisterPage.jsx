@@ -22,6 +22,10 @@ import { app } from "../../../context/Firebase";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "../css/Register.css";
+import {ToastContainer, toast} from "react-toastify";
+
+
+
 
 const auth = getAuth(app);
 const googleProvider = new GoogleAuthProvider();
@@ -32,12 +36,17 @@ const RegisterPage = () => {
   const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-
+  
   //signUp Functions
   const signUpUser = () => {
-    createUserWithEmailAndPassword(auth, email, password).then((value) =>
-      navigate("/")
-    );
+    createUserWithEmailAndPassword(auth, email, password).then(() =>
+      navigate("/"),
+    ).catch((value)=>{
+        toast.error(value);
+        console.log(value)  
+        alert(value);                                                                                                      
+    }
+    )
   };
 
   const signInWithGoogle = () => {
@@ -47,6 +56,8 @@ const RegisterPage = () => {
   };
 
   return (
+    <>
+    <ToastContainer />
     <MDBContainer fluid className="p-4">
       <MDBRow >
         <MDBCol
@@ -69,7 +80,7 @@ const RegisterPage = () => {
         <MDBCol md="6" >
           <MDBCard className="my-5 w-50 input-login">
             <MDBCardBody className="p-5">
-              {/* <MDBRow>
+              <MDBRow>
               <MDBCol col='6'>
                 <MDBInput wrapperClass='mb-4' label='First name' id='form1' type='text'/>
               </MDBCol>
@@ -77,7 +88,7 @@ const RegisterPage = () => {
               <MDBCol col='6'>
                 <MDBInput wrapperClass='mb-4' label='Last name' id='form1' type='text'/>
               </MDBCol>
-            </MDBRow> */}
+            </MDBRow>
 
               <MDBInput
                 wrapperClass="mb-4"
@@ -116,12 +127,22 @@ const RegisterPage = () => {
                 <button className="Google-btn p-2" onClick={signInWithGoogle}>
                   <GoogleIcon /> Sign up with Google
                 </button>
+                <div className="mt-3">
+                <span>
+                 Already have account? &nbsp;  
+                  </span> 
+                  <span className="register-here" onClick={()=>navigate("/Sign-In")}>
+                    Click here 
+                  </span>
+                </div>
               </div>
             </MDBCardBody>
           </MDBCard>
         </MDBCol>
       </MDBRow>
     </MDBContainer>
+    
+    </>
   );
 };
 export default RegisterPage;
