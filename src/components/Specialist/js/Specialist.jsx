@@ -9,6 +9,7 @@ import Avatar from "react-avatar";
 
 const Specialist = (props) => {
   const [doctors, setDoctors] = useState([]);
+  const [payNow, setPayNow] = useState("");
   const params = useParams();
 
   const getDoctorBySpecility = async () => {
@@ -33,9 +34,20 @@ const Specialist = (props) => {
             key={i}
             className="specialist-card d-flex align-items-center mt-5 me-2 col-3"
             onClick={() => navigate(`${x?._id}`)}
+            onMouseLeave={() => {
+              setPayNow("");
+            }}
           >
-            <Avatar name={x?.name} round={true} textSizeRatio={1.75}/>
-            <div className="d-flex flex-column mx-2">
+            <Avatar
+              name={x?.name}
+              round={true}
+              textSizeRatio={1.75}
+              className="Avatar-img"
+            />
+            <div
+              className="d-flex flex-column mx-2"
+              onMouseEnter={() => setPayNow(x?._id)}
+            >
               <span className="docText mb-1">{x?.name}</span>
               <span className="docSpecialist mb-1 ">{x?.specialist}</span>
               <span className="docDegreeText mb-1 text-line-truncate">
@@ -43,7 +55,18 @@ const Specialist = (props) => {
               </span>
               <span className="docDegreeText mb-1">{`${x?.experience} years of experience`}</span>
             </div>
-            <img src={chevron} alt="chevron" className="img-fluid " />
+            <img src={chevron} alt="chevron" className="img-fluid ms-auto" />
+            {payNow === x?._id && (
+              <div
+                className="position-absolute pay-now-div col-12 text--center ps-4 py-2"
+                onClick={(e) => {
+                  e.stopPropagation();
+                  navigate("/checkout");
+                }}
+              >
+                <span className="ms-5 ps-5 ">Pay Rs.300</span>
+              </div>
+            )}
           </div>
         );
       })}

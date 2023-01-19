@@ -2,9 +2,20 @@
   border: 1px solid #eaecf1;
   border-radius: 8px;
   padding: 15px 0px;
+  position: relative;
 }
 .specialist-card :hover {
   box-shadow: drop-shadow(0px 4px 16px rgba(0, 0, 0, 0.05));
+}
+.Avatar-img .Avatar-img sb-avatar__text{
+  width: 60px;
+}
+.pay-now-div {
+  bottom: -25px;
+  background: #185f4c;
+  color: #ffffff;
+  font-weight: 500;
+  border-radius: 0px 0px 10px 10px;
 }
 .text-line-truncate {
   display: -webkit-box;
