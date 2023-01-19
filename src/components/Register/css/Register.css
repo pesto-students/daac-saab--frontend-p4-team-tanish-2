@@ -24,4 +24,9 @@ body {
     color:white;
     background:rgb(219, 48, 29);
   }
+  .register-here:hover{
+    color:blue;
+    cursor:pointer;
+    text-decoration:underline;
+  }
   
