@@ -29,6 +29,7 @@ export default function Homepage() {
           <div className={`firstContent ${isMobile ? "flex-wrap" : ""} my-5`}>
             <div className="grid">
               {" "}
+              
               <span className="textColor">
                 With great Technology{" "}
                 <span className="textColorInner">comes great</span> Healthcare

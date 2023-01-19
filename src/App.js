@@ -15,32 +15,8 @@ import { onAuthStateChanged,getAuth,signOut } from "firebase/auth";
 const auth = getAuth(app);
 
 
-function App() {
-
-   const [user,setUser]=useState(null);
-  
-  const tawkMessengerRef = useRef();
-
-  //for user login status
-  // useEffect(()=>{
-  //   onAuthStateChanged(auth,user=>{
-  //       if(user){
-  //         setUser(user)
-  //       }else{
-  //         setUser(null)
-  //       }
-  //   })
-  // }, []);
-
-  // if(user===null){
-  //   return (
-  //     <>
-  //     <RegisterPage />
-  //     </>
-  //   )
-  // }
-
-  
+function App() {  
+  const tawkMessengerRef = useRef();  
   return (
     <Router>
       <div style={{ position: "relative" }}>
