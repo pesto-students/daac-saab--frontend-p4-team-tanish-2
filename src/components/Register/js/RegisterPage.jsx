@@ -6,10 +6,10 @@ import {
   onAuthStateChanged,
   signInWithPopup,
 } from "firebase/auth";
-import { app} from "../../context/Firebase";
+import { app} from "../../../context/Firebase";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-
+import "../css/Register.css";
 
 
 
@@ -31,11 +31,13 @@ import { useNavigate } from "react-router-dom";
   };
 
   const signInWithGoogle = () => {
-    signInWithPopup(auth,googleProvider).then(()=>{navigate("/")});
+    signInWithPopup(auth,googleProvider).then(()=>{
+      navigate("/")
+    })
   };
-
+  
   return (
-    <div className="container">
+    <div className="container register-container mt-5">
       <div className="d-flex align-items-center justify-content-center flex-column ">
         <label className="mt-5">Email</label>
         <input
@@ -54,7 +56,7 @@ import { useNavigate } from "react-router-dom";
           placeholder="Enter your Password"
         />
         <br />
-        <button onClick={signInWithGoogle}>Sign in with google</button>
+        <button className="btn-danger" onClick={signInWithGoogle}>Sign in with google</button>
         <button className="btn-primary" onClick={signUpUser}>
           Sign Up
         </button>
