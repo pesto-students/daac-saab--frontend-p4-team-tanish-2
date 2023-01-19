@@ -8,12 +8,37 @@ import TawkMessengerReact from "@tawk.to/tawk-messenger-react";
 import RegisterPage from "./components/Register/RegisterPage";
 import SignIn from "./components/Register/SignIn";
 import { app } from "./context/Firebase";
-
 import "./App.css";
+import { onAuthStateChanged,getAuth,signOut } from "firebase/auth";
+
+
+const auth = getAuth(app);
+
+
 function App() {
+
+   const [user,setUser]=useState(null);
   
   const tawkMessengerRef = useRef();
-  const auth = getAuth(app);
+
+  //for user login status
+  // useEffect(()=>{
+  //   onAuthStateChanged(auth,user=>{
+  //       if(user){
+  //         setUser(user)
+  //       }else{
+  //         setUser(null)
+  //       }
+  //   })
+  // }, []);
+
+  // if(user===null){
+  //   return (
+  //     <>
+  //     <RegisterPage />
+  //     </>
+  //   )
+  // }
 
   
   return (

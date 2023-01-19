@@ -32,7 +32,7 @@ export default function DaacSaabRoutes() {
         <Route path="*" element={<Error />} />
         <Route path="Coming-soon" element={<Coming />} />
         <Route path="/Specialist/:id/:id" element={<Calendar />} />
-        {/* <Route path="User-profile" element={<Profile />} /> */}
+        <Route path="User-profile" element={<Profile />} />
         <Route path="/Checkout" element={<Checkout />} />
         <Route path="/Video" element={<JoinRoom />} />
 

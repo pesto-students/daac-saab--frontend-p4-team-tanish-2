@@ -1,20 +1,37 @@
 import React from "react";
-import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
+import { getAuth, signInWithEmailAndPassword,GoogleAuthProvider,
+  onAuthStateChanged,
+  signInWithPopup } from "firebase/auth";
 import { app } from "../../context/Firebase";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 const auth = getAuth(app);
+const googleProvider =  new GoogleAuthProvider();
 
 const SignIn = () => {
-  const [email, setEmail] = useState("");
 
+
+  const navigate=useNavigate();
+  const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+
+  const signInWithGoogle = () => {
+    signInWithPopup(auth,googleProvider).then(()=>{
+      navigate("/")
+    })
+  };
 
   const signInUser = () => {
     signInWithEmailAndPassword(auth, email, password)
-      .then((value) => alert("Successfully Logged In"))
+      .then(() => {
+        navigate("/");
+        alert("Logged in successfully")
+      })
       .catch((err) => console.log(err));
   };
+
+ 
     
   return (
     <div className="container">
@@ -35,7 +52,9 @@ const SignIn = () => {
           required
           placeholder="Enter your password here !"
         />
-        <button className="btn-primary" onClick={signInUser}>
+        <br />
+        <button onClick={signInWithGoogle}>Sign in with google</button>
+         <button className="btn-primary" onClick={signInUser}>
           Login
         </button>
       </div>

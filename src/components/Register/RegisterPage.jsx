@@ -8,16 +8,25 @@ import {
 } from "firebase/auth";
 import { app} from "../../context/Firebase";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
-const auth = getAuth(app);
-const googleProvider =  new GoogleAuthProvider();
-const RegisterPage = () => {
+
+
+
+  const auth = getAuth(app);
+  const googleProvider =  new GoogleAuthProvider();
+
+
+
+  const RegisterPage = () => {
+
+  const navigate=useNavigate();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
   const signUpUser = () => {
     createUserWithEmailAndPassword(auth, email, password).then((value) =>
-      alert(`User registered with email ${email} and password ${password}`)
+      navigate("/")
     );
   };
 
