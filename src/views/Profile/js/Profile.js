@@ -2,7 +2,7 @@ import React from 'react';
 import "../css/profile.css" ;
 import { Auth, getAuth, signOut } from 'firebase/auth';
 import { useNavigate } from 'react-router-dom';
-
+import toast, { Toaster } from 'react-hot-toast';
 
 const auth = getAuth();
 
@@ -12,6 +12,7 @@ const Profile = () => {
     function signOutUser(){
         signOut(auth);
         navigate("/");
+        toast.success("Logged out successfully");
     }
     
   return (
@@ -22,7 +23,13 @@ const Profile = () => {
             <h1>
             My Profile
             </h1>
-                
+            <Toaster
+                toastOptions={{
+                  // Define default options
+                  className: '',
+                  duration: 3000,
+                  }}
+                />
             
             </div>
             <div>
@@ -33,7 +40,8 @@ const Profile = () => {
             
             </div>
             <div>
-            <button className="btn-primary" onClick={()=>signOutUser()}>
+            <button className="btn-primary" onClick={()=>signOutUser() 
+              }>
                     Logout
             </button>
             </div>

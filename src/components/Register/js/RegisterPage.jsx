@@ -1,4 +1,5 @@
 import React from "react";
+import toast, { Toaster } from 'react-hot-toast';
 import {
   createUserWithEmailAndPassword,
   getAuth,
@@ -22,10 +23,6 @@ import { app } from "../../../context/Firebase";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "../css/Register.css";
-import {ToastContainer, toast} from "react-toastify";
-
-
-
 
 const auth = getAuth(app);
 const googleProvider = new GoogleAuthProvider();
@@ -36,17 +33,19 @@ const RegisterPage = () => {
   const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  
+  const [open, setOpen] = useState(false);
+  const [errorLog,setErrorLog] = useState("");
   //signUp Functions
   const signUpUser = () => {
-    createUserWithEmailAndPassword(auth, email, password).then(() =>
-      navigate("/"),
-    ).catch((value)=>{
-        toast.error(value);
-        console.log(value)  
-        alert(value);                                                                                                      
-    }
-    )
+    createUserWithEmailAndPassword(auth, email, password)
+      .then(() =>
+       navigate("/")
+      )
+      .catch((value) => {
+        toast.error(value.message.slice(10)
+          )
+        console.log(value);
+      })
   };
 
   const signInWithGoogle = () => {
@@ -57,91 +56,107 @@ const RegisterPage = () => {
 
   return (
     <>
-    <ToastContainer />
-    <MDBContainer fluid className="p-4">
-      <MDBRow >
-        <MDBCol
-          md="6"
-          className="text-center text-md-start d-flex flex-column justify-content-center"
-        >
-          <h1 className="my-5 display-3 fw-bold ls-tight px-3">
-            The best Healthcare <br />
-            <span style={{ color: "#025f4c" }}>platform around you</span>
-          </h1>
+      <MDBContainer fluid className="p-4">
+        <MDBRow>
+          <MDBCol
+            md="6"
+            className="text-center text-md-start d-flex flex-column justify-content-center"
+          >
+            <h1 className="my-5 display-3 fw-bold ls-tight px-3">
+              The best Healthcare <br />
+              <span style={{ color: "#025f4c" }}>platform around you</span>
+            </h1>
 
-          <p className="px-3" style={{ color: "hsl(217, 10%, 50.8%)" }}>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet,
-            itaque accusantium odio, soluta, corrupti aliquam quibusdam tempora
-            at cupiditate quis eum maiores libero veritatis? Dicta facilis sint
-            aliquid ipsum atque?
-          </p>
-        </MDBCol>
+            <p className="px-3" style={{ color: "hsl(217, 10%, 50.8%)" }}>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet,
+              itaque accusantium odio, soluta, corrupti aliquam quibusdam
+              tempora at cupiditate quis eum maiores libero veritatis? Dicta
+              facilis sint aliquid ipsum atque?
+            </p>
+          </MDBCol>
 
-        <MDBCol md="6" >
-          <MDBCard className="my-5 w-50 input-login">
-            <MDBCardBody className="p-5">
-              <MDBRow>
-              <MDBCol col='6'>
-                <MDBInput wrapperClass='mb-4' label='First name' id='form1' type='text'/>
-              </MDBCol>
+          <MDBCol md="6">
+            <MDBCard className="my-5 w-75 input-login">
+              <MDBCardBody className="p-5">
+                <MDBRow>
+                  <MDBCol col="6">
+                    <MDBInput
+                      wrapperClass="mb-4"
+                      label="First name"
+                      id="form1"
+                      type="text"
+                    />
+                  </MDBCol>
 
-              <MDBCol col='6'>
-                <MDBInput wrapperClass='mb-4' label='Last name' id='form1' type='text'/>
-              </MDBCol>
-            </MDBRow>
+                  <MDBCol col="6">
+                    <MDBInput
+                      wrapperClass="mb-4"
+                      label="Last name"
+                      id="form1"
+                      type="text"
+                    />
+                  </MDBCol>
+                </MDBRow>
 
-              <MDBInput
-                wrapperClass="mb-4"
-                label="Email"
-                id="form1"
-                type="email"
-                onChange={(e) => setEmail(e.target.value)}
-                value={email}
-              />
-              <MDBInput
-                wrapperClass="mb-4"
-                label="Password"
-                id="form1"
-                type="password"
-                onChange={(e) => setPassword(e.target.value)}
-                value={password}
-                required
-              />
-
-              <div className="d-flex justify-content-center mb-4">
-                <MDBCheckbox
-                  name="flexCheck"
-                  value=""
-                  id="flexCheckDefault"
-                  label="I agree to the terms of service and Privacy Policy"
+                <MDBInput
+                  wrapperClass="mb-4"
+                  label="Email"
+                  id="form1"
+                  type="email"
+                  onChange={(e) => setEmail(e.target.value)}
+                  value={email}
                 />
-              </div>
+                <MDBInput
+                  wrapperClass="mb-4"
+                  label="Password"
+                  id="form1"
+                  type="password"
+                  onChange={(e) => setPassword(e.target.value)}
+                  value={password}
+                  required
+                />
 
-              <MDBBtn onClick={signUpUser} className="w-100 mb-4" size="md">
-                Sign up
-              </MDBBtn>
-
-              <div className="text-center">
-                <p>or sign up with:</p>
-
-                <button className="Google-btn p-2" onClick={signInWithGoogle}>
-                  <GoogleIcon /> Sign up with Google
-                </button>
-                <div className="mt-3">
-                <span>
-                 Already have account? &nbsp;  
-                  </span> 
-                  <span className="register-here" onClick={()=>navigate("/Sign-In")}>
-                    Click here 
-                  </span>
+                <div className="d-flex justify-content-center mb-4">
+                  <MDBCheckbox
+                    name="flexCheck"
+                    value=""
+                    id="flexCheckDefault"
+                    label="I agree to the terms of service and Privacy Policy"
+                  />
                 </div>
-              </div>
-            </MDBCardBody>
-          </MDBCard>
-        </MDBCol>
-      </MDBRow>
-    </MDBContainer>
-    
+
+                <MDBBtn onClick={signUpUser} className="w-100 mb-4" size="md">
+                  Sign up
+                </MDBBtn>
+                <Toaster
+                toastOptions={{
+                  // Define default options
+                  className: '',
+                  duration: 5000,
+                  }}
+                />
+                <div className="text-center">
+                  <p>or sign up with:</p>
+
+                  <button className="Google-btn p-2" onClick={signInWithGoogle}>
+                    <GoogleIcon /> Sign up with Google
+                  </button>
+                  <div className="mt-3">
+                    <span>Already have account? &nbsp;</span>
+                    <span
+                      className="register-here"
+                      onClick={() => navigate("/Sign-In")}
+                    >
+                      Click here
+                    </span>
+                  </div>
+                </div>
+              </MDBCardBody>
+            </MDBCard>
+          </MDBCol>
+        </MDBRow>
+      </MDBContainer>
+      
     </>
   );
 };

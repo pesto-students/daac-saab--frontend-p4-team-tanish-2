@@ -1,4 +1,5 @@
 import React from "react";
+import toast, { Toaster } from 'react-hot-toast';
 import {
   getAuth,
   signInWithEmailAndPassword,
@@ -68,7 +69,7 @@ const SignIn = () => {
         </MDBCol>
 
         <MDBCol md="6">
-          <MDBCard className="my-5 w-50 input-login">
+          <MDBCard className="my-5 w-75 input-login">
             <MDBCardBody className="p-5">
               {/* <MDBRow>
             <MDBCol col='6'>

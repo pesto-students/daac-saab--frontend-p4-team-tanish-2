@@ -10,17 +10,37 @@ import SignIn from "./components/Register/SignIn";
 import { app } from "./context/Firebase";
 import "./App.css";
 import { onAuthStateChanged,getAuth,signOut } from "firebase/auth";
-
+import toast, { Toaster } from 'react-hot-toast';
 
 const auth = getAuth(app);
 
 
 function App() {  
+  const [user,setUser] = useState("");
+  useEffect(()=>{
+    onAuthStateChanged(auth,user=>{
+        if(user){
+          setUser(user)
+          toast.success("Logged in Successfully")
+        }else{
+          setUser(null)
+          
+        }
+    })
+  }, []);
+
   const tawkMessengerRef = useRef();  
   return (
     <Router>
       <div style={{ position: "relative" }}>
         <Header />
+        <Toaster
+                toastOptions={{
+                  // Define default options
+                  className: '',
+                  duration: 3000,
+                  }}
+                />
       </div>
       <div style={{marginTop:"80px"}}>
         <DaacSaabRoutes />
