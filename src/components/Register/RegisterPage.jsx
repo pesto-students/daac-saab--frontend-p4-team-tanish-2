@@ -31,7 +31,7 @@ import { useNavigate } from "react-router-dom";
   };
 
   const signInWithGoogle = () => {
-    signInWithPopup(auth,googleProvider);
+    signInWithPopup(auth,googleProvider).then(()=>{navigate("/")});
   };
 
   return (
