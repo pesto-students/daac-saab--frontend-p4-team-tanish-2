@@ -15,7 +15,13 @@ body {
     background: #4081ec;
   }
 
-  .login-box{
-    margin-top:300px;
+  .input-login{
+    margin-left: 20%;
+  }
+  .Google-btn-login{
+    border-radius:10px;
+    border:none;
+    color:white;
+    background:rgb(219, 48, 29);
   }
   

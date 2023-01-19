@@ -48,7 +48,7 @@ const RegisterPage = () => {
 
   return (
     <MDBContainer fluid className="p-4">
-      <MDBRow>
+      <MDBRow >
         <MDBCol
           md="6"
           className="text-center text-md-start d-flex flex-column justify-content-center"
@@ -66,8 +66,8 @@ const RegisterPage = () => {
           </p>
         </MDBCol>
 
-        <MDBCol md="6">
-          <MDBCard className="my-5 w-50">
+        <MDBCol md="6" >
+          <MDBCard className="my-5 w-50 input-login">
             <MDBCardBody className="p-5">
               {/* <MDBRow>
               <MDBCol col='6'>
