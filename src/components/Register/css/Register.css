@@ -1,0 +1,27 @@
+.register-container{
+    width:40%;
+    height:100%;
+    border:1px black solid;
+    border-radius: 12px;
+}
+body {
+    background-color: hsl(0, 0%, 96%);
+    
+  }
+  .Google-btn{
+    border-radius:10px;
+    border:none;
+    color:white;
+    background: #4081ec;
+  }
+
+  .input-login{
+    margin-left: 20%;
+  }
+  .Google-btn-login{
+    border-radius:10px;
+    border:none;
+    color:white;
+    background:rgb(219, 48, 29);
+  }
+  

@@ -8,7 +8,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { showModal } from "../../../Store/Slice/LoginSlice";
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 import SignIn from "../../Register/SignIn";
-import RegisterPage from "../../Register/RegisterPage";
+import RegisterPage from "../../Register/js/RegisterPage";
 import { User,getAuth,onAuthStateChanged,signOut } from "firebase/auth";
 
 

@@ -1,14 +1,11 @@
 import React from "react";
 import {
+  createUserWithEmailAndPassword,
   getAuth,
-  signInWithEmailAndPassword,
   GoogleAuthProvider,
   onAuthStateChanged,
   signInWithPopup,
 } from "firebase/auth";
-import { app } from "../../context/Firebase";
-import { useState } from "react";
-import { useNavigate } from "react-router-dom";
 import GoogleIcon from "@mui/icons-material/Google";
 import {
   MDBBtn,
@@ -21,16 +18,27 @@ import {
   MDBCheckbox,
   MDBIcon,
 } from "mdb-react-ui-kit";
-import "./css/Register.css";
-
+import { app } from "../../../context/Firebase";
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import "../css/Register.css";
 
 const auth = getAuth(app);
 const googleProvider = new GoogleAuthProvider();
 
-const SignIn = () => {
+//Functional Component begins here
+const RegisterPage = () => {
+  //hooks
   const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+
+  //signUp Functions
+  const signUpUser = () => {
+    createUserWithEmailAndPassword(auth, email, password).then((value) =>
+      navigate("/")
+    );
+  };
 
   const signInWithGoogle = () => {
     signInWithPopup(auth, googleProvider).then(() => {
@@ -38,25 +46,16 @@ const SignIn = () => {
     });
   };
 
-  const signInUser = () => {
-    signInWithEmailAndPassword(auth, email, password)
-      .then(() => {
-        navigate("/");
-        alert("Logged in successfully");
-      })
-      .catch((err) => console.log(err));
-  };
-
   return (
     <MDBContainer fluid className="p-4">
-      <MDBRow>
+      <MDBRow >
         <MDBCol
           md="6"
           className="text-center text-md-start d-flex flex-column justify-content-center"
         >
           <h1 className="my-5 display-3 fw-bold ls-tight px-3">
-            Login to experience <br />
-            <span style={{ color: "#025f4c" }}>healthcare at its best</span>
+            The best Healthcare <br />
+            <span style={{ color: "#025f4c" }}>platform around you</span>
           </h1>
 
           <p className="px-3" style={{ color: "hsl(217, 10%, 50.8%)" }}>
@@ -67,18 +66,18 @@ const SignIn = () => {
           </p>
         </MDBCol>
 
-        <MDBCol md="6">
+        <MDBCol md="6" >
           <MDBCard className="my-5 w-50 input-login">
             <MDBCardBody className="p-5">
               {/* <MDBRow>
-            <MDBCol col='6'>
-              <MDBInput wrapperClass='mb-4' label='First name' id='form1' type='text'/>
-            </MDBCol>
+              <MDBCol col='6'>
+                <MDBInput wrapperClass='mb-4' label='First name' id='form1' type='text'/>
+              </MDBCol>
 
-            <MDBCol col='6'>
-              <MDBInput wrapperClass='mb-4' label='Last name' id='form1' type='text'/>
-            </MDBCol>
-          </MDBRow> */}
+              <MDBCol col='6'>
+                <MDBInput wrapperClass='mb-4' label='Last name' id='form1' type='text'/>
+              </MDBCol>
+            </MDBRow> */}
 
               <MDBInput
                 wrapperClass="mb-4"
@@ -103,19 +102,19 @@ const SignIn = () => {
                   name="flexCheck"
                   value=""
                   id="flexCheckDefault"
-                  label="Login with test Credentials"
+                  label="I agree to the terms of service and Privacy Policy"
                 />
               </div>
 
-              <MDBBtn onClick={signInUser} className="w-100 mb-4" size="md">
-                Login
+              <MDBBtn onClick={signUpUser} className="w-100 mb-4" size="md">
+                Sign up
               </MDBBtn>
 
               <div className="text-center">
                 <p>or sign up with:</p>
 
-                <button className="Google-btn-login p-2" onClick={signInWithGoogle}>
-                  <GoogleIcon /> Login with Google
+                <button className="Google-btn p-2" onClick={signInWithGoogle}>
+                  <GoogleIcon /> Sign up with Google
                 </button>
               </div>
             </MDBCardBody>
@@ -125,5 +124,4 @@ const SignIn = () => {
     </MDBContainer>
   );
 };
-
-export default SignIn;
+export default RegisterPage;
