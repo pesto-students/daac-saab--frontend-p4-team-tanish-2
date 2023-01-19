@@ -33,15 +33,15 @@ export default function Header() {
     })
   }, []);
 
-  const handleLogin=()=>{
-    if(user===null){
-      return (
-        <>
-        <RegisterPage />
-        </>
-      )
-    }
-  }
+  // const handleLogin=()=>{
+  //   if(user===null){
+  //     return (
+  //       <>
+  //       <RegisterPage />
+  //       </>
+  //     )
+  //   }
+  // }
 
   return (
     <div className="main">
