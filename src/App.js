@@ -5,12 +5,41 @@ import Header from "./components/header/js/Header";
 import LoginPage from "./components/Login/js/LoginPage";
 import DaacSaabRoutes from "./Routes";
 import TawkMessengerReact from "@tawk.to/tawk-messenger-react";
-
-
+import RegisterPage from "./components/Register/RegisterPage";
+import SignIn from "./components/Register/SignIn";
+import { app } from "./context/Firebase";
 import "./App.css";
+import { onAuthStateChanged,getAuth,signOut } from "firebase/auth";
+
+
+const auth = getAuth(app);
+
+
 function App() {
+
+   const [user,setUser]=useState(null);
   
   const tawkMessengerRef = useRef();
+
+  //for user login status
+  // useEffect(()=>{
+  //   onAuthStateChanged(auth,user=>{
+  //       if(user){
+  //         setUser(user)
+  //       }else{
+  //         setUser(null)
+  //       }
+  //   })
+  // }, []);
+
+  // if(user===null){
+  //   return (
+  //     <>
+  //     <RegisterPage />
+  //     </>
+  //   )
+  // }
+
   
   return (
     <Router>
