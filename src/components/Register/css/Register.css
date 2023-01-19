@@ -6,4 +6,16 @@
 }
 body {
     background-color: hsl(0, 0%, 96%);
+    
   }
+  .Google-btn{
+    border-radius:10px;
+    border:none;
+    color:white;
+    background: #4081ec;
+  }
+
+  .login-box{
+    margin-top:300px;
+  }
+  
