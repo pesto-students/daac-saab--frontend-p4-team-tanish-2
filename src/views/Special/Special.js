@@ -55,7 +55,7 @@ const Special = () => {
             );
           })}
         </div>
-        <div className="header-1 mt-5">
+        <div className="header mt-5">
           How it works?
           <img src={GreyBG} className="img-fluid vector" />
         </div>

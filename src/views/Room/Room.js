@@ -1,6 +1,9 @@
 import React from "react";
 import { useParams } from "react-router-dom";
 import { ZegoUIKitPrebuilt } from "@zegocloud/zego-uikit-prebuilt";
+import "./Room.css"
+
+
 const Room = () => {
   const { roomId } = useParams();
   const myMeeting = async (element) => {
@@ -11,7 +14,7 @@ const Room = () => {
       serverSecret,
       roomId,
       Date.now().toString(),
-      "Gantavya Saraswat"
+      "UserName"
     );
     const zc = ZegoUIKitPrebuilt.create(kitToken);
     zc.joinRoom({
@@ -30,8 +33,9 @@ const Room = () => {
   };
 
   return (
-    <div>
-      <div ref={myMeeting} />
+    <div className="m-5 container-room">
+      <div className="video-screen"
+       ref={myMeeting} />
     </div>
   );
 };
