@@ -6,10 +6,9 @@ import toast, { Toaster } from 'react-hot-toast';
 
 const auth = getAuth();
 const user=auth.currentUser;
-const displayName = user.displayName;
-  const email = user.email;
-  const photoURL = user.photoURL;
-  const emailVerified = user.emailVerified;
+
+  
+ 
 const Profile = () => {
 
     const navigate=useNavigate();
@@ -38,7 +37,7 @@ const Profile = () => {
             </div>
             <div>
             <h2>
-           {email}
+          
             
             
 
