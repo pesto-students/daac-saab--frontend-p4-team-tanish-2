@@ -47,7 +47,7 @@ export default function AboutUs() {
             How it <span>started</span>
           </label>
           <span className="section3Span my-3">
-            Before starting Daac Saab, we worked on many react JS applications which you can checkout on our github and twitter.
+            Before Daac Saab, there was no quick solution in the market for general symptoms so our aim was to provide a prescription within minutes
           </span>
           <span className="section3Span my-3">
             Patients do not want to visit a doctor for small and minor inconveniences like headaches, nausea, common cold . That's where we 
@@ -104,7 +104,7 @@ export default function AboutUs() {
             <span className="bottomDesc mb-3">
               Modern healthcare benefits for high power teams
             </span>
-            <button onClick={()=>navigate("/")} className="bottomBtn col-3 mt-5">Get Started</button>
+            <button onClick={()=>navigate("/")} className="bottomBtn col-3 mt-4 mb-2">Get Started</button>
           </div>
         </div>
       </div>
