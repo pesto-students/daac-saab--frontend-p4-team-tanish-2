@@ -1,14 +1,15 @@
 import { useState } from "react";
 import { loadStripe } from "@stripe/stripe-js";
 
-
 import "./styles.css";
 
 let stripePromise;
 
 const getStripe = () => {
   if (!stripePromise) {
-    stripePromise = loadStripe('pk_test_51MNhagSHk6cCnpybxcnVe0oHwpiPaKueLb7Yk7vCg8ngb9hNp40eoTNCQEupFKkr0eRqCC8ZULwzrDTf3mQWDfEE00WnVfEX3n');
+    stripePromise = loadStripe(
+      "pk_test_51MNhagSHk6cCnpybxcnVe0oHwpiPaKueLb7Yk7vCg8ngb9hNp40eoTNCQEupFKkr0eRqCC8ZULwzrDTf3mQWDfEE00WnVfEX3n"
+    );
   }
 
   return stripePromise;
@@ -19,14 +20,14 @@ const Checkout = () => {
   const [isLoading, setLoading] = useState(false);
   const item = {
     price: "price_1MNhalSHk6cCnpyb3zZTSVXt",
-    quantity: 1
+    quantity: 1,
   };
 
   const checkoutOptions = {
     lineItems: [item],
     mode: "payment",
     successUrl: `${window.location.origin}/success`,
-    cancelUrl: `${window.location.origin}/cancel`
+    cancelUrl: `${window.location.origin}/cancel`,
   };
 
   const redirectToCheckout = async () => {
@@ -51,15 +52,13 @@ const Checkout = () => {
         Learn how to build a website with React Hooks
       </p>
       <h1 className="checkout-price">$19</h1>
-   
+
       <button
         className="checkout-button"
         onClick={redirectToCheckout}
         disabled={isLoading}
       >
-        <div className="grey-circle">
-          
-        </div>
+        <div className="grey-circle"></div>
         <div className="text-container">
           <p className="text">{isLoading ? "Loading..." : "Buy"}</p>
         </div>

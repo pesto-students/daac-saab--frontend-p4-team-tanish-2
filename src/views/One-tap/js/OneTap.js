@@ -1,5 +1,5 @@
 import React from "react";
-import { useState } from "react";
+import { useState, CSSProperties } from "react";
 import "../css/oneTap.css";
 import { useNavigate } from "react-router-dom";
 import Button from "react-bootstrap/Button";
@@ -9,12 +9,19 @@ import FileDownloadIcon from "@mui/icons-material/FileDownload";
 import axios from "axios";
 import { backendUrl } from "../../../Backend";
 import pencil from "../../../assets/pencil.svg";
+import DotLoader from "react-spinners/DotLoader";
+
+const override: CSSProperties = {
+  display: "block",
+  margin: "0 auto",
+  borderColor: "red",
+};
 
 const data = [
   "Headache",
 
   "Dry Cough",
-  
+
   "Wet Cough",
 
   "Loose Motion",
@@ -70,6 +77,7 @@ export default function OneTap() {
   const [modalShow, setModalShow] = React.useState(false);
   const [prescription, setPrescription] = useState([]);
   const [showPrescription, setShowPrescription] = useState(false);
+  const [loading, setLoading] = useState(false);
   const [presData, setPresData] = useState([]);
   const navigate = useNavigate();
   function MyVerticallyCenteredModal(props) {
@@ -138,12 +146,15 @@ export default function OneTap() {
       },
     });
   };
-  
+
   const getPrescription = async () => {
+    setLoading(true);
     await axios
       .get(`${backendUrl}/getPrescription/${selectedSymptom[0]}`)
       .then((res) => {
+        setLoading(true);
         setPresData(res.data);
+        setLoading(false);
       })
       .catch((err) => {
         throw new Error(err);
@@ -228,76 +239,88 @@ export default function OneTap() {
           </div>
           {showPrescription ? (
             <div>
-              <div className="d-flex align-items-center justify-content-center">
-                <div className="Prescription-box mt-3 ">
-                  {presData.map((x, i) => {
-                    return (
-                      <div id="prescription-pdf" className="position-relative">
-                        <div className="d-flex align-items-center justify-content-center mt-1 pres-header">
-                          PRESCRIPTION
-                        </div>
-                        <hr className="my-4"></hr>
-                        <hr className="my-4"></hr>
-                        <hr className="my-4"></hr>
-                        <hr className="my-4"></hr>
-                        <hr className="my-4"></hr>
-
-                        <hr className="my-4"></hr>
-                        <hr className="my-4"></hr>
-                        <hr className="my-4"></hr>
-
-                        <hr className="my-4"></hr>
-                        <hr className="my-4"></hr>
-                        <hr className="my-4"></hr>
-                        <hr className="my-4"></hr>
-                        <hr className="my-4"></hr>
-                        <hr className="my-4"></hr>
-
-                        <div className="position-absolute presData">
-                          <div className="ms-3 info ">
-                            <div className="patientName">
-                              Name : {"user?.name"}
-                            </div>
-                            {/* <div>Gender : {user?.gender}</div>
-                          <div>Age : {user?.birthdate}</div> */}
-                            <div className="patientName">
-                              Date : {x?.createAt}
-                            </div>
-                            <div className=" advice">Advice :</div>
+              {loading ? (
+                <DotLoader
+                  cssOverride={override}
+                  size={150}
+                  aria-label="Loading Spinner"
+                  data-testid="loader"
+                />
+              ) : (
+                <div className="d-flex align-items-center justify-content-center">
+                  <div className="Prescription-box mt-3 ">
+                    {presData.map((x, i) => {
+                      return (
+                        <div
+                          id="prescription-pdf"
+                          className="position-relative"
+                        >
+                          <div className="d-flex align-items-center justify-content-center mt-1 pres-header">
+                            PRESCRIPTION
                           </div>
+                          <hr className="my-4"></hr>
+                          <hr className="my-4"></hr>
+                          <hr className="my-4"></hr>
+                          <hr className="my-4"></hr>
+                          <hr className="my-4"></hr>
 
-                          <div className="ms-3 patientDetails">
-                            {x?.advice.map((y, j) => {
+                          <hr className="my-4"></hr>
+                          <hr className="my-4"></hr>
+                          <hr className="my-4"></hr>
+
+                          <hr className="my-4"></hr>
+                          <hr className="my-4"></hr>
+                          <hr className="my-4"></hr>
+                          <hr className="my-4"></hr>
+                          <hr className="my-4"></hr>
+                          <hr className="my-4"></hr>
+
+                          <div className="position-absolute presData">
+                            <div className="ms-3 info ">
+                              <div className="patientName">
+                                Name : {"user?.name"}
+                              </div>
+                              {/* <div>Gender : {user?.gender}</div>
+                          <div>Age : {user?.birthdate}</div> */}
+                              <div className="patientName">
+                                Date : {x?.createAt}
+                              </div>
+                              <div className=" advice">Advice :</div>
+                            </div>
+
+                            <div className="ms-3 patientDetails">
+                              {x?.advice.map((y, j) => {
+                                return (
+                                  <div className="">
+                                    {j + 1}.{y}
+                                  </div>
+                                );
+                              })}
+                            </div>
+
+                            <div className="ms-3 suggest">
+                              General health suggestions :
+                            </div>
+                            {x?.health.map((z, k) => {
                               return (
-                                <div className="">
-                                  {j + 1}.{y}
+                                <div className="ms-3 patientDetails">
+                                  {k + 1}. {z}
                                 </div>
                               );
                             })}
                           </div>
-
-                          <div className="ms-3 suggest">
-                            General health suggestions :
-                          </div>
-                          {x?.health.map((z, k) => {
-                            return (
-                              <div className="ms-3 patientDetails">
-                                {k + 1}. {z}
-                              </div>
-                            );
-                          })}
+                          <img
+                            className="img-fluid prescriptionPencil"
+                            loading="lazy"
+                            alt="pencil"
+                            src={pencil}
+                          />
                         </div>
-                        <img
-                          className="img-fluid prescriptionPencil"
-                          loading="lazy"
-                          alt="pencil"
-                          src={pencil}
-                        />
-                      </div>
-                    );
-                  })}
+                      );
+                    })}
+                  </div>
                 </div>
-              </div>
+              )}
               <div>
                 <button
                   className="btn btn-info "
