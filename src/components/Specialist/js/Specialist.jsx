@@ -42,7 +42,7 @@ const Specialist = (props) => {
             <Avatar
               name={x?.name}
               round={true}
-              textSizeRatio={1.75}
+              textSizeRatio={1.25}
               className="Avatar-img"
             />
             <div
