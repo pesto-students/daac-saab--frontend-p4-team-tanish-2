@@ -1,5 +1,5 @@
 import React from "react";
-import toast, { Toaster } from 'react-hot-toast';
+import toast, { Toaster } from "react-hot-toast";
 import {
   getAuth,
   signInWithEmailAndPassword,
@@ -23,7 +23,6 @@ import {
   MDBIcon,
 } from "mdb-react-ui-kit";
 import "./css/Register.css";
-
 
 const auth = getAuth(app);
 const googleProvider = new GoogleAuthProvider();
@@ -49,8 +48,12 @@ const SignIn = () => {
   };
 
   return (
-    <MDBContainer fluid className="p-4" style={{backgroundColor:"hsl(0, 0%, 96%)"}}>
-      <MDBRow >
+    <MDBContainer
+      fluid
+      className="p-4"
+      style={{ backgroundColor: "hsl(0, 0%, 96%)" }}
+    >
+      <MDBRow>
         <MDBCol
           md="6"
           className="text-center text-md-start d-flex flex-column justify-content-center"
@@ -115,19 +118,21 @@ const SignIn = () => {
               <div className="text-center">
                 <p>or sign in with:</p>
 
-                <button className="Google-btn-login p-2" onClick={signInWithGoogle}>
+                <button
+                  className="Google-btn-login p-2"
+                  onClick={signInWithGoogle}
+                >
                   <GoogleIcon /> Login with Google
                 </button>
                 <div className="mt-3">
-                <span>
-                 New user? &nbsp;  
-                  </span> 
-                  <span className="register-here" onClick={()=>navigate("/Sign-Up")}>
-                    Register here 
+                  <span>New user? &nbsp;</span>
+                  <span
+                    className="register-here"
+                    onClick={() => navigate("/Sign-Up")}
+                  >
+                    Register here
                   </span>
                 </div>
-                
-                  
               </div>
             </MDBCardBody>
           </MDBCard>
