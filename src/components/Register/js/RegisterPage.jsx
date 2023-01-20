@@ -1,5 +1,5 @@
 import React from "react";
-import toast, { Toaster } from 'react-hot-toast';
+import toast, { Toaster } from "react-hot-toast";
 import {
   createUserWithEmailAndPassword,
   getAuth,
@@ -35,33 +35,34 @@ const RegisterPage = () => {
   const [password, setPassword] = useState("");
   const [name, setName] = useState("");
   const [open, setOpen] = useState(false);
-  const [errorLog,setErrorLog] = useState("");
+  const [errorLog, setErrorLog] = useState("");
   //signUp Functions
   const signUpUser = () => {
     createUserWithEmailAndPassword(auth, email, password)
-      .then(() =>
-       navigate("/")
-      )
+      .then(() => navigate("/"))
       .catch((value) => {
-        toast.error(value.message.slice(10)
-          )
-        
-      })
+        toast.error(value.message.slice(10));
+        console.log(value);
+      });
   };
 
   const signInWithGoogle = () => {
-    signInWithPopup(auth, googleProvider).then(() => {
-      navigate("/");
-    }).catch((value) => {
-      toast.error(value.message.slice(10)
-        )
-      
-    });
+    signInWithPopup(auth, googleProvider)
+      .then(() => {
+        navigate("/");
+      })
+      .catch((value) => {
+        toast.error(value.message.slice(10));
+      });
   };
 
   return (
     <>
-      <MDBContainer fluid className="p-4" style={{backgroundColor:"hsl(0, 0%, 96%)"}}>
+      <MDBContainer
+        fluid
+        className="p-4"
+        style={{ backgroundColor: "hsl(0, 0%, 96%)" }}
+      >
         <MDBRow>
           <MDBCol
             md="6"
@@ -134,10 +135,10 @@ const RegisterPage = () => {
                   Sign up
                 </MDBBtn>
                 <Toaster
-                toastOptions={{
-                  // Define default options
-                  className: '',
-                  duration: 5000,
+                  toastOptions={{
+                    // Define default options
+                    className: "",
+                    duration: 5000,
                   }}
                 />
                 <div className="text-center">
@@ -161,7 +162,6 @@ const RegisterPage = () => {
           </MDBCol>
         </MDBRow>
       </MDBContainer>
-      
     </>
   );
 };

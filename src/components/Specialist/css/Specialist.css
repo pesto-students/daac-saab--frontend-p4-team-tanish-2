@@ -5,10 +5,10 @@
   position: relative;
 }
 .specialist-card :hover {
-  box-shadow: drop-shadow(0px 4px 16px rgba(0, 0, 0, 0.05));
+  box-shadow: drop-shadow(0px 4px 16px rgba(0, 0, 0, 0.05)) !important;
 }
-.Avatar-img .Avatar-img sb-avatar__text{
-  width: 60px;
+.Avatar-img .Avatar-img sb-avatar__text {
+  width: 60px !important;
 }
 .pay-now-div {
   bottom: -25px;

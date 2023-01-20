@@ -11,6 +11,7 @@ const Specialist = (props) => {
   const [doctors, setDoctors] = useState([]);
   const [payNow, setPayNow] = useState("");
   const params = useParams();
+  const navigate = useNavigate();
 
   const getDoctorBySpecility = async () => {
     await axios
@@ -22,7 +23,7 @@ const Specialist = (props) => {
         throw new Error(err);
       });
   };
-  const navigate = useNavigate();
+
   useEffect(() => {
     getDoctorBySpecility();
   }, []);
@@ -64,7 +65,7 @@ const Specialist = (props) => {
                   navigate("/checkout");
                 }}
               >
-                <span className="ms-5 ps-5 ">Pay Rs.300</span>
+                <span className="ms-5 ps-5 ">Pay Rs.500</span>
               </div>
             )}
           </div>

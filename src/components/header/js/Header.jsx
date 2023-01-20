@@ -1,4 +1,4 @@
-import React, { useState,useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import logo from "../../../assets/DaacSaabLogo.svg";
 import "../css/header.css";
 import { useParams, useNavigate } from "react-router-dom";
@@ -9,28 +9,25 @@ import { showModal } from "../../../Store/Slice/LoginSlice";
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 import SignIn from "../../Register/SignIn";
 import RegisterPage from "../../Register/js/RegisterPage";
-import { User,getAuth,onAuthStateChanged,signOut } from "firebase/auth";
-
+import { User, getAuth, onAuthStateChanged, signOut } from "firebase/auth";
 
 export default function Header() {
-
-
   const [showMobileNav, setShowMobileNav] = useState(false);
   const [isProductHovering, setIsProductHovering] = useState(false);
   const dispatch = useDispatch();
   const params = useParams();
   const navigate = useNavigate();
   const auth = getAuth();
-  const [user,setUser]=useState(null);
+  const [user, setUser] = useState(null);
 
-  useEffect(()=>{
-    onAuthStateChanged(auth,user=>{
-        if(user){
-          setUser(user)
-        }else{
-          setUser(null)
-        }
-    })
+  useEffect(() => {
+    onAuthStateChanged(auth, (user) => {
+      if (user) {
+        setUser(user);
+      } else {
+        setUser(null);
+      }
+    });
   }, []);
 
   // const handleLogin=()=>{
@@ -51,7 +48,6 @@ export default function Header() {
       <div className="navbar " onMouseLeave={() => setIsProductHovering(false)}>
         <span
           className="py-2 px-2 cursor-pointer"
-          
           onClick={() => navigate("/One-tap")}
         >
           One-tap Prescription
@@ -93,26 +89,26 @@ export default function Header() {
       </div>
 
       <div className="navbarBtn col-2">
-        {user?
-        <div className="ms-auto pe-3">
-            <AccountCircleIcon style={{color:"white"}}
-              color="inherit"
-              size="large"
+        {user ? (
+          <div className="ms-auto pe-3">
+            <AccountCircleIcon
+              color="secondary"
               onClick={() => navigate("/User-profile")}
             />
-          </div>:
-
-        <div>
-          <button
-            className="logInBtn mx-4"
-            onClick={() => navigate("/Sign-In")}
-          >
-            Login
-          </button>
-          <button className="signUpBtn" onClick={() => navigate("/Sign-Up")}>
-            SignUp
-          </button>
-        </div>}
+          </div>
+        ) : (
+          <div>
+            <button
+              className="logInBtn mx-4"
+              onClick={() => navigate("/Sign-In")}
+            >
+              Login
+            </button>
+            <button className="signUpBtn" onClick={() => navigate("/Sign-Up")}>
+              SignUp
+            </button>
+          </div>
+        )}
       </div>
 
       {isMobile ? (
