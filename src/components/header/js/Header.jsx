@@ -95,8 +95,9 @@ export default function Header() {
       <div className="navbarBtn col-2">
         {user?
         <div className="ms-auto pe-3">
-            <AccountCircleIcon
-              color="secondary"
+            <AccountCircleIcon style={{color:"white"}}
+              color="inherit"
+              size="large"
               onClick={() => navigate("/User-profile")}
             />
           </div>:

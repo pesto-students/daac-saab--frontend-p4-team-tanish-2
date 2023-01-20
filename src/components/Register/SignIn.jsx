@@ -1,5 +1,6 @@
-import React from "react";
+import React, { useEffect } from "react";
 import toast, { Toaster } from 'react-hot-toast';
+import { useAuthState } from "react-firebase-hooks/auth";
 import {
   getAuth,
   signInWithEmailAndPassword,
@@ -25,6 +26,7 @@ import {
 import "./css/Register.css";
 
 
+
 const auth = getAuth(app);
 const googleProvider = new GoogleAuthProvider();
 
@@ -32,20 +34,27 @@ const SignIn = () => {
   const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+ 
 
   const signInWithGoogle = () => {
     signInWithPopup(auth, googleProvider).then(() => {
-      navigate("/");
-    });
+       navigate("/");
+    }).catch((value) => {
+      toast.error(value.message.slice(10)
+        )
+    }) 
   };
 
   const signInUser = () => {
     signInWithEmailAndPassword(auth, email, password)
       .then(() => {
-        navigate("/");
-        alert("Logged in successfully");
+         navigate("/");
       })
-      .catch((err) => console.log(err));
+      .catch((value) => {
+        toast.error(value.message.slice(10)
+          )
+        
+      })
   };
 
   return (
