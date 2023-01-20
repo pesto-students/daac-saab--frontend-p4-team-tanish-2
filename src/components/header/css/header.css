@@ -1,3 +1,4 @@
+
 .featureText {
   color: #ffffff;
   font-weight: 500;
@@ -52,16 +53,16 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 10px;
+  padding: 12px;
   position: fixed;
   top: 0;
   right: 0;
   left: 0;
   z-index: 9999;
-  background-color: #fdf9f9;
+  background-color: #025f4c;
 }
 .nav {
-  color: #343030;
+  color: white;
 }
 .logInBtn {
   border: 1px solid #343030;
@@ -79,6 +80,7 @@
   justify-content: space-around;
   align-items: center;
   cursor: pointer;
+  color:white;
 }
 .doctor-request {
   font-weight: 900;
