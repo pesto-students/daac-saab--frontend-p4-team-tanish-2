@@ -33,18 +33,23 @@ const SignIn = () => {
   const [password, setPassword] = useState("");
 
   const signInWithGoogle = () => {
-    signInWithPopup(auth, googleProvider).then(() => {
-      navigate("/");
-    });
+    signInWithPopup(auth, googleProvider)
+      .then(() => {
+        navigate("/");
+      })
+      .catch((value) => {
+        toast.error(value.message.slice(10));
+      });
   };
 
   const signInUser = () => {
     signInWithEmailAndPassword(auth, email, password)
       .then(() => {
         navigate("/");
-        alert("Logged in successfully");
       })
-      .catch((err) => console.log(err));
+      .catch((value) => {
+        toast.error(value.message.slice(10));
+      });
   };
 
   return (

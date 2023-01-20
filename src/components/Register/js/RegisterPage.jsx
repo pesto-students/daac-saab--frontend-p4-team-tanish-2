@@ -33,6 +33,7 @@ const RegisterPage = () => {
   const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [name, setName] = useState("");
   const [open, setOpen] = useState(false);
   const [errorLog, setErrorLog] = useState("");
   //signUp Functions
@@ -46,9 +47,13 @@ const RegisterPage = () => {
   };
 
   const signInWithGoogle = () => {
-    signInWithPopup(auth, googleProvider).then(() => {
-      navigate("/");
-    });
+    signInWithPopup(auth, googleProvider)
+      .then(() => {
+        navigate("/");
+      })
+      .catch((value) => {
+        toast.error(value.message.slice(10));
+      });
   };
 
   return (

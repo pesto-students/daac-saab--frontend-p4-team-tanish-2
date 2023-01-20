@@ -6,12 +6,21 @@
   text-transform: uppercase;
 }
 .healthCareText {
-  color: #595959;
+  color: #025f4c;
   letter-spacing: -0.8px;
   font-weight: 500;
   font-size: 42.3808px;
 }
-.healthCareText span {
+.healthCareText-new {
+  color: white;
+  letter-spacing: -0.8px;
+  font-weight: 500;
+  font-size: 36px;
+}
+.peach-text{
+  color:#ff8080 !important;
+}
+/* .healthCareText span {
   background: linear-gradient(
     180deg,
     #36d6c3 48.44%,
@@ -22,7 +31,7 @@
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
-}
+} */
 .descriptionText {
   color: #595959;
   font-weight: 400;

@@ -1,7 +1,7 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import comming from "../../../assets/200w.webp";
-
+import "../css/coming.css";
 export default function Coming() {
   const navigate = useNavigate();
   return (
