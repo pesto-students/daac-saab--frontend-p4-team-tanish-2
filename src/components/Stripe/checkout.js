@@ -1,17 +1,16 @@
 import { useState } from "react";
 import { loadStripe } from "@stripe/stripe-js";
-
 import "./styles.css";
 
-let stripePromise;
 
+
+let stripePromise;
 const getStripe = () => {
   if (!stripePromise) {
     stripePromise = loadStripe(
       "pk_test_51MNhagSHk6cCnpybxcnVe0oHwpiPaKueLb7Yk7vCg8ngb9hNp40eoTNCQEupFKkr0eRqCC8ZULwzrDTf3mQWDfEE00WnVfEX3n"
     );
   }
-
   return stripePromise;
 };
 
@@ -19,7 +18,7 @@ const Checkout = () => {
   const [stripeError, setStripeError] = useState(null);
   const [isLoading, setLoading] = useState(false);
   const item = {
-    price: "price_1MNhalSHk6cCnpyb3zZTSVXt",
+    price: "price_1MSOFKSHk6cCnpybQYVttY0M",
     quantity: 1,
   };
 
@@ -30,7 +29,7 @@ const Checkout = () => {
     cancelUrl: `${window.location.origin}/cancel`,
   };
 
-  const redirectToCheckout = async () => {
+   const redirectToCheckout = async () => {
     setLoading(true);
     console.log("redirectToCheckout");
 
