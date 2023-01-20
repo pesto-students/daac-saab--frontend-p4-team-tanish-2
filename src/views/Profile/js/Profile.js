@@ -1,14 +1,13 @@
-import React from 'react';
-import "../css/profile.css" ;
-import { Auth, getAuth, signOut } from 'firebase/auth';
-import { useNavigate } from 'react-router-dom';
-import toast, { Toaster } from 'react-hot-toast';
+import React from "react";
+import "../css/profile.css";
+import { Auth, getAuth, signOut } from "firebase/auth";
+import { useNavigate } from "react-router-dom";
+import toast, { Toaster } from "react-hot-toast";
 
 const auth = getAuth();
-const user=auth.currentUser;
 
-  
- 
+const user=auth.currentUser
+
 const Profile = () => {
 
     const navigate=useNavigate();
