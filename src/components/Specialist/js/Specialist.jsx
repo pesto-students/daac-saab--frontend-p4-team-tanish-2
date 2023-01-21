@@ -70,7 +70,7 @@ const Specialist = (props) => {
                   navigate("/checkout");
                 }}
               >
-                <span className="ms-5 ps-5 ">Pay Rs.500</span>
+                <span className="ms-5 ps-5 ">Book a consultation</span>
               </div>
             )}
           </div>
