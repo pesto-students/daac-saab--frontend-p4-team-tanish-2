@@ -25,7 +25,7 @@ const Calendar = () => {
     getDocById(params?.id);
   }, []);
   return (
-    <div className="container col-12">
+    <div className="container col-12 calendar-box">
       <span className="booking">Book a consultation</span>
       <div className="d-flex">
         <div className="col-4 mt-5">
@@ -52,7 +52,11 @@ const Calendar = () => {
         </div>
 
         <div className="col-8">
-          <InlineWidget url="https://calendly.com/gantavya99/appointment-with-daac-saab" />
+          <InlineWidget 
+            hide_event_type_details="1" hide_gdpr_banner="1" 
+            style={{minWwidth:"320px",height:"630px"}}
+           url="https://calendly.com/gantavya99/appointment-with-daac-saab" 
+           />
         </div>
       </div>
     </div>
