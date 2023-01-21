@@ -6,6 +6,7 @@ import { useState } from "react";
 import axios from "axios";
 import { backendUrl } from "../../../Backend";
 import Avatar from "react-avatar";
+import { isMobile } from "react-device-detect";
 
 const Specialist = (props) => {
   const [doctors, setDoctors] = useState([]);
@@ -33,7 +34,11 @@ const Specialist = (props) => {
         return (
           <div
             key={i}
-            className="specialist-card d-flex align-items-center mt-5 me-2 col-3"
+            className={`col-3 ${
+              isMobile
+                ? "col-12"
+                : "specialist-card d-flex align-items-center mt-5 me-2 "
+            }`}
             onClick={() => navigate(`${x?._id}`)}
             onMouseLeave={() => {
               setPayNow("");
