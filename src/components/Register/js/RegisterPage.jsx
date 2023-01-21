@@ -1,4 +1,5 @@
 import React from "react";
+import { ThreeDots } from 'react-loader-spinner';
 import toast, { Toaster } from "react-hot-toast";
 import { useAuthState } from "react-firebase-hooks/auth";
 import {
@@ -46,6 +47,16 @@ const RegisterPage = () => {
   useEffect(() => {
     if (loading) {
       // maybe trigger a loading screen
+      <ThreeDots 
+      height="80" 
+      width="80" 
+      radius="9"
+      color="#4fa94d" 
+      ariaLabel="three-dots-loading"
+      wrapperStyle={{}}
+      wrapperClassName=""
+      visible={true}
+       />
       return;
     }
     if (user) navigate("/");
@@ -76,7 +87,7 @@ const RegisterPage = () => {
             </p>
           </MDBCol>
           <MDBCol md="6">
-            <MDBCard className="my-5 w-75 input-login">
+            <MDBCard className="my-5 w-85 input-login">
               <MDBCardBody className="p-5">
                 <MDBRow>
                   <MDBCol col="6">
@@ -129,8 +140,7 @@ const RegisterPage = () => {
                   }}
                 />
                 <div className="text-center">
-                  <p>or sign up with:</p>
-
+                  
                   <button className="Google-btn p-2" onClick={signInWithGoogle}>
                     <GoogleIcon /> Sign up with Google
                   </button>

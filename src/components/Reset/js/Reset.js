@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { ThreeDots } from 'react-loader-spinner';
 import { useAuthState } from "react-firebase-hooks/auth";
 import { useNavigate,Link } from "react-router-dom";
 import { auth,sendPasswordReset } from "../../../context/Firebase";
@@ -9,7 +10,18 @@ function Reset() {
     const [user, loading, error] = useAuthState(auth);
     const navigate = useNavigate();
     useEffect(() => {
-      if (loading) return;
+      if (loading){
+       <ThreeDots 
+          height="80" 
+          width="80" 
+          radius="9"
+          color="#4fa94d" 
+          ariaLabel="three-dots-loading"
+          wrapperStyle={{}}
+          wrapperClassName=""
+          visible={true}
+          />
+      }
       if (user) navigate("/");
     }, [user, loading]);
     return (
