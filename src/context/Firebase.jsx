@@ -16,9 +16,6 @@ import {getFirestore,
 } from "firebase/firestore";
 
 
-
-
-
 const firebaseConfig = {
   apiKey: "AIzaSyBDKdjd4kLRIM56eZEe-kHj_lv66hP7jbM",
   authDomain: "daac-saab.firebaseapp.com",
@@ -34,10 +31,7 @@ export const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 const db = getFirestore(app);
 
-
 const googleProvider = new GoogleAuthProvider();
-
-
 
 const signInWithGoogle = async () => {
   try {
@@ -55,7 +49,8 @@ const signInWithGoogle = async () => {
     }
   } catch (err) {
     console.error(err);
-    alert(err.message);
+    alert.error(err);
+    
   }
 };
 
@@ -102,6 +97,7 @@ const logout = () => {
 // Initialize Firebase
 
 export {
+  
   auth,
   db,
   signInWithGoogle,

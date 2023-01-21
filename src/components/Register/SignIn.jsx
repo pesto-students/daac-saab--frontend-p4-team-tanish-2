@@ -1,15 +1,14 @@
 import React from "react";
 import toast, { Toaster } from "react-hot-toast";
+import { useAuthState } from "react-firebase-hooks/auth";
 import {
+  createUserWithEmailAndPassword,
   getAuth,
-  signInWithEmailAndPassword,
+  updateProfile,
   GoogleAuthProvider,
   onAuthStateChanged,
   signInWithPopup,
 } from "firebase/auth";
-import { app } from "../../context/Firebase";
-import { useState } from "react";
-import { useNavigate } from "react-router-dom";
 import GoogleIcon from "@mui/icons-material/Google";
 import {
   MDBBtn,
@@ -22,35 +21,31 @@ import {
   MDBCheckbox,
   MDBIcon,
 } from "mdb-react-ui-kit";
+import {
+  app,
+  auth,
+  signInWithGoogle,
+  logInWithEmailAndPassword,
+} from "../../context/Firebase";
+import { useState, useEffect } from "react";
+import { useNavigate, Link } from "react-router-dom";
 import "./css/Register.css";
-
-const auth = getAuth(app);
-const googleProvider = new GoogleAuthProvider();
 
 const SignIn = () => {
   const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [user, loading, error] = useAuthState(auth);
+  const[dummyEmail,setDummyEmail]=useState("pestoproject@gmail.com");
+  const[dummyPassword,setDummyPassword]=useState("abcd1234");
 
-  const signInWithGoogle = () => {
-    signInWithPopup(auth, googleProvider)
-      .then(() => {
-        navigate("/");
-      })
-      .catch((value) => {
-        toast.error(value.message.slice(10));
-      });
-  };
-
-  const signInUser = () => {
-    signInWithEmailAndPassword(auth, email, password)
-      .then(() => {
-        navigate("/");
-      })
-      .catch((value) => {
-        toast.error(value.message.slice(10));
-      });
-  };
+  useEffect(() => {
+    if (loading) {
+      // maybe trigger a loading screen
+      return;
+    }
+    if (user) navigate("/");
+  }, [user, loading]);
 
   return (
     <MDBContainer
@@ -77,7 +72,7 @@ const SignIn = () => {
         </MDBCol>
 
         <MDBCol md="6">
-          <MDBCard className="my-5 w-75 input-login">
+          <MDBCard className="my-5 w-80 input-login">
             <MDBCardBody className="p-5">
               {/* <MDBRow>
             <MDBCol col='6'>
@@ -107,29 +102,40 @@ const SignIn = () => {
                 required
               />
 
-              <div className="d-flex justify-content-center mb-4">
+              <div className="d-flex justify-content-center mb-2">
                 <MDBCheckbox
                   name="flexCheck"
                   value=""
                   id="flexCheckDefault"
                   label="Login with test Credentials"
+                  onClick={()=>{
+                    setEmail(dummyEmail)
+                    setPassword(dummyPassword)
+                      }}
                 />
               </div>
 
-              <MDBBtn onClick={signInUser} className="w-100 mb-3" size="md">
+              <MDBBtn
+                onClick={() => {
+                  logInWithEmailAndPassword(email, password)
+                }}
+                className="w-100 mb-4"
+                size="md"
+              >
                 Login
               </MDBBtn>
 
               <div className="text-center">
-                <p>or sign in with:</p>
-
                 <button
                   className="Google-btn-login p-2"
                   onClick={signInWithGoogle}
                 >
                   <GoogleIcon /> Login with Google
                 </button>
-                <div className="mt-3">
+                <div className="mt-3 mb-3 text-primary">
+                  <Link to="/reset">Forgot Password ?</Link>
+                </div>
+                <div className="mt-2">
                   <span>New user? &nbsp;</span>
                   <span
                     className="register-here"
