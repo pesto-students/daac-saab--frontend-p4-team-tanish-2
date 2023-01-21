@@ -10,6 +10,9 @@ import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 import SignIn from "../../Register/SignIn";
 import RegisterPage from "../../Register/js/RegisterPage";
 import { User, getAuth, onAuthStateChanged, signOut } from "firebase/auth";
+import Drawer from "react-modern-drawer";
+import "react-modern-drawer/dist/index.css";
+import ListIcon from "@mui/icons-material/List";
 
 export default function Header() {
   const [showMobileNav, setShowMobileNav] = useState(false);
@@ -19,6 +22,7 @@ export default function Header() {
   const navigate = useNavigate();
   const auth = getAuth();
   const [user, setUser] = useState(null);
+  const [isOpen, setIsOpen] = useState(false);
 
   useEffect(() => {
     onAuthStateChanged(auth, (user) => {
@@ -30,64 +34,100 @@ export default function Header() {
     });
   }, []);
 
-  // const handleLogin=()=>{
-  //   if(user===null){
-  //     return (
-  //       <>
-  //       <RegisterPage />
-  //       </>
-  //     )
-  //   }
-  // }
+  const toggleDrawer = () => {
+    setIsOpen(false);
+  };
 
   return (
     <div className="main">
       <div onClick={() => navigate("")} className="cursor-pointer">
         <img src={logo} alt="logo" />
       </div>
-      <div className="navbar " onMouseLeave={() => setIsProductHovering(false)}>
-        <span
-          className="py-2 px-2 cursor-pointer"
-          onClick={() => navigate("/One-tap")}
+      {isMobile ? (
+        <>
+          <ListIcon onClick={() => setIsOpen(true)} />
+          <Drawer
+            zIndex={100}
+            size={250}
+            open={isOpen}
+            onClose={toggleDrawer}
+            direction="right"
+            className="bla bla bla"
+          >
+            <div className="d-flex flex-column">
+              <div
+                className="py-2 px-2 cursor-pointer"
+                onClick={() => navigate("/One-tap")}
+              >
+                One-tap Prescription
+              </div>
+              <div className="nav cursor-pointer position-relative">
+                Product Features
+              </div>
+              <div
+                className="nav cursor-pointer"
+                onClick={() => navigate("/About-us")}
+              >
+                {params === "doctor" ? "Healthcare" : "About us"}
+              </div>
+              <div
+                className="nav cursor-pointer"
+                onClick={() => navigate("/Coming-soon")}
+              >
+                Resources
+              </div>
+            </div>
+          </Drawer>
+        </>
+      ) : (
+        <div
+          className="navbar "
+          onMouseLeave={() => setIsProductHovering(false)}
         >
-          One-tap Prescription
-        </span>
-        <span
-          className="nav cursor-pointer position-relative"
-          onMouseEnter={() => setIsProductHovering(true)}
-        >
-          Product Features
-        </span>
-        {isProductHovering && (
-          <div className="product-section d-flex flex-column text-start position-absolute">
-            <span
-              className="py-2 px-2 cursor-pointer"
-              onClick={() => navigate("/Coming-soon")}
-            >
-              Blogs
-            </span>
-            <span
-              className="py-2 px-2 cursor-pointer"
-              onClick={() => navigate("/Coming-soon")}
-            >
-              Wellness
-            </span>
-          </div>
-        )}
-        <span
-          className="nav cursor-pointer"
-          onClick={() => navigate("/About-us")}
-        >
-          {params === "doctor" ? "Healthcare" : "About us"}
-        </span>
-        <span
-          className="nav cursor-pointer"
-          onClick={() => navigate("/Coming-soon")}
-        >
-          Resources
-        </span>
-      </div>
+          <span
+            className="py-2 px-2 cursor-pointer"
+            onClick={() => navigate("/One-tap")}
+          >
+            One-tap Prescription
+          </span>
+          <span
+            className="nav cursor-pointer position-relative"
+            onMouseEnter={() => setIsProductHovering(true)}
+          >
+            Product Features
+          </span>
 
+          {isProductHovering && (
+            <div className="product-section d-flex flex-column text-start position-absolute">
+              <span
+                className="py-2 px-2 cursor-pointer"
+                onClick={() => navigate("/Coming-soon")}
+              >
+                Blogs
+              </span>
+              <span
+                className="py-2 px-2 cursor-pointer"
+                onClick={() => navigate("/Coming-soon")}
+              >
+                Wellness
+              </span>
+            </div>
+          )}
+          <span
+            className="nav cursor-pointer"
+            onClick={() => navigate("/About-us")}
+          >
+            {params === "doctor" ? "Healthcare" : "About us"}
+          </span>
+          <span
+            className="nav cursor-pointer"
+            onClick={() => navigate("/Coming-soon")}
+          >
+            Resources
+          </span>
+        </div>
+      )}
+      <div className="nav cursor-pointer" onClick={()=>dispatch(showModal())}>Are you a doctor ?</div>
       <div className="navbarBtn col-2">
         {user ? (
           <div className="ms-auto pe-3">
@@ -132,6 +172,7 @@ export default function Header() {
                 </span>
                 <span className="nav">Resoures</span>
               </div>
+              <div>Are you a doctor?</div>
               <div className="navbarBtn col-2">
                 <button className="logInBtn">Login</button>
                 <button className="signUpBtn">SignUp</button>
