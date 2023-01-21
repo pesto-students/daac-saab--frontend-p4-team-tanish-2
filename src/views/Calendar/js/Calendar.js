@@ -6,6 +6,7 @@ import { backendUrl } from "../../../Backend";
 import { useParams } from "react-router-dom";
 import axios from "axios";
 import Avatar from "react-avatar";
+import { isMobile } from "react-device-detect";
 
 const Calendar = () => {
   const [doctorById, setDoctorById] = useState([]);
@@ -27,8 +28,8 @@ const Calendar = () => {
   return (
     <div className="container col-12">
       <span className="booking">Book a consultation</span>
-      <div className="d-flex">
-        <div className="col-4 mt-5">
+      <div className={`${isMobile ? "flex-wrap" : ""} d-flex`}>
+        <div className={`${isMobile ? "col-12" : "col-4"} mt-5`}>
           <div className="d-flex mb-4">
             <div className="d-flex ">
               <Avatar
