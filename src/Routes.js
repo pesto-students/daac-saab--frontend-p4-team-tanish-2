@@ -16,7 +16,7 @@ import Test from "./Test.jsx";
 import Modal from "./views/Modal/Modal.js";
 import RegisterPage from "./components/Register/js/RegisterPage.jsx";
 import SignIn from "./components/Register/SignIn.jsx";
-
+import Reset from "./components/Reset/js/Reset.js";
 
 
 export default function DaacSaabRoutes() {
@@ -36,7 +36,7 @@ export default function DaacSaabRoutes() {
         <Route path="/Checkout" element={<Checkout />} />
         <Route path="/Video" element={<JoinRoom />} />
         <Route path="/Test" element={<Test />}/>
-
+        <Route path="/Reset" element={<Reset />}/>
         // <Route path="/Sign-Up" element={<RegisterPage />} />
         // <Route path="/Sign-In" element={<SignIn />} />
 
