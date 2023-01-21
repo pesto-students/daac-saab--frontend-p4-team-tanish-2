@@ -127,7 +127,7 @@ export default function Header() {
           </span>
         </div>
       )}
-
+      <div className="nav cursor-pointer" onClick={()=>dispatch(showModal())}>Are you a doctor ?</div>
       <div className="navbarBtn col-2">
         {user ? (
           <div className="ms-auto pe-3">
@@ -172,6 +172,7 @@ export default function Header() {
                 </span>
                 <span className="nav">Resoures</span>
               </div>
+              <div>Are you a doctor?</div>
               <div className="navbarBtn col-2">
                 <button className="logInBtn">Login</button>
                 <button className="signUpBtn">SignUp</button>
