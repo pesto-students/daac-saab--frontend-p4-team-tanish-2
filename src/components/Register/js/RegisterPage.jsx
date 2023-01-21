@@ -1,8 +1,10 @@
 import React from "react";
 import toast, { Toaster } from "react-hot-toast";
+import { useAuthState } from "react-firebase-hooks/auth";
 import {
   createUserWithEmailAndPassword,
   getAuth,
+  updateProfile,
   GoogleAuthProvider,
   onAuthStateChanged,
   signInWithPopup,
@@ -19,42 +21,35 @@ import {
   MDBCheckbox,
   MDBIcon,
 } from "mdb-react-ui-kit";
-import { app } from "../../../context/Firebase";
-import { useState } from "react";
+import { app,auth,signInWithGoogle,registerWithEmailAndPassword } from "../../../context/Firebase";
+import { useState,useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import "../css/Register.css";
 
-const auth = getAuth(app);
+// const auth = getAuth(app);
 const googleProvider = new GoogleAuthProvider();
-
 //Functional Component begins here
+
 const RegisterPage = () => {
   //hooks
   const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [name, setName] = useState("");
-  const [open, setOpen] = useState(false);
-  const [errorLog, setErrorLog] = useState("");
-  //signUp Functions
-  const signUpUser = () => {
-    createUserWithEmailAndPassword(auth, email, password)
-      .then(() => navigate("/"))
-      .catch((value) => {
-        toast.error(value.message.slice(10));
-        console.log(value);
-      });
+  const [user, loading, error] = useAuthState(auth);
+  console.log(name);
+  const register = () => {
+    if (!name) alert("Please enter name");
+    registerWithEmailAndPassword(name, email, password);
   };
 
-  const signInWithGoogle = () => {
-    signInWithPopup(auth, googleProvider)
-      .then(() => {
-        navigate("/");
-      })
-      .catch((value) => {
-        toast.error(value.message.slice(10));
-      });
-  };
+  useEffect(() => {
+    if (loading) {
+      // maybe trigger a loading screen
+      return;
+    }
+    if (user) navigate("/");
+  }, [user, loading]);
 
   return (
     <>
@@ -80,24 +75,16 @@ const RegisterPage = () => {
               facilis sint aliquid ipsum atque?
             </p>
           </MDBCol>
-
           <MDBCol md="6">
             <MDBCard className="my-5 w-75 input-login">
               <MDBCardBody className="p-5">
                 <MDBRow>
                   <MDBCol col="6">
                     <MDBInput
+                    value={name}
+                      onChange={(e) => setName(e.target.value)}
                       wrapperClass="mb-4"
-                      label="First name"
-                      id="form1"
-                      type="text"
-                    />
-                  </MDBCol>
-
-                  <MDBCol col="6">
-                    <MDBInput
-                      wrapperClass="mb-4"
-                      label="Last name"
+                      label="Enter your Full Name"
                       id="form1"
                       type="text"
                     />
@@ -131,14 +118,14 @@ const RegisterPage = () => {
                   />
                 </div>
 
-                <MDBBtn onClick={signUpUser} className="w-100 mb-4" size="md">
+                <MDBBtn onClick={register} className="w-100 mb-4" size="md">
                   Sign up
                 </MDBBtn>
                 <Toaster
                   toastOptions={{
                     // Define default options
                     className: "",
-                    duration: 5000,
+                    duration: 3000,
                   }}
                 />
                 <div className="text-center">
