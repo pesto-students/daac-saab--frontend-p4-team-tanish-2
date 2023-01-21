@@ -16,7 +16,7 @@ const Profile=()=> {
       setName(data.name);
     } catch (err) {
       console.error(err);
-      alert("An error occured while fetching user data",err);
+      
     }
   };
   useEffect(() => {
