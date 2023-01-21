@@ -36,7 +36,7 @@ const SignIn = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [user, loading, error] = useAuthState(auth);
-  const[dummyEmail,setDummyEmail]=useState("pestoproject@gmail.com");
+  const[dummyEmail,setDummyEmail]=useState("pestoproject1@gmail.com");
   const[dummyPassword,setDummyPassword]=useState("abcd1234");
 
   useEffect(() => {
