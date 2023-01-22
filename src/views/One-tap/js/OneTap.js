@@ -1,5 +1,6 @@
 import React from "react";
-import { useState, CSSProperties,useEffect } from "react";
+import toast, { Toaster } from "react-hot-toast";
+import { useState, CSSProperties, useEffect } from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
 import "../css/oneTap.css";
 import { useNavigate } from "react-router-dom";
@@ -12,7 +13,7 @@ import { backendUrl } from "../../../Backend";
 import pencil from "../../../assets/pencil.svg";
 import DotLoader from "react-spinners/DotLoader";
 import Accordion from "react-bootstrap/Accordion";
-import { auth,db,logout } from "../../../context/Firebase";
+import { auth, db, logout } from "../../../context/Firebase";
 import { query, collection, getDocs, where } from "firebase/firestore";
 const override: cssProperties = {
   display: "block",
@@ -83,7 +84,7 @@ export default function OneTap() {
   const [loading, setLoading] = useState(false);
   const [presData, setPresData] = useState([]);
   const [user, loading1, error] = useAuthState(auth);
-  const[name,setName]=useState("");
+  const [name, setName] = useState("");
   const navigate = useNavigate();
   function MyVerticallyCenteredModal(props) {
     return (
@@ -174,14 +175,17 @@ export default function OneTap() {
       setName(data.name);
     } catch (err) {
       console.error(err);
-      
     }
   };
 
   useEffect(() => {
-    if (loading) return;
-    
-    if (!user) return navigate("/Sign-In");
+    if (loading)
+      return;
+
+    if (!user) {
+      return navigate("/Sign-In");
+      toast("Please Login first !");
+    }
     fetchUserName();
   }, [user, loading]);
   // const getDate = () => {
@@ -204,6 +208,13 @@ export default function OneTap() {
           Are you here for General Consultation?
         </p>
       </div>
+      <Toaster
+        toastOptions={{
+          // Define default options
+          className: "",
+          duration: 3000,
+        }}
+      />
       <div className="selection container">
         <button
           className="btn btn-primary"
@@ -250,11 +261,10 @@ export default function OneTap() {
                     handlePrescription(x, i);
                     showModal();
                   }}
-                  className={`m-2 ${
-                    selectedSymptom.includes(x)
+                  className={`m-2 ${selectedSymptom.includes(x)
                       ? "selectedSymptomColor"
                       : "sym-card"
-                  }`}
+                    }`}
                 >
                   {x}
                 </div>
@@ -346,15 +356,34 @@ export default function OneTap() {
                 </div>
               )}
               <div>
-                <button
-                  className="btn btn-info "
-                  onClick={() => {
-                    generatePDF();
-                  }}
-                >
-                  Download Prescription
-                  <FileDownloadIcon />
-                </button>
+                <div className="d-flex align-items-center justify-content-center flex-column">
+                  
+                  <div>
+                    <button
+                      className="btn btn-info mt-5 "
+                      onClick={() => {
+                        generatePDF();
+                      }}
+                    >
+                      Download Prescription
+                      <FileDownloadIcon />
+                    </button>
+                  </div>
+                  <div>
+                    
+                    
+                    <button
+                      className="btn btn-secondary1 mt-5 "
+                      onClick={() => {
+                        navigate("/Specialist");
+                      }}
+                    >
+                     Still have doubts? Consult a specialist
+                    </button>
+                    
+                    
+                  </div>
+                </div>
               </div>
             </div>
           ) : null}
@@ -383,7 +412,7 @@ export default function OneTap() {
           }
         }}
       />
-         <div className="testimonial-box flex-column d-flex justify-content-center align-items-center">
+      <div className="testimonial-box flex-column d-flex justify-content-center align-items-center">
         <div>
           "It was great to have Daac Saab Doctors with our family for all the
           medical needs"

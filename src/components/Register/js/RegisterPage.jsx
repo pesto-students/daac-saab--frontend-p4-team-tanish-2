@@ -40,7 +40,6 @@ const RegisterPage = () => {
   const [user, loading, error] = useAuthState(auth);
   console.log(name);
   const register = () => {
-    if (!name) alert("Please enter name");
     registerWithEmailAndPassword(name, email, password);
   };
 
