@@ -9,7 +9,7 @@ import FileDownloadIcon from "@mui/icons-material/FileDownload";
 import axios from "axios";
 import { backendUrl } from "../../../Backend";
 import pencil from "../../../assets/pencil.svg";
-import DotLoader from "react-spinners/DotLoader";
+import ClockLoader from "react-spinners/ClockLoader";
 import Accordion from "react-bootstrap/Accordion";
 const override: cssProperties = {
   display: "block",
@@ -240,7 +240,7 @@ export default function OneTap() {
           {showPrescription ? (
             <div>
               {loading ? (
-                <DotLoader
+                <ClockLoader
                   cssOverride={override}
                   size={150}
                   aria-label="Loading Spinner"
@@ -359,7 +359,7 @@ export default function OneTap() {
           }
         }}
       />
-         <div className="testimonial-box flex-column d-flex justify-content-center align-items-center">
+      <div className="testimonial-box flex-column d-flex justify-content-center align-items-center">
         <div>
           "It was great to have Daac Saab Doctors with our family for all the
           medical needs"
