@@ -1,70 +1,65 @@
-# Getting Started with Create React App
+Daac Saab
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+Daac saab is a patient centric one stop solution platform for all your medical and health related needs . Bringing a revolutionary change in the health-tech space by providing one tap prescriptions based on your symptoms . Daac Saab has the top curated doctors readily available  for the patients who diagnose using our chat and video call functionalities provided in our freemium model . 
 
-In the project directory, you can run:
 
-### `npm start`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+WWhy Daac Saab when there are similar platforms like Practo ?
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+Services offered by Practo are time consuming and requires money up front for any kind of consultations . In Daac Saab using our One tap prescription features , a patient can easily (in a few minutes ) receive medications for general diseases like Headache , Diarrhea etc for free.
 
-### `npm test`
+Regional language filtering of doctors as per the patient’s region 
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-### `npm run build`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Table of Contents
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Demo Link - https://daac-saab.vercel.app/
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Installation
 
-### `npm run eject`
+Technology Stack
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+Authors
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+License
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+Demo
+Live Demo
 
-## Learn More
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+Please Note:
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+We recommend using this app in Google Chrome
 
-### Code Splitting
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+Test Credentials for Normal User:
 
-### Analyzing the Bundle Size
+Email: testuser@pestoproject.com
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+Password: 1234567890
 
-### Making a Progressive Web App
+Test Credentials for Restaurant User:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+Email: testowner@pestoproject.com
 
-### Advanced Configuration
+Password: 1234567890
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
 
-### Deployment
+Installation
+Fork or directly clone this repository to your local machine
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+Use the npm install command to install dependencies
 
-### `npm run build` fails to minify
+Once the dependencies are finished installing, use the npm start command inside the root directory to open the app in your local browser of choice
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+Technology Stack
+We tried to use a completely modern tech stack while testing out some new technologies that we had never used before. This resulted in a fast, performant, and easily-extensible web app that should be fairly future-proof for the coming next several years. 
+
+
+Authors
+Gantavya Saraswat
+Bajrang Bhushan
