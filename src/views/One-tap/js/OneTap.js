@@ -1,5 +1,6 @@
 import React from "react";
-import { useState, CSSProperties } from "react";
+import { useState, CSSProperties,useEffect } from "react";
+import { useAuthState } from "react-firebase-hooks/auth";
 import "../css/oneTap.css";
 import { useNavigate } from "react-router-dom";
 import Button from "react-bootstrap/Button";
@@ -11,6 +12,8 @@ import { backendUrl } from "../../../Backend";
 import pencil from "../../../assets/pencil.svg";
 import ClockLoader from "react-spinners/ClockLoader";
 import Accordion from "react-bootstrap/Accordion";
+import { auth,db,logout } from "../../../context/Firebase";
+import { query, collection, getDocs, where } from "firebase/firestore";
 const override: cssProperties = {
   display: "block",
   margin: "0 auto",
@@ -79,6 +82,8 @@ export default function OneTap() {
   const [showPrescription, setShowPrescription] = useState(false);
   const [loading, setLoading] = useState(false);
   const [presData, setPresData] = useState([]);
+  const [user, loading1, error] = useAuthState(auth);
+  const[name,setName]=useState("");
   const navigate = useNavigate();
   function MyVerticallyCenteredModal(props) {
     return (
@@ -160,6 +165,25 @@ export default function OneTap() {
         throw new Error(err);
       });
   };
+
+  const fetchUserName = async () => {
+    try {
+      const q = query(collection(db, "users"), where("uid", "==", user?.uid));
+      const doc = await getDocs(q);
+      const data = doc.docs[0].data();
+      setName(data.name);
+    } catch (err) {
+      console.error(err);
+      
+    }
+  };
+
+  useEffect(() => {
+    if (loading) return;
+    
+    if (!user) return navigate("/Sign-In");
+    fetchUserName();
+  }, [user, loading]);
   // const getDate = () => {
   //   const newDate = new Date();
   //   const m = "";
@@ -278,7 +302,7 @@ export default function OneTap() {
                           <div className="position-absolute presData">
                             <div className="ms-3 info ">
                               <div className="patientName">
-                                Name : {"user?.name"}
+                                Name : {name}
                               </div>
                               {/* <div>Gender : {user?.gender}</div>
                           <div>Age : {user?.birthdate}</div> */}
@@ -309,12 +333,12 @@ export default function OneTap() {
                               );
                             })}
                           </div>
-                          <img
+                          {/* <img
                             className="img-fluid prescriptionPencil"
                             loading="lazy"
                             alt="pencil"
                             src={pencil}
-                          />
+                          /> */}
                         </div>
                       );
                     })}
