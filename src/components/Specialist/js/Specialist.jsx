@@ -10,10 +10,7 @@ import Avatar from "react-avatar";
 import { isMobile } from "react-device-detect";
 
 
-
-
 const Specialist = (props) => {
-
 
   const [doctors, setDoctors] = useState([]);
   const [payNow, setPayNow] = useState("");
@@ -33,6 +30,8 @@ const getStripe = () => {
 
 const [stripeError, setStripeError] = useState(null);
 const [isLoading, setLoading] = useState(false);
+
+const[url,setUrl]=useState("");
 const item = {
   price: "price_1MSOFKSHk6cCnpybQYVttY0M",
   quantity: 1,
@@ -41,10 +40,11 @@ const item = {
 const checkoutOptions = {
   lineItems: [item],
   mode: "payment",
-  successUrl: `${window.location.origin}/success`,
+  successUrl: `${window.location.origin}/${url}`,
   cancelUrl: `${window.location.origin}/cancel`,
+  
 };
-
+console.log(url);
  const redirectToCheckout = async () => {
   setLoading(true);
   console.log("redirectToCheckout");
@@ -86,7 +86,9 @@ if (stripeError) alert(stripeError);
                 ? "col-12"
                 : "specialist-card d-flex align-items-center mt-5 me-2"
             }`}
-            onClick={() => navigate(`${x?._id}`)}
+          onClick={() => {navigate(`${x?._id}`)
+          setUrl(`${x?._id}`);
+          }}
             onMouseLeave={() => {
               setPayNow("");
             }}

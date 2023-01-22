@@ -21,6 +21,7 @@ const Profile=()=> {
   };
   useEffect(() => {
     if (loading) return;
+    
     if (!user) return navigate("/");
     fetchUserName();
   }, [user, loading]);

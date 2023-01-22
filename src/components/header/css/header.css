@@ -8,6 +8,10 @@
 .cursor-pointer {
   cursor: pointer;
 }
+.logo-main{
+  width:12vw;
+  height:12vh;
+}
 .featureText span {
   color: #ff8080;
   font-weight: 500;
@@ -53,8 +57,8 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 12px;
   position: fixed;
+  padding:3px;
   top: 0;
   right: 0;
   left: 0;
@@ -65,9 +69,9 @@
   color: white;
 }
 .logInBtn {
-  border: 1px solid #343030;
+  border: 1px solid #ffffff;
   border-radius: 5px;
-  color: #343030;
+  color: #ffffff;
   background: none;
   padding: 7px 22px;
   font-weight: 500;

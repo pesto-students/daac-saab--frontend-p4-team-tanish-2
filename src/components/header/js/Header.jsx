@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import logo from "../../../assets/DaacSaabLogo.svg";
+import logo from "../../../assets/Frame.svg";
 import "../css/header.css";
 import { useParams, useNavigate } from "react-router-dom";
 import { isMobile } from "react-device-detect";
@@ -40,8 +40,8 @@ export default function Header() {
 
   return (
     <div className="main">
-      <div onClick={() => navigate("")} className="cursor-pointer">
-        <img src={logo} alt="logo" />
+      <div onClick={() => navigate("")} className="cursor-pointer ">
+        <img className="logo-main mx-4" src={logo} alt="logo" />
       </div>
       {isMobile ? (
         <>
@@ -70,12 +70,12 @@ export default function Header() {
               >
                 {params === "doctor" ? "Healthcare" : "About us"}
               </div>
-              <div
+              {/* <div
                 className="nav cursor-pointer"
                 onClick={() => navigate("/Coming-soon")}
               >
                 Resources
-              </div>
+              </div> */}
             </div>
           </Drawer>
         </>
@@ -92,9 +92,9 @@ export default function Header() {
           </span>
           <span
             className="nav cursor-pointer position-relative"
-            onMouseEnter={() => setIsProductHovering(true)}
+            onClick={()=>navigate("/Specialist")}
           >
-            Product Features
+            Specialist
           </span>
 
           {isProductHovering && (
@@ -119,12 +119,12 @@ export default function Header() {
           >
             {params === "doctor" ? "Healthcare" : "About us"}
           </span>
-          <span
+          {/* <span
             className="nav cursor-pointer"
             onClick={() => navigate("/Coming-soon")}
           >
             Resources
-          </span>
+          </span> */}
         </div>
       )}
       <div className="nav cursor-pointer" onClick={()=>dispatch(showModal())}>Are you a doctor ?</div>
