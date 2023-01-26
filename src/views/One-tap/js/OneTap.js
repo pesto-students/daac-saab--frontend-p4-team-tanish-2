@@ -15,6 +15,7 @@ import ClockLoader from "react-spinners/ClockLoader";
 import Accordion from "react-bootstrap/Accordion";
 import { auth, db, logout } from "../../../context/Firebase";
 import { query, collection, getDocs, where } from "firebase/firestore";
+let moment = require("moment");
 const override: cssProperties = {
   display: "block",
   margin: "0 auto",
@@ -83,9 +84,16 @@ export default function OneTap() {
   const [showPrescription, setShowPrescription] = useState(false);
   const [loading, setLoading] = useState(false);
   const [presData, setPresData] = useState([]);
+  const [currentDate, setCurrentDate] = useState("");
   const [user, loading1, error] = useAuthState(auth);
   const [name, setName] = useState("");
   const navigate = useNavigate();
+
+  const getCurrentDate = () => {
+    let x = new Date();
+    let date = moment(x).format("MMM Do YY");
+    setCurrentDate(date);
+  };
   function MyVerticallyCenteredModal(props) {
     return (
       <Modal
@@ -188,19 +196,6 @@ export default function OneTap() {
     }
     fetchUserName();
   }, [user, loading]);
-  // const getDate = () => {
-  //   const newDate = new Date();
-  //   const m = "";
-  //   const date = newDate.getDate();
-  //   const month = newDate.getMonth();
-  //   const year = newDate.getFullYear();
-  //   if (month === 0) {
-  //     m = "January";
-  //   }
-  //   return { date: date, year: year, month: m };
-  // };
-  // console.log(getDate(), "date");
-
   return (
     <div className="">
       <div className="enquiry-div container">
@@ -311,13 +306,11 @@ export default function OneTap() {
 
                           <div className="position-absolute presData">
                             <div className="ms-3 info ">
-                              <div className="patientName">
-                                Name : {name}
-                              </div>
+                              <div className="patientName">Name : {name}</div>
                               {/* <div>Gender : {user?.gender}</div>
                           <div>Age : {user?.birthdate}</div> */}
                               <div className="patientName">
-                                Date : {x?.createAt}
+                                Date : {currentDate}
                               </div>
                               <div className=" advice">Advice :</div>
                             </div>
@@ -395,6 +388,7 @@ export default function OneTap() {
                 onClick={() => {
                   getPrescription();
                   setShowPrescription(true);
+                  getCurrentDate();
                 }}
               >
                 Generate Prescription
