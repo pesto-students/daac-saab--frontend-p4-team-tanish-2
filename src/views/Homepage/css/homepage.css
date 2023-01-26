@@ -44,7 +44,7 @@
 }
 .rootHome {
   background: #025f4c;
-  padding-top: 80px;
+  padding-top: 60px;
 }
 .firstContent {
   display: flex;
@@ -103,4 +103,17 @@
 .featureDiv {
   border: 1px solid #36d6c3;
   border-radius: 48.1712px;
+}
+.btn-primary1 {
+  padding:15px 30px 15px 30px;
+  margin-top: 4%;
+  background-color: #bcdd33;
+  border: none;
+  color: #025f4c;
+  font-weight: 500;
+  font-size: 16px;
+  border-radius: 10px;
+}
+.btn-primary1:hover{
+  background-color: #c6f606;
 }

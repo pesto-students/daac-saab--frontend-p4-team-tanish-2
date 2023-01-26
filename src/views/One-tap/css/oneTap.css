@@ -7,8 +7,7 @@
   margin-top: 10%;
 }
 .btn-primary {
-  height: 43.55px;
-  width: 100px;
+  padding:10px 30px 10px 30px;
   margin-top: 4%;
   background-color: #bcdd33;
   border: none;
@@ -116,7 +115,7 @@ hr {
   color: #248774;
 }
 .btn-info {
-  float: right;
+  float: right !important;
   background-color: white;
   border: 0.5px #ad0b00 solid;
   color: black;
@@ -147,4 +146,20 @@ hr {
   position: absolute;
   top: 342px;
   right: 0px;
+}
+.btn-secondary1 {
+  height: 43.55px;
+  width: 300px;
+  margin-top: 4%;
+  margin-left: 3%;
+  font-weight: 500;
+  font-size: 16px;
+  border-radius: 10px;
+  border:0.5px black solid;
+  color: black;
+  background-color: white;
+}
+.btn-secondary1:hover {
+  background-color: #0d6e5e;
+  color:white;
 }

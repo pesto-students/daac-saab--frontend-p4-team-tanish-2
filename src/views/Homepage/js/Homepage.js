@@ -25,7 +25,7 @@ export default function Homepage() {
   return (
     <>
       <div className="rootHome">
-        <div className="">
+        {/* <div className="">
           <div className={`firstContent ${isMobile ? "flex-wrap" : ""} my-5`}>
             <div className="grid">
               {" "}
@@ -59,6 +59,41 @@ export default function Homepage() {
               src={home}
               className={`${isMobile ? "col-10" : ""} img-fluid`}
             />
+          </div>
+        </div> */}
+        <div className="hero-screen d-flex justify-content-around">
+          <div className="hero-text mt-4">
+            <div style={{color:"#36d6c3",fontWeight:"500",fontSize:"46.2px",lineHeight:"55px"}}>
+              With great Technology
+            </div>
+            <div style={{color:"white",fontWeight:"500",fontSize:"46.2px",lineHeight:"55px"}}>
+              comes great
+            </div>
+            <div style={{color:"#36d6c3",fontWeight:"500",fontSize:"46.2px",lineHeight:"55px"}}>
+              Healthcare
+            </div>
+            <div className="mt-4" style={{color:"white",fontWeight:"400",fontSize:"19.2px"}}>
+              
+                <div>
+                Consultations with doctors
+                </div>
+               
+                <span>
+                starting as low as&nbsp;
+                </span>
+                <span style={{color:"#d8c410"}}>
+                250 Rs
+                </span>
+            </div>
+            <button className="btn-primary1 mt-5">
+              Look Inside !
+            </button>
+          </div>
+          <div className="hero-image m-3">
+          <img
+              alt="img1"
+              src={home}
+              />
           </div>
         </div>
 
