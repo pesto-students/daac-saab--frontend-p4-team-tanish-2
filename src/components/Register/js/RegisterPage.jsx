@@ -128,9 +128,9 @@ const RegisterPage = () => {
                   />
                 </div>
 
-                <MDBBtn onClick={register} className="w-100 mb-4" size="md">
+                <button onClick={register} className="w-100 mb-4 btn-primary" size="md">
                   Sign up
-                </MDBBtn>
+                </button>
                 <Toaster
                   toastOptions={{
                     // Define default options

@@ -15,7 +15,8 @@ import ClockLoader from "react-spinners/ClockLoader";
 import Accordion from "react-bootstrap/Accordion";
 import { auth, db, logout } from "../../../context/Firebase";
 import { query, collection, getDocs, where } from "firebase/firestore";
-let moment = require("moment");
+
+// let moment = require("moment");
 const override: cssProperties = {
   display: "block",
   margin: "0 auto",
@@ -91,7 +92,7 @@ export default function OneTap() {
 
   const getCurrentDate = () => {
     let x = new Date();
-    let date = moment(x).format("MMM Do YY");
+    let date = x.format("MMM Do YY");
     setCurrentDate(date);
   };
   function MyVerticallyCenteredModal(props) {

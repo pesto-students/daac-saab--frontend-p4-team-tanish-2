@@ -115,15 +115,15 @@ const SignIn = () => {
                 />
               </div>
 
-              <MDBBtn
+              <button
                 onClick={() => {
                   logInWithEmailAndPassword(email, password)
                 }}
-                className="w-100 mb-4"
+                className="w-100 mb-4 btn-primary"
                 size="md"
               >
                 Login
-              </MDBBtn>
+              </button>
 
               <div className="text-center">
                 <button
