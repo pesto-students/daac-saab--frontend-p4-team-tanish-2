@@ -56,7 +56,7 @@ const Calendar = () => {
           <InlineWidget 
             hide_event_type_details="1" hide_gdpr_banner="1" 
             style={{minWwidth:"320px",height:"630px"}}
-           url="https://calendly.com/gantavya99/appointment-with-daac-saab" 
+           url="https://calendly.com/gantavya9991" 
            />
         </div>
       </div>
