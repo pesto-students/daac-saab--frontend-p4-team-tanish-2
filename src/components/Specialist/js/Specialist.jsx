@@ -118,7 +118,7 @@ if (stripeError) alert(stripeError);
                 className="position-absolute pay-now-div col-12 text--center ps-4 py-2"
                 onClick={(e) => {
                   e.stopPropagation();
-                  redirectToCheckout();
+                  
                 }}
               >
                 <span className="ms-5 text-align-center ">Book a consultation</span>

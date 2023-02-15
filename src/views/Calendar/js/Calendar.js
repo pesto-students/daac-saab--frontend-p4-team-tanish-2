@@ -54,9 +54,21 @@ const Calendar = () => {
 
         <div className="col-8">
           <InlineWidget 
-            hide_event_type_details="1" hide_gdpr_banner="1" 
+           pageSettings={{
+            backgroundColor: '#ffffff',
+            hideEventTypeDetails: false,
+            hideLandingPageDetails: false,
+            primaryColor: '#025f4c',
+            textColor: '#025f4c'
+          }}
+
+          prefill={{
+            email: 'test@test.com',
+            firstName: 'Jon',
+            lastName: 'Snow',
+            name: 'Jon Snow'}}
             style={{minWwidth:"320px",height:"630px"}}
-           url="https://calendly.com/gantavya9991" 
+           url="https://calendly.com/gantavya9991/30min" 
            />
         </div>
       </div>
