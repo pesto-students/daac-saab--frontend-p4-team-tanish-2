@@ -1,4 +1,4 @@
-# Untitled
+
 
 # **Daac Saab**
 
@@ -40,7 +40,7 @@ Daac Saab offers the following features:
 1. Go to the **[Daac Saab website](https://daac-saab.vercel.app/)**.
 2. Create an account or log in to your existing account.
 3. Describe your symptoms and submit your request for a diagnosis.
-4. Wait for a doctor to respond to your request.
+4. Book an appointment with your doctor.
 5. Use the chat or video call functionalities to discuss your symptoms and receive a prescription.
 
 ## **Contributing**
