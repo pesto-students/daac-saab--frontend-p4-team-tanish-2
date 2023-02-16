@@ -1,0 +1,38 @@
+.reset {
+    height: 80vh;
+    width: 100vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .reset__container {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    background-color: #e6eff0;
+    padding: 60px;
+    border-radius:10px;
+    box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.2), 0 6px 5px 0 rgba(0, 0, 0, 0.19);
+  }
+  .reset__textBox {
+    padding: 10px;
+    font-size: 18px;
+    margin-bottom: 10px;
+    border-radius:4px;
+  }
+  .reset__btn {
+    padding: 10px;
+    font-size: 18px;
+    margin-bottom: 10px;
+    border: 0.5px solid black;
+    border-radius:4px;
+    color: white;
+    background-color: 
+    #025f4c;
+  }
+  .reset__btn:hover{
+   opacity:0.8;
+  }
+  .reset div {
+    margin-top: 7px;
+  }

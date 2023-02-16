@@ -1,0 +1,14 @@
+.symptoms{
+    height:50px;
+    width:160px;
+    text-align:center;
+    background-color: #EAECF1;
+    border-radius: 5px;
+    color:black;
+    font-weight: 500;
+}
+.container-1{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
