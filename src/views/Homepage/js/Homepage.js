@@ -24,7 +24,7 @@ export default function Homepage() {
   const user = useSelector((state) => state.User);
   return (
     <>
-      <div className="rootHome">
+      <div className="rootHome" style={{backgroundColor:"#025f4c"}}>
         {/* <div className="">
           <div className={`firstContent ${isMobile ? "flex-wrap" : ""} my-5`}>
             <div className="grid">
