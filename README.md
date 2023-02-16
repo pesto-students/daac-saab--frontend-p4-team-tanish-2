@@ -1,65 +1,50 @@
+
 Daac Saab
-
-
-Daac saab is a patient centric one stop solution platform for all your medical and health related needs . Bringing a revolutionary change in the health-tech space by providing one tap prescriptions based on your symptoms . Daac Saab has the top curated doctors readily available  for the patients who diagnose using our chat and video call functionalities provided in our freemium model . 
-
-
+Daac Saab is a patient-centric, one-stop solution platform for all your medical and health-related needs. The platform is designed to provide a revolutionary change in the health-tech space by providing one-tap prescriptions based on your symptoms. With Daac Saab, you can access top curated doctors who diagnose your symptoms using our chat and video call functionalities.
 
 WWhy Daac Saab when there are similar platforms like Practo ?
 
 Services offered by Practo are time consuming and requires money up front for any kind of consultations . In Daac Saab using our One tap prescription features , a patient can easily (in a few minutes ) receive medications for general diseases like Headache , Diarrhea etc for free.
 
-Regional language filtering of doctors as per the patient’s region 
+Demo
+You can check out a demo of Daac Saab here.
 
+Tech Stack
+Daac Saab uses the following technologies:
 
+React JS
+Material UI
+CSS
+Node JS
+MongoDB
+Express JS
+Stripe API
+Features
+Daac Saab offers the following features:
 
-Table of Contents
-
-Demo Link - https://daac-saab.vercel.app/
-
+One-tap prescriptions based on your symptoms
+Video calling functionality for diagnoses
+Appointment booking with a specialist doctor
+Meeting details sent to your email
 Installation
-
-Technology Stack
+Clone the repository: git clone https://github.com/<username>/<repository-name>.git
+Install dependencies: npm install
+Run the application: npm start
+Usage
+Go to the Daac Saab website.
+Create an account or log in to your existing account.
+Describe your symptoms and submit your request for a diagnosis.
+Wait for a doctor to respond to your request.
+Use the chat or video call functionalities to discuss your symptoms and receive a prescription.
+Contributing
+Contributions are always welcome! If you would like to contribute to Daac Saab, please open an issue or submit a pull request.
 
 Authors
+Daac Saab was created by Gantavya Saraswat and Bajrang Bhushan.
 
 License
+This project is licensed under the MIT License.
 
 
-Demo
-Live Demo
 
 
-Please Note:
-
-We recommend using this app in Google Chrome
-
-
-Test Credentials for Normal User:
-
-Email: testuser@pestoproject.com
-
-Password: 1234567890
-
-Test Credentials for Restaurant User:
-
-Email: testowner@pestoproject.com
-
-Password: 1234567890
-
-
-Installation
-Fork or directly clone this repository to your local machine
-
-Use the npm install command to install dependencies
-
-Once the dependencies are finished installing, use the npm start command inside the root directory to open the app in your local browser of choice
-
-
-Technology Stack
-We tried to use a completely modern tech stack while testing out some new technologies that we had never used before. This resulted in a fast, performant, and easily-extensible web app that should be fairly future-proof for the coming next several years. 
-
-
-Authors
-Gantavya Saraswat
-Bajrang Bhushan
