@@ -27,7 +27,7 @@ const Calendar = () => {
   }, []);
   return (
     <div className="container col-12 calendar-box">
-      <span className="booking">Book a consultation</span>
+      <span className="booking mt-4">Book a consultation</span>
       <div className={`${isMobile ? "flex-wrap" : ""} d-flex`}>
         <div className={`${isMobile ? "col-12" : "col-4"} mt-5`}>
           <div className="d-flex mb-4">
@@ -68,7 +68,7 @@ const Calendar = () => {
             lastName: 'Snow',
             name: 'Jon Snow'}}
             style={{minWwidth:"320px",height:"630px"}}
-           url="https://calendly.com/gantavya9991/30min" 
+           url="https://calendly.com/daacsaabhelp/30min" 
            />
         </div>
       </div>
