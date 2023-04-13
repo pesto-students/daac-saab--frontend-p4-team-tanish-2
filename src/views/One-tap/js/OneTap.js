@@ -15,6 +15,9 @@ import ClockLoader from "react-spinners/ClockLoader";
 import Accordion from "react-bootstrap/Accordion";
 import { auth, db, logout } from "../../../context/Firebase";
 import { query, collection, getDocs, where } from "firebase/firestore";
+import Loader from "./Loader";
+
+
 
 // let moment = require("moment");
 const override: cssProperties = {
@@ -55,6 +58,7 @@ const data = [
   "Stomach Ulcer",
 
   "Nausea",
+
   "Weakness",
   "Pain in Knee",
   "Leg Sprain",
@@ -270,12 +274,9 @@ export default function OneTap() {
           {showPrescription ? (
             <div>
               {loading ? (
-                <ClockLoader
-                  cssOverride={override}
-                  size={150}
-                  aria-label="Loading Spinner"
-                  data-testid="loader"
-                />
+               <Modal isOpen={loading} className="loader-modal">
+               <Loader message="Loading a prescription for you..." />
+             </Modal>
               ) : (
                 <div className="d-flex align-items-center justify-content-center">
                   <div className="Prescription-box mt-3 ">
