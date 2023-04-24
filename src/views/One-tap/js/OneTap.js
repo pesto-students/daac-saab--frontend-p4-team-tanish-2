@@ -17,7 +17,7 @@ import Loader from "./Loader";
 import { symptoms } from "../../../context/Data"
 import "animate.css";
 import Accordion1 from "../../../components/Accordion/Accordion";
-
+import { InfinitySpin } from 'react-loader-spinner'
 
 // let moment = require("moment");
 // const override: cssProperties = {
@@ -39,7 +39,7 @@ export default function OneTap() {
   const [currentDate, setCurrentDate] = useState("");
   const [user, loading1, error] = useAuthState(auth);
   const [name, setName] = useState("");
-  const[click, setClick]=useState(false);
+  const [click, setClick] = useState(false);
   const navigate = useNavigate();
 
   function MyVerticallyCenteredModal(props) {
@@ -77,6 +77,13 @@ export default function OneTap() {
     );
   }
 
+  const override = `
+  display: block;
+  margin: 0 auto;
+  border-color: red;
+`;
+
+
   const handleSymptomColor = (elem, index) => {
     if (!selectedSymptom.includes(elem)) {
       const prevValue = [...selectedSymptom, elem];
@@ -110,16 +117,18 @@ export default function OneTap() {
     });
   };
 
-  const fetchUserName = async () => {
-    try {
-      const q = query(collection(db, "users"), where("uid", "==", user?.uid));
-      const doc = await getDocs(q);
-      const data = doc.docs[0].data();
-      setName(data.name);
-    } catch (err) {
-      console.error(err);
-    }
+  const showPrescriptionHandler = () => {
+    // Set the loading state to true
+    setLoading(true);
+    setTimeout(() => {
+      // Set the loading state to false
+      setLoading(false);
+      setShowPrescription(!showPrescription);
+    }, 5000);
   };
+
+
+
 
 
   useEffect(() => {
@@ -130,7 +139,6 @@ export default function OneTap() {
       return navigate("/Sign-In");
       toast("Please Login first !");
     }
-    fetchUserName();
   }, [user, loading]);
 
 
@@ -152,167 +160,182 @@ export default function OneTap() {
           }}
         />
         <div class="selection container">
-  {showPrescription ? (
-    <button
-      class="btn btn-primary"
-      onClick={()=>{
-        setShowOneTap(!showOneTap);
-        setShowPrescription(false);
-        setSelectedSymptom([]);
+          {showPrescription ? (
+            <button
+              class="btn btn-primary"
+              onClick={() => {
+                setShowOneTap(!showOneTap);
+                setShowPrescription(false);
+                setSelectedSymptom([]);
 
-      }}
-    >
-      Refresh Symptoms
-    </button>
-  ) : (
-    <button
-      class="btn btn-primary"
-      onClick={() => {
-        setShowOneTap(!showOneTap);
-      }}
-    >
-      Yes
-    </button>
-  )}
-  <button
-    class="btn btn-secondary"
-    onClick={() => {
-      navigate("/Specialist");
-    }}
-  >
-    No, I want to see a specialist
-  </button>
-</div>
+              }}
+            >
+              Refresh Symptoms
+            </button>
+          ) : (
+            <button
+              class="btn btn-primary"
+              onClick={() => {
+                setShowOneTap(!showOneTap);
+              }}
+            >
+              Yes
+            </button>
+          )}
+          <button
+            class="btn btn-secondary"
+            onClick={() => {
+              navigate("/Specialist");
+            }}
+          >
+            No, I want to see a specialist
+          </button>
+        </div>
 
         <hr></hr>
         <div className="container">
-        {showOneTap && (
+          {showOneTap && (
             <>
-            <div className="d-flex justify-content-between">
-              <p className="text-1">
-                Please select 0-3 Symptoms and Let Us Generate a Prescription for
-                you.
-              </p>
-              <button
-                onClick={() => {
-                  setShow(!show);
-                }}
-                className="btn-light"
-              >
-                {show ? "Show More Symptoms" : "Show Less"}
-              </button>
-            </div>
-          
-            <div className="d-flex flex-wrap ">
-              {(show ? symptoms.slice(0, 15) : symptoms).map((x, i) => {
-                return (
-                  <div
-                    key={i}
-                    onClick={() => {
-                      handleSymptomColor(x, i);
-                      handlePrescription(x.prescription, i);
-                      showModal();
-                    }}
-                    className={`m-2 ${selectedSymptom.includes(x)
-                      ? "selectedSymptomColor"
-                      : "sym-card"
-                      }`}
-                  >
-                    {x.key}
-                  </div>
-                );
-              })}
-            </div>
-            <div className="d-flex justify-content-center align-items-center mt-5 mb-5">
-              {!showPrescription && (
+              <div className="d-flex justify-content-between">
+                <p className="text-1">
+                  Please select 0-3 Symptoms and Let Us Generate a Prescription for
+                  you.
+                </p>
                 <button
-                  className="btn btn-submit"
-                  disabled={selectedSymptom.length === 0 ? true : false}
                   onClick={() => {
-                    setShowPrescription(true);
-                    setShowOneTap(false);
-                    setClick(true);
+                    setShow(!show);
                   }}
+                  className="btn-light"
                 >
-                  Generate Prescription
+                  {show ? "Show More Symptoms" : "Show Less"}
                 </button>
-              )}
-            </div>
+              </div>
 
-            <MyVerticallyCenteredModal
-              show={modalShow}
-              onHide={() => {
-                setModalShow(false);
-                if (selectedSymptom.length > 3) {
-                  selectedSymptom.pop();
-                  prescription.pop();
-
-                }
-              }}
-            />
-            
-                </>
+              <div className="d-flex flex-wrap ">
+                {(show ? symptoms.slice(0, 15) : symptoms).map((x, i) => {
+                  return (
+                    <div
+                      key={i}
+                      onClick={() => {
+                        handleSymptomColor(x, i);
+                        handlePrescription(x.prescription, i);
+                        showModal();
+                      }}
+                      className={`m-2 ${selectedSymptom.includes(x)
+                        ? "selectedSymptomColor"
+                        : "sym-card"
+                        }`}
+                    >
+                      {x.key}
+                    </div>
+                  );
+                })}
+              </div>
+              <div className="d-flex justify-content-center align-items-center mt-5 mb-5">
+                {!showPrescription && (
+                  <button
+                    className="btn btn-submit"
+                    disabled={selectedSymptom.length === 0 ? true : false}
+                    onClick={() => {
+                      showPrescriptionHandler();
+                      setShowOneTap(false);
+                      setClick(true);
+                    }}
+                  >
+                    Generate Prescription
+                  </button>
                 )}
-                <div >
-              {showPrescription ? (
-                <>
+              </div>
+
+              <MyVerticallyCenteredModal
+                show={modalShow}
+                onHide={() => {
+                  setModalShow(false);
+                  if (selectedSymptom.length > 3) {
+                    selectedSymptom.pop();
+                    prescription.pop();
+
+                  }
+                }}
+              />
+            </>
+          )}
+          <div>
+            {loading ? (
+              <>
+                <div className="spinner">
+                  <div>
+                    <InfinitySpin
+                      width='200'
+                      color="#4fa94d"
+                    />
+                  </div>
+                  <p>Generating Health Advice for you...</p>
+                </div>
+              </>
+
+            ) : showPrescription ? (
+              <>
                 <div id="health-tips-container" className="bg-light rounded p-4 shadow-sm">
-                <h3 className="text-muted mb-4">General Health tips for you:</h3>
+                  <h3 className="text-muted mb-4">General Health tips for you:</h3>
                   {selectedSymptom.map((advice, key) => {
                     return (
                       <p className="symptom-tip" key={key}>
-                        <span className="symptom-name font-weight-bold">{advice.key}: </span>
+                        <span className="symptom-name font-weight-bold">
+                          {advice.key}:{" "}
+                        </span>
                         <span className="symptom-advice">{advice.prescription}</span>
                       </p>
                     );
                   })}
                 </div>
+                <div>
                   <div>
-                    <div>
-                      <div className="d-flex align-items-center justify-content-center flex-column">
-                        <div>
-                          <button
-                            className="btn btn-info mt-5 "
-                            onClick={() => {
-                              generatePDF();
-                            }}
-                          >
-                            Download Prescription
-                            <FileDownloadIcon />
-                          </button>
-                        </div>
-                        <div>
-                          <button
-                            className="btn btn-secondary1 mt-5 "
-                            onClick={() => {
-                              navigate("/Specialist");
-                            }}
-                          >
-                            Still have doubts? Consult a specialist
-                          </button>
-                        </div>
+                    <div className="d-flex align-items-center justify-content-center flex-column">
+                      <div>
+                        <button
+                          className="btn btn-info mt-5 "
+                          onClick={() => {
+                            generatePDF();
+                          }}
+                        >
+                          Download Prescription
+                          <FileDownloadIcon />
+                        </button>
+                      </div>
+                      <div>
+                        <button
+                          className="btn btn-secondary1 mt-5 "
+                          onClick={() => {
+                            navigate("/Specialist");
+                          }}
+                        >
+                          Still have doubts? Consult a specialist
+                        </button>
                       </div>
                     </div>
-                    </div>
-                  </>
-                  ) : null}
+                  </div>
                 </div>
-            </div>
-       
+              </>
+            ) : null}
           </div>
-          <div className="testimonial-box flex-column d-flex justify-content-center align-items-center">
-         <div>
-           "It was great to have Daac Saab Doctors with our family for all the
-           medical needs"
-         </div>
-         <div className="credits">-Gantavya, Bajrang (Web Developers)</div>
-       </div>
-       <div className="container">
-         <div className="question-text mt-5">
-           Got questions? We have got answers
-         </div>
-         <Accordion1 />
+
+        </div>
+
+      </div>
+      <div className="testimonial-box flex-column d-flex justify-content-center align-items-center">
+        <div>
+          "It was great to have Daac Saab Doctors with our family for all the
+          medical needs"
+        </div>
+        <div className="credits">-Gantavya, Bajrang (Web Developers)</div>
+      </div>
+      <div className="container">
+        <div className="question-text mt-5">
+          Got questions? We have got answers
+        </div>
+        <Accordion1 />
       </div>
     </>
-      );
+  );
 }

@@ -225,4 +225,11 @@ hr {
   margin-left: 10px;
 }
 
-
+.spinner{
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+.spinner p{
+  font-size: 1.4em;
+}
