@@ -39,6 +39,7 @@ export default function OneTap() {
   const [currentDate, setCurrentDate] = useState("");
   const [user, loading1, error] = useAuthState(auth);
   const [name, setName] = useState("");
+  const[click, setClick]=useState(false);
   const navigate = useNavigate();
 
   function MyVerticallyCenteredModal(props) {
@@ -109,11 +110,6 @@ export default function OneTap() {
     });
   };
 
-  const getPrescription = () => {
-    setLoading(true);
-    setPrescription()
-  };
-
   const fetchUserName = async () => {
     try {
       const q = query(collection(db, "users"), where("uid", "==", user?.uid));
@@ -124,6 +120,7 @@ export default function OneTap() {
       console.error(err);
     }
   };
+
 
   useEffect(() => {
     if (loading)
@@ -154,27 +151,43 @@ export default function OneTap() {
             duration: 3000,
           }}
         />
-        <div className="selection container">
-          <button
-            className="btn btn-primary"
-            onClick={() => {
-              setShowOneTap(!showOneTap);
-            }}
-          >
-            Yes
-          </button>
-          <button
-            className="btn btn-secondary"
-            onClick={() => {
-              navigate("/Specialist");
-            }}
-          >
-            No, I want to see a specialist
-          </button>
-        </div>
+        <div class="selection container">
+  {showPrescription ? (
+    <button
+      class="btn btn-primary"
+      onClick={()=>{
+        setShowOneTap(!showOneTap);
+        setShowPrescription(false);
+        setSelectedSymptom([]);
+
+      }}
+    >
+      Refresh Symptoms
+    </button>
+  ) : (
+    <button
+      class="btn btn-primary"
+      onClick={() => {
+        setShowOneTap(!showOneTap);
+      }}
+    >
+      Yes
+    </button>
+  )}
+  <button
+    class="btn btn-secondary"
+    onClick={() => {
+      navigate("/Specialist");
+    }}
+  >
+    No, I want to see a specialist
+  </button>
+</div>
+
         <hr></hr>
+        <div className="container">
         {showOneTap && (
-          <div className="container">
+            <>
             <div className="d-flex justify-content-between">
               <p className="text-1">
                 Please select 0-3 Symptoms and Let Us Generate a Prescription for
@@ -189,7 +202,7 @@ export default function OneTap() {
                 {show ? "Show More Symptoms" : "Show Less"}
               </button>
             </div>
-            {/*  symptoms cards component  */}
+          
             <div className="d-flex flex-wrap ">
               {(show ? symptoms.slice(0, 15) : symptoms).map((x, i) => {
                 return (
@@ -217,6 +230,8 @@ export default function OneTap() {
                   disabled={selectedSymptom.length === 0 ? true : false}
                   onClick={() => {
                     setShowPrescription(true);
+                    setShowOneTap(false);
+                    setClick(true);
                   }}
                 >
                   Generate Prescription
@@ -235,7 +250,10 @@ export default function OneTap() {
                 }
               }}
             />
-            <div >
+            
+                </>
+                )}
+                <div >
               {showPrescription ? (
                 <>
                 <div id="health-tips-container" className="bg-light rounded p-4 shadow-sm">
@@ -280,7 +298,7 @@ export default function OneTap() {
                   ) : null}
                 </div>
             </div>
-        )}
+       
           </div>
           <div className="testimonial-box flex-column d-flex justify-content-center align-items-center">
          <div>
