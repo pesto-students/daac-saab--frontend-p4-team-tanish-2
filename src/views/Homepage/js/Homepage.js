@@ -25,44 +25,8 @@ export default function Homepage() {
   return (
     <>
       <div className="rootHome" style={{backgroundColor:"#025f4c"}}>
-        {/* <div className="">
-          <div className={`firstContent ${isMobile ? "flex-wrap" : ""} my-5`}>
-            <div className="grid">
-              {" "}
-              
-              <span className="textColor">
-                With great Technology{" "}
-                <span className="textColorInner">comes great</span> Healthcare
-              </span>
-              <span className="textColorDesc">
-                Consultations with curated doctors starting as low as{" "}
-                <span>₹ 249</span>
-              </span>
-              <button className="talkToUs">Talk to us</button>
-              <div className="firstContentTestemonial">
-                <div className="col-6 mx-1">
-                  <span className="testomonial">13k+</span>
-                  <p className="testomonial">Happy Patients</p>
-                </div>
-                <div className="col-6 mx-1">
-                  <span className="testomonial">4.8/5</span>
-                  <p className="testomonial">App Rating</p>
-                </div>
-                <div className="col-6 mx-1">
-                  <span className="testomonial">300+</span>
-                  <p className="testomonial">Doctors</p>
-                </div>
-              </div>
-            </div>
-            <img
-              alt="img1"
-              src={home}
-              className={`${isMobile ? "col-10" : ""} img-fluid`}
-            />
-          </div>
-        </div> */}
         <div className="hero-screen d-flex justify-content-around">
-          <div className="hero-text mt-4">
+          <div className="hero-text w-80">
             <div style={{color:"#36d6c3",fontWeight:"500",fontSize:"46.2px",lineHeight:"55px"}}>
               With great Technology
             </div>

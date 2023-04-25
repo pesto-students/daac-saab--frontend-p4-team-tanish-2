@@ -124,7 +124,7 @@ export default function OneTap() {
       // Set the loading state to false
       setLoading(false);
       setShowPrescription(!showPrescription);
-    }, 5000);
+    }, 7000);
   };
 
 
@@ -266,7 +266,7 @@ export default function OneTap() {
                 <div className="spinner">
                   <div>
                     <InfinitySpin
-                      width='200'
+                      width='400'
                       color="#4fa94d"
                     />
                   </div>
