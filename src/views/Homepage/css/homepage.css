@@ -1,0 +1,119 @@
+.userText {
+  color: #ffffff;
+  font-weight: 500;
+  font-size: 34.496px;
+}
+.userText span {
+  color: #36d6c3;
+}
+.displayCard {
+  background: #ffffff;
+  border-radius: 30px;
+}
+.displayCard span {
+  color: #595959;
+  font-weight: 400;
+  font-size: 24px;
+}
+.notWellText {
+  color: #595959;
+  font-weight: 400;
+  font-size: 16.016px;
+}
+.consultText {
+  color: #025f4c;
+  font-weight: 500;
+  font-size: 34.496px;
+}
+.consultText span {
+  color: #a586ef;
+}
+.descText {
+  color: #595959;
+  font-weight: 400;
+  font-size: 16.5088px;
+}
+.videoBtn {
+  color: #025f4c;
+  font-weight: 500;
+  font-size: 15.4px;
+  background: #bcdd33;
+  border-radius: 15.4px;
+  border: none;
+  padding: 12px 10px;
+}
+.rootHome {
+  background: #025f4c;
+  padding-top: 60px;
+}
+.firstContent {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+.firstContentTestemonial {
+  display: flex;
+  justify-content: space-evenly;
+}
+.grid {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  max-width: 216px;
+}
+.textColor {
+  color: #36d6c3;
+  font-size: 21px;
+}
+.textColorInner {
+  color: #ffffff;
+  font-size: 21px;
+}
+.textColorDesc {
+  color: #ffffff;
+  font-weight: 400;
+  font-size: 12px;
+  max-width: 150px;
+  margin: 15px 0px 15px 0px;
+}
+.talkToUs {
+  background: #bcdd33;
+  border-radius: 8px;
+  color: #025f4c;
+  font-weight: 500;
+  font-size: 15.4px;
+  border: none;
+  padding: 7px 17px;
+  margin: 15px 0px 15px 0px;
+}
+.testomonial {
+  color: #36d6c3;
+  font-weight: 400;
+  font-size: 14px;
+}
+
+.trusted {
+  background: #ffffff;
+}
+.testomonialText {
+  color: #025f4c;
+  font-weight: 500;
+  font-size: 23.408px;
+}
+.featureDiv {
+  border: 1px solid #36d6c3;
+  border-radius: 48.1712px;
+}
+.btn-primary1 {
+  padding:15px 30px 15px 30px;
+  margin-top: 4%;
+  background-color: #bcdd33;
+  border: none;
+  color: #025f4c;
+  font-weight: 500;
+  font-size: 16px;
+  border-radius: 10px;
+}
+.btn-primary1:hover{
+  background-color: #c6f606;
+}

@@ -1,0 +1,99 @@
+.teamText {
+  color: #595959;
+  font-weight: 400;
+  font-size: 16.016px;
+  letter-spacing: 2.56256px;
+  text-transform: uppercase;
+}
+.healthCareText {
+  color: #025f4c;
+  letter-spacing: -0.8px;
+  font-weight: 500;
+  font-size: 42.3808px;
+}
+.healthCareText-new {
+  color: white;
+  letter-spacing: -0.8px;
+  font-weight: 500;
+  font-size: 36px;
+}
+.peach-text{
+  color:#ff8080 !important;
+}
+/* .healthCareText span {
+  background: linear-gradient(
+    180deg,
+    #36d6c3 48.44%,
+    rgba(166, 52, 255, 0.301204) 53.12%,
+    #158af5 78.65%,
+    rgba(44, 38, 32, 0) 99.98%
+  );
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+} */
+.descriptionText {
+  color: #595959;
+  font-weight: 400;
+  font-size: 16.5088px;
+}
+.section2 {
+  background-color: #025f4c;
+}
+.section2 span {
+  color: #ffffff;
+}
+.section3Span {
+  color: #595959;
+  font-weight: 400;
+  font-size: 16.5088px;
+}
+.section3Label span {
+  color: #36d6c3;
+}
+.section3Label {
+  color: #025f4c;
+  font-weight: 500;
+  font-size: 34.496px;
+}
+.section3Desc {
+  color: #025f4c;
+  font-weight: 500;
+  font-size: 19.2192px;
+}
+.compDescSPan1 {
+  color: #a586ef;
+  font-weight: 400;
+  font-size: 23.1616px;
+}
+.compDescDesc1 {
+  color: #595959;
+  font-weight: 400;
+  font-size: 16.5088px;
+}
+.footerBottom {
+  background: #36d6c3;
+  border-radius: 32.7712px;
+}
+.bottomHeader {
+  color: #025f4c;
+  font-weight: 400;
+  font-size: 46.2px;
+}
+.bottomDesc {
+  color: #025f4c;
+  font-weight: 400;
+  font-size: 16.5088px;
+}
+.bottomBtn {
+  background: #ffffff;
+  color: #025f4c;
+  border-radius: 15.4px;
+  font-weight: 500;
+  font-size: 15.4px;
+  padding: 7px 10px;
+  border: none;
+}
+.footerBottomPosition {
+  bottom: -288px;
+}
